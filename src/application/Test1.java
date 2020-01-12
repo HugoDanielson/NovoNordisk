@@ -8,6 +8,7 @@ import com.kuka.nav.data.LocationData;
 import com.kuka.nav.line.VirtualLineMotion;
 import com.kuka.nav.line.VirtualLineMotionContainer;
 import com.kuka.nav.robot.MobileRobot;
+import com.kuka.resource.locking.LockException;
 import com.kuka.roboticsAPI.applicationModel.RoboticsAPIApplication;
 import static com.kuka.roboticsAPI.motionModel.BasicMotions.*;
 import com.kuka.roboticsAPI.deviceModel.LBR;
@@ -58,6 +59,15 @@ private ITaskLogger logger;
 			logger.info("Pos1 = "+pos1.toString());
 			logger.info("Pos2 = "+pos2.toString());
 			logger.info("KMR = "+kmr.getName());
+			try {
+				kmr.lock();
+			} catch (LockException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				//e1.printStackTrace();
+			}
 			VirtualLineMotionContainer vcm = kmr.execute(new VirtualLineMotion(kmr.getPose(), pos1.getPose()).setVelocity(new XYTheta(0.1, 0.1, 0.1)));
 			vcm.awaitFinalized();
 			while(true){
@@ -81,5 +91,11 @@ private ITaskLogger logger;
 			
 			
 		}
+	}
+	
+	
+	@Override
+	public void dispose(){
+		kmr.unlock();
 	}
 }
