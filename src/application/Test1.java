@@ -12,6 +12,7 @@ import com.kuka.roboticsAPI.applicationModel.RoboticsAPIApplication;
 import static com.kuka.roboticsAPI.motionModel.BasicMotions.*;
 import com.kuka.roboticsAPI.deviceModel.LBR;
 import com.kuka.roboticsAPI.deviceModel.kmp.KmpOmniMove;
+import com.kuka.task.ITaskLogger;
 
 /**
  * Implementation of a robot application.
@@ -34,7 +35,8 @@ import com.kuka.roboticsAPI.deviceModel.kmp.KmpOmniMove;
 public class Test1 extends RoboticsAPIApplication {
 	@Inject
 	private LBR lBR_iiwa_14_R820_1;
-
+@Inject
+private ITaskLogger logger;
 //	@Inject
 //	private KmpOmniMove kmr;
 	@Inject
@@ -52,7 +54,9 @@ public class Test1 extends RoboticsAPIApplication {
 			Location pos2 = location.get(8);
 			
 			
-			
+			logger.info("Pos1 = "+pos1.toString());
+			logger.info("Pos2 = "+pos2.toString());
+			logger.info("KMR = "+kmr.getName());
 			VirtualLineMotionContainer vcm = kmr.execute(new VirtualLineMotion(kmr.getPose(), pos1.getPose()).setVelocity(new XYTheta(0.1, 0.1, 0.1)));
 			vcm.awaitFinalized();
 			while(true){
