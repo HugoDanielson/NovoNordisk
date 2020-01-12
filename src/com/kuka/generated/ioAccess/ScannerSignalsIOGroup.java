@@ -232,7 +232,7 @@ public class ScannerSignalsIOGroup extends AbstractIOGroup
 	 * digital input
 	 * <p>
 	 * <b>User description of the I/O:</b><br>
-	 * Information witch Scanfield number is already active from 0 to 15 (16 Cases).
+	 * ./.
 	 * <p>
 	 * <b>Range of the I/O value:</b><br>
 	 * [-32768; 32767]
@@ -252,7 +252,7 @@ public class ScannerSignalsIOGroup extends AbstractIOGroup
 	 * digital input
 	 * <p>
 	 * <b>User description of the I/O:</b><br>
-	 * Number of the last active scanfield before protection field error. 
+	 * ./.
 	 * <p>
 	 * <b>Range of the I/O value:</b><br>
 	 * [-32768; 32767]

@@ -33,10 +33,10 @@ Automatically generated IO group description. Please do NOT modify!
         <Description>Number of the last active scanfield before protection field error. </Description>
       </DigitalIOItem>
       <DigitalIOItem Name="ActiveScanField_B4" DataType="INT" IOType="Input" UsedBitWidth="16" IsConnected="true">
-        <Description>Information witch Scanfield number is already active from 0 to 15 (16 Cases).</Description>
+        <Description />
       </DigitalIOItem>
       <DigitalIOItem Name="LastActiveScanField_B4" DataType="INT" IOType="Input" UsedBitWidth="16" IsConnected="true">
-        <Description>Number of the last active scanfield before protection field error. </Description>
+        <Description />
       </DigitalIOItem>
       <DigitalIOItem Name="DirtDetection_B1" DataType="BOOL" IOType="Input" UsedBitWidth="1" IsConnected="true">
         <Description>true = Glass of B1 is dirty</Description>

@@ -31,14 +31,15 @@ public class RemoteControlIOGroup extends AbstractIOGroup
 
 		addInput("Connected", IOTypes.BOOLEAN, 1);
 		addMockedInput("Enable", IOTypes.BOOLEAN, 1, false);
-		addInput("Mode", IOTypes.UNSIGNED_INTEGER, 3);
 		addInput("X", IOTypes.INTEGER, 16);
+		addInput("Mode", IOTypes.UNSIGNED_INTEGER, 3);
 		addInput("Y", IOTypes.INTEGER, 16);
 		addInput("Z", IOTypes.INTEGER, 16);
 		addInput("Theta", IOTypes.INTEGER, 16);
 		addInput("ActivateAcousticWarningSignal", IOTypes.BOOLEAN, 1);
 		addInput("DeactivateProtectionField", IOTypes.BOOLEAN, 1);
 		addDigitalOutput("ProtectionFieldDeactivated", IOTypes.BOOLEAN, 1);
+		addInput("Heartbeat", IOTypes.BOOLEAN, 1);
 	}
 
 	/**
@@ -109,26 +110,6 @@ public class RemoteControlIOGroup extends AbstractIOGroup
 	}
 
 	/**
-	 * Gets the value of the <b>digital input '<i>Mode</i>'</b>.<br>
-	 * <i>This method is automatically generated. Please, do not modify!</i>
-	 * <p>
-	 * <b>I/O direction and type:</b><br>
-	 * digital input
-	 * <p>
-	 * <b>User description of the I/O:</b><br>
-	 * Rotary switch for mode 1-3.
-	 * <p>
-	 * <b>Range of the I/O value:</b><br>
-	 * [0; 7]
-	 *
-	 * @return current value of the digital input 'Mode'
-	 */
-	public java.lang.Integer getMode()
-	{
-		return getNumberIOValue("Mode", false).intValue();
-	}
-
-	/**
 	 * Gets the value of the <b>digital input '<i>X</i>'</b>.<br>
 	 * <i>This method is automatically generated. Please, do not modify!</i>
 	 * <p>
@@ -146,6 +127,26 @@ public class RemoteControlIOGroup extends AbstractIOGroup
 	public java.lang.Integer getX()
 	{
 		return getNumberIOValue("X", false).intValue();
+	}
+
+	/**
+	 * Gets the value of the <b>digital input '<i>Mode</i>'</b>.<br>
+	 * <i>This method is automatically generated. Please, do not modify!</i>
+	 * <p>
+	 * <b>I/O direction and type:</b><br>
+	 * digital input
+	 * <p>
+	 * <b>User description of the I/O:</b><br>
+	 * Rotary switch for mode 1-3.
+	 * <p>
+	 * <b>Range of the I/O value:</b><br>
+	 * [0; 7]
+	 *
+	 * @return current value of the digital input 'Mode'
+	 */
+	public java.lang.Integer getMode()
+	{
+		return getNumberIOValue("Mode", false).intValue();
 	}
 
 	/**
@@ -287,6 +288,26 @@ public class RemoteControlIOGroup extends AbstractIOGroup
 	public void setProtectionFieldDeactivated(java.lang.Boolean value)
 	{
 		setDigitalOutput("ProtectionFieldDeactivated", value);
+	}
+
+	/**
+	 * Gets the value of the <b>digital input '<i>Heartbeat</i>'</b>.<br>
+	 * <i>This method is automatically generated. Please, do not modify!</i>
+	 * <p>
+	 * <b>I/O direction and type:</b><br>
+	 * digital input
+	 * <p>
+	 * <b>User description of the I/O:</b><br>
+	 * ./.
+	 * <p>
+	 * <b>Range of the I/O value:</b><br>
+	 * [false; true]
+	 *
+	 * @return current value of the digital input 'Heartbeat'
+	 */
+	public boolean getHeartbeat()
+	{
+		return getBooleanIOValue("Heartbeat", false);
 	}
 
 }
