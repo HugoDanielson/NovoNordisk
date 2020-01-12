@@ -41,6 +41,7 @@ private ITaskLogger logger;
 //	private KmpOmniMove kmr;
 	@Inject
 	private LocationData location;
+	@Inject
 	private MobileRobot kmr;
 	@Override
 	public void initialize() {
