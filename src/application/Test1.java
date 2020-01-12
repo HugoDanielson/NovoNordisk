@@ -53,11 +53,11 @@ public class Test1 extends RoboticsAPIApplication {
 			
 			
 			
-			VirtualLineMotionContainer vcm = kmr.execute(new VirtualLineMotion(kmr.getPose(), pos2.getPose()).setVelocity(new XYTheta(0.1, 0.1, 0.1)));
+			VirtualLineMotionContainer vcm = kmr.execute(new VirtualLineMotion(kmr.getPose(), pos1.getPose()).setVelocity(new XYTheta(0.1, 0.1, 0.1)));
 			vcm.awaitFinalized();
 			while(true){
 			
-				vcm = kmr.execute(new VirtualLineMotion(pos2,pos1).setVelocity(new XYTheta(0.15, 0.15, 0.1)));
+				vcm = kmr.execute(new VirtualLineMotion(pos1,pos2).setVelocity(new XYTheta(0.15, 0.15, 0.1)));
 				vcm.awaitFinalized();
 				try {
 					Thread.sleep(1000);
@@ -65,7 +65,7 @@ public class Test1 extends RoboticsAPIApplication {
 					// TODO Auto-generated catch block
 					//e.printStackTrace();
 				}
-				vcm = kmr.execute(new VirtualLineMotion(pos1,pos2).setVelocity(new XYTheta(0.15, 0.15, 0.1)));
+				vcm = kmr.execute(new VirtualLineMotion(pos2,pos1).setVelocity(new XYTheta(0.15, 0.15, 0.1)));
 				vcm.awaitFinalized();
 				try {
 					Thread.sleep(1000);
