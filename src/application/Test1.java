@@ -79,6 +79,7 @@ public class Test1 extends RoboticsAPIApplication {
 	private ExecutorService es1 = Executors.newCachedThreadPool();
 	private ExecutorService es2 = Executors.newCachedThreadPool();
 	private ControllListener controllListener;
+	@Inject
 	private AutomaticResumeManager resumeManager;
 	private RaspberryControll kmrManager;
 	private SafetyListener safetyListener;
