@@ -73,15 +73,15 @@ public class Test1 extends RoboticsAPIApplication {
 			// TODO Auto-generated catch block
 			// e1.printStackTrace();
 		}
-		VirtualLineMotionContainer vcm = kmr.execute(new VirtualLineMotion(kmr.getPose(), pos2.getPose()).setVelocity(new XYTheta(0.25, 0.25, 0.1)));
+		VirtualLineMotionContainer vcm = kmr.execute(new VirtualLineMotion(kmr.getPose(), pos2.getPose()).setVelocity(new XYTheta(0.2, 0.2, 0.1)));
 		vcm.awaitFinalized();
 		es.execute(iiwaMove);
 		while (true) {
-
-			vcm = kmr.execute(new VirtualLineMotion(pos2, pos1).setVelocity(new XYTheta(0.25, 0.15, 0.1)));
+			double KMR_vel = getApplicationData().getProcessData("KMR_vel").getValue();
+			vcm = kmr.execute(new VirtualLineMotion(pos2, pos1).setVelocity(new XYTheta(KMR_vel, KMR_vel, 0.1)));
 			vcm.awaitFinalized();
 
-			vcm = kmr.execute(new VirtualLineMotion(pos1, pos2).setVelocity(new XYTheta(0.25, 0.25, 0.1)));
+			vcm = kmr.execute(new VirtualLineMotion(pos1, pos2).setVelocity(new XYTheta(KMR_vel, KMR_vel, 0.1)));
 			vcm.awaitFinalized();
 
 		}

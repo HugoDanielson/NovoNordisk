@@ -209,4 +209,7 @@
             <loadData cogA="0.0" cogB="0.0" cogC="0.0" cogX="0.0" cogY="0.0" cogZ="0.0" inertiaX="0.0" inertiaY="0.0" inertiaZ="0.0" mass="0.0"/>
         </workpieceTemplate>
     </objectTemplates>
+    <processDataContainer>
+       <processData displayName="KMR_Vel" dataType="java.lang.Double" defaultValue="0.1" id="KMR_vel" min="0.1" max="0.3" value="0.1" unit="m/s" comment=""/>     
+   </processDataContainer>
 </RoboticsAPIData>
