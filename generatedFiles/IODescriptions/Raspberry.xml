@@ -23,6 +23,15 @@ Automatically generated IO group description. Please do NOT modify!
       <DigitalIOItem Name="Move_Home" DataType="BOOL" IOType="Input" UsedBitWidth="1" IsConnected="true">
         <Description />
       </DigitalIOItem>
+      <DigitalIOItem Name="Auto" DataType="BOOL" IOType="Input" UsedBitWidth="1" IsConnected="true">
+        <Description />
+      </DigitalIOItem>
+      <DigitalIOItem Name="KMR_Pos1" DataType="BOOL" IOType="Output" UsedBitWidth="1" IsConnected="true">
+        <Description />
+      </DigitalIOItem>
+      <DigitalIOItem Name="KMR_Pos2" DataType="BOOL" IOType="Output" UsedBitWidth="1" IsConnected="true">
+        <Description />
+      </DigitalIOItem>
     </IOs>
     <Description />
   </IOGroup>

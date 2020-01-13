@@ -35,6 +35,9 @@ public class RaspberryIOGroup extends AbstractIOGroup
 		addInput("Move_Pos1", IOTypes.BOOLEAN, 1);
 		addInput("Move_Pos2", IOTypes.BOOLEAN, 1);
 		addInput("Move_Home", IOTypes.BOOLEAN, 1);
+		addInput("Auto", IOTypes.BOOLEAN, 1);
+		addDigitalOutput("KMR_Pos1", IOTypes.BOOLEAN, 1);
+		addDigitalOutput("KMR_Pos2", IOTypes.BOOLEAN, 1);
 	}
 
 	/**
@@ -155,6 +158,108 @@ public class RaspberryIOGroup extends AbstractIOGroup
 	public boolean getMove_Home()
 	{
 		return getBooleanIOValue("Move_Home", false);
+	}
+
+	/**
+	 * Gets the value of the <b>digital input '<i>Auto</i>'</b>.<br>
+	 * <i>This method is automatically generated. Please, do not modify!</i>
+	 * <p>
+	 * <b>I/O direction and type:</b><br>
+	 * digital input
+	 * <p>
+	 * <b>User description of the I/O:</b><br>
+	 * ./.
+	 * <p>
+	 * <b>Range of the I/O value:</b><br>
+	 * [false; true]
+	 *
+	 * @return current value of the digital input 'Auto'
+	 */
+	public boolean getAuto()
+	{
+		return getBooleanIOValue("Auto", false);
+	}
+
+	/**
+	 * Gets the value of the <b>digital output '<i>KMR_Pos1</i>'</b>.<br>
+	 * <i>This method is automatically generated. Please, do not modify!</i>
+	 * <p>
+	 * <b>I/O direction and type:</b><br>
+	 * digital output
+	 * <p>
+	 * <b>User description of the I/O:</b><br>
+	 * ./.
+	 * <p>
+	 * <b>Range of the I/O value:</b><br>
+	 * [false; true]
+	 *
+	 * @return current value of the digital output 'KMR_Pos1'
+	 */
+	public boolean getKMR_Pos1()
+	{
+		return getBooleanIOValue("KMR_Pos1", true);
+	}
+
+	/**
+	 * Sets the value of the <b>digital output '<i>KMR_Pos1</i>'</b>.<br>
+	 * <i>This method is automatically generated. Please, do not modify!</i>
+	 * <p>
+	 * <b>I/O direction and type:</b><br>
+	 * digital output
+	 * <p>
+	 * <b>User description of the I/O:</b><br>
+	 * ./.
+	 * <p>
+	 * <b>Range of the I/O value:</b><br>
+	 * [false; true]
+	 *
+	 * @param value
+	 *            the value, which has to be written to the digital output 'KMR_Pos1'
+	 */
+	public void setKMR_Pos1(java.lang.Boolean value)
+	{
+		setDigitalOutput("KMR_Pos1", value);
+	}
+
+	/**
+	 * Gets the value of the <b>digital output '<i>KMR_Pos2</i>'</b>.<br>
+	 * <i>This method is automatically generated. Please, do not modify!</i>
+	 * <p>
+	 * <b>I/O direction and type:</b><br>
+	 * digital output
+	 * <p>
+	 * <b>User description of the I/O:</b><br>
+	 * ./.
+	 * <p>
+	 * <b>Range of the I/O value:</b><br>
+	 * [false; true]
+	 *
+	 * @return current value of the digital output 'KMR_Pos2'
+	 */
+	public boolean getKMR_Pos2()
+	{
+		return getBooleanIOValue("KMR_Pos2", true);
+	}
+
+	/**
+	 * Sets the value of the <b>digital output '<i>KMR_Pos2</i>'</b>.<br>
+	 * <i>This method is automatically generated. Please, do not modify!</i>
+	 * <p>
+	 * <b>I/O direction and type:</b><br>
+	 * digital output
+	 * <p>
+	 * <b>User description of the I/O:</b><br>
+	 * ./.
+	 * <p>
+	 * <b>Range of the I/O value:</b><br>
+	 * [false; true]
+	 *
+	 * @param value
+	 *            the value, which has to be written to the digital output 'KMR_Pos2'
+	 */
+	public void setKMR_Pos2(java.lang.Boolean value)
+	{
+		setDigitalOutput("KMR_Pos2", value);
 	}
 
 }

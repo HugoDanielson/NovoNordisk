@@ -462,6 +462,15 @@
         <DigitalIO Name="Raspberry.Move_Pos2" Type="INPUT" Scope="USER_IO" StartBit="154" BitSize="1" Signed="false">
           <Description />
         </DigitalIO>
+        <DigitalIO Name="Raspberry.Auto" Type="INPUT" Scope="USER_IO" StartBit="155" BitSize="1" Signed="false">
+          <Description />
+        </DigitalIO>
+        <DigitalIO Name="Raspberry.KMR_Pos1" Type="OUTPUT" Scope="USER_IO" StartBit="2352" BitSize="1" Signed="false">
+          <Description />
+        </DigitalIO>
+        <DigitalIO Name="Raspberry.KMR_Pos2" Type="OUTPUT" Scope="USER_IO" StartBit="2353" BitSize="1" Signed="false">
+          <Description />
+        </DigitalIO>
       </IOList>
     </Bus>
   </BusList>

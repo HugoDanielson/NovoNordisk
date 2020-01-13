@@ -420,7 +420,10 @@
                 <Interface id="com.kuka/PowerManagementService/PowerManagementService" version="0.1.0"/>
                 <Interface id="com.kuka/Windows/Service" version="0.1.0"/>
             </SoftwareItem>
-            <SoftwareItem autoSelected="true" canChangeSelection="true" displayName="KUKA Sunrise.PROFINET® M/S" installItem="false" installedVersion="NONE" itemPath="com.kuka/ProfiSafe" selectedVersion="NONE" usage="Feature"/>
+            <SoftwareItem autoSelected="true" canChangeSelection="true" displayName="KUKA Sunrise.PROFINET® M/S" installItem="true" installedVersion="1.3" itemPath="com.kuka/ProfiSafe" selectedVersion="1.3" usage="Feature">
+                <Interface id="com.kuka/ProfiSafe/ProfinetMaster" version="0.1.0"/>
+                <Interface id="com.kuka/ProfiSafe/ProfiSafe" version="0.1.0"/>
+            </SoftwareItem>
             <SoftwareItem autoSelected="true" canChangeSelection="true" displayName="KUKA Sunrise.PROFINET® D" installItem="true" installedVersion="1.3" itemPath="com.kuka/ProfinetDevice" selectedVersion="1.3" usage="Feature">
                 <Interface id="com.kuka/ProfinetDevice/ProfinetDevice" version="0.1.0"/>
             </SoftwareItem>
@@ -451,7 +454,7 @@
             <SoftwareItem autoSelected="true" canChangeSelection="true" displayName="SafetyDiagnose" installItem="true" installedVersion="1" itemPath="com.kuka/SafetyDiagnose" selectedVersion="1" usage="Feature">
                 <Interface id="com.kuka/SafetyDiagnose/KRC4SafetyDiagnose" version="0.1.0"/>
             </SoftwareItem>
-            <SoftwareItem autoSelected="true" canChangeSelection="true" displayName="Human Robot Collaboration" installItem="true" installedVersion="1" itemPath="com.kuka/SafetyHRC" selectedVersion="1" usage="Feature"/>
+            <SoftwareItem autoSelected="false" canChangeSelection="true" displayName="Human Robot Collaboration" installItem="false" installedVersion="NONE" itemPath="com.kuka/SafetyHRC" selectedVersion="NONE" usage="Feature"/>
             <SoftwareItem autoSelected="true" canChangeSelection="false" displayName="SafetyRAPILibs" installItem="true" installedVersion="1.0.0" itemPath="com.kuka/SafetyRAPILibs" selectedVersion="1.0.0" usage="Feature"/>
             <SoftwareItem autoSelected="true" canChangeSelection="true" displayName="Safe Operation" installItem="true" installedVersion="1" itemPath="com.kuka/SafetySOP" selectedVersion="1" usage="Feature"/>
             <SoftwareItem autoSelected="true" canChangeSelection="false" displayName="Safety Signal Observer LBR" installItem="true" installedVersion="1" itemPath="com.kuka/SafetySignalObsLBR" selectedVersion="1" usage="Feature"/>
