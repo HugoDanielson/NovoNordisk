@@ -33,7 +33,7 @@ public class SafetyListener implements Runnable{
 				logger.warn("KMR PROTECTIVE STOP !!!");
 				resumeManager.disableApplicationResuming(appName);
 				//taskManager.getTaskFunction(IAutomaticResumeFunction.class).disableApplicationResuming(appName);
-				//application.halt();
+				application.halt();
 				application.setApplicationOverride(0.1);
 				try {
 					Thread.sleep(500);

@@ -61,7 +61,7 @@ import com.kuka.task.ITaskManager;
  * @see #dispose()
  */
 
-@ResumeAfterPauseEvent(delay = 2000, afterRepositioning = true)
+@ResumeAfterPauseEvent(delay = 1000, afterRepositioning = true)
 public class Test1 extends RoboticsAPIApplication {
 	@Inject
 	private LBR lbr;
