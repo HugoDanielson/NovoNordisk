@@ -24,7 +24,7 @@ public class SafetyListener implements Runnable{
 			if(kmr.getSafetyState().toString().contentEquals("WARNING_FIELD")){
 				logger.warn("KMR SAFETY VIOLATED !!!");
 				//resumeManager.disableApplicationResuming(appName);
-				application.halt();
+				//application.halt();
 				try {
 					Thread.sleep(500);
 				} catch (InterruptedException e) {
