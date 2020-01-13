@@ -59,8 +59,8 @@ public class Test1 extends RoboticsAPIApplication {
 	@Override
 	public void run() {
 
-		Location pos1 = location.get(7);
-		Location pos2 = location.get(8);
+		Location pos1 = location.get(11);
+		Location pos2 = location.get(10);
 
 		logger.info("Pos1 = " + pos1.toString());
 		logger.info("Pos2 = " + pos2.toString());
