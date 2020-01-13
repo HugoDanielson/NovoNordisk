@@ -61,7 +61,7 @@ import com.kuka.task.ITaskManager;
  * @see #dispose()
  */
 
-@ResumeAfterPauseEvent(delay = 1000, afterRepositioning = true)
+@ResumeAfterPauseEvent(delay = 2000, afterRepositioning = true)
 public class Test1 extends RoboticsAPIApplication {
 	@Inject
 	private LBR lbr;
@@ -91,6 +91,7 @@ public class Test1 extends RoboticsAPIApplication {
 		 iiwaMove = new Move(lbr, logger, getApplicationData());
 		 kmrManager = new RaspberryControll(kmr, raspberryControll, location, logger, lbr);
 		 	safetyListener = new SafetyListener(kmr, logger, resumeManager,getApplicationControl(),this.getClass().getCanonicalName(), lbr,taskManager);
+		 	resumeManager.enableApplicationResuming("Test1.class");
 	}
 
 	@Override
