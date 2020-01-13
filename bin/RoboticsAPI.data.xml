@@ -208,6 +208,13 @@
             </frames>
             <loadData cogA="0.0" cogB="0.0" cogC="0.0" cogX="0.0" cogY="0.0" cogZ="0.0" inertiaX="0.0" inertiaY="0.0" inertiaZ="0.0" mass="0.0"/>
         </workpieceTemplate>
+        <toolTemplate class="" name="Gripper">
+            <additionalInformation>
+                <info key="ID" type="java.lang.String" value="1e88bdd1-28c6-4e4d-9ad5-b976dc838c6d"/>
+                <info key="SafetyID" type="java.lang.Integer" value="2"/>
+            </additionalInformation>
+            <loadData cogA="0.0" cogB="0.0" cogC="0.0" cogX="0.0" cogY="0.0" cogZ="0.0" inertiaX="0.0" inertiaY="0.0" inertiaZ="0.0" mass="7.0"/>
+        </toolTemplate>
     </objectTemplates>
     <processDataContainer>
         <processData comment="" dataType="java.lang.Double" defaultValue="0.1" displayName="KMR_Vel" id="KMR_vel" max="0.3" min="0.1" unit="m/s" value="0.1"/>
