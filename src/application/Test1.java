@@ -40,6 +40,7 @@ import com.kuka.roboticsAPI.deviceModel.LBR;
 import com.kuka.roboticsAPI.deviceModel.kmp.KmpOmniMove;
 import com.kuka.roboticsAPI.ioModel.AbstractIO;
 import com.kuka.task.ITaskLogger;
+import com.kuka.task.ITaskManager;
 
 /**
  * Implementation of a robot application.
@@ -81,13 +82,15 @@ public class Test1 extends RoboticsAPIApplication {
 	private ControllListener controllListener;
 	@Inject
 	private AutomaticResumeManager resumeManager;
+	@Inject
+	private ITaskManager taskManager;
 	private RaspberryControll kmrManager;
 	private SafetyListener safetyListener;
 	@Override
 	public void initialize() {
 		 iiwaMove = new Move(lbr, logger, getApplicationData());
 		 kmrManager = new RaspberryControll(kmr, raspberryControll, location, logger, lbr);
-		 	safetyListener = new SafetyListener(kmr, logger, resumeManager,getApplicationControl(),this.getClass().getCanonicalName());
+		 	safetyListener = new SafetyListener(kmr, logger, resumeManager,getApplicationControl(),this.getClass().getCanonicalName(), lbr,taskManager);
 	}
 
 	@Override
