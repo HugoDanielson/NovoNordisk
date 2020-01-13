@@ -100,15 +100,15 @@ public class Test1 extends RoboticsAPIApplication {
 //		logger.info("Pos1 = " + pos1.toString());
 //		logger.info("Pos2 = " + pos2.toString());
 //		logger.info("KMR = " + kmr.getName());
-//		try {
-//			kmr.lock();
-//		} catch (LockException e1) {
-//			// TODO Auto-generated catch block
-//			e1.printStackTrace();
-//		} catch (InterruptedException e1) {
-//			// TODO Auto-generated catch block
-//			// e1.printStackTrace();
-//		}
+		try {
+			kmr.lock();
+		} catch (LockException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			// e1.printStackTrace();
+		}
 		vcm = kmr.execute(new VirtualLineMotion(kmr.getPose(), pos2.getPose()).setVelocity(new XYTheta(0.1, 0.1, 0.1)));
 		vcm.awaitFinalized();
 		es.execute(iiwaMove);
