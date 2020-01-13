@@ -86,7 +86,7 @@ public class Test1 extends RoboticsAPIApplication {
 	public void initialize() {
 		 iiwaMove = new Move(lbr, logger, getApplicationData());
 		 kmrManager = new RaspberryControll(kmr, raspberryControll, location, logger, lbr);
-		 	safetyListener = new SafetyListener(kmr, logger);
+		 	safetyListener = new SafetyListener(kmr, logger, resumeManager,getApplicationControl(),this.getClass().getCanonicalName());
 	}
 
 	@Override
