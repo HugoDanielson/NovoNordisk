@@ -21,10 +21,10 @@ public class SafetyListener implements Runnable{
 	@Override
 	public void run() {
 		while(true){
-			if(kmr.getSafetyState().toString().contentEquals("WARNING_FIELD")){
-				logger.warn("KMR SAFETY VIOLATED !!!");
-				//resumeManager.disableApplicationResuming(appName);
-				//application.halt();
+			if(kmr.getSafetyState().toString().contentEquals("PROTECTIVE_STOP")){
+				logger.warn("KMR PROTECTIVE STOP !!!");
+				resumeManager.disableApplicationResuming(appName);
+				application.halt();
 				try {
 					Thread.sleep(500);
 				} catch (InterruptedException e) {
@@ -32,7 +32,7 @@ public class SafetyListener implements Runnable{
 					//e.printStackTrace();
 				}
 			}else {
-				//resumeManager.enableApplicationResuming(appName);
+				resumeManager.enableApplicationResuming(appName);
 			}
 			try {
 				Thread.sleep(500);
