@@ -109,7 +109,7 @@ public class Test1 extends RoboticsAPIApplication {
 			// TODO Auto-generated catch block
 			// e1.printStackTrace();
 		}
-		vcm = kmr.execute(new VirtualLineMotion(kmr.getPose(), pos2.getPose()).setVelocity(new XYTheta(0.1, 0.1, 0.1)));
+		vcm = kmr.execute(new VirtualLineMotion(kmr.getPose(), pos1.getPose()).setVelocity(new XYTheta(0.1, 0.1, 0.1)));
 		vcm.awaitFinalized();
 		es.execute(iiwaMove);
 		//es1.execute(kmrManager);
