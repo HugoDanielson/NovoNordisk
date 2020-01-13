@@ -1,6 +1,7 @@
 package application;
 
 import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import javax.inject.Inject;
@@ -48,7 +49,7 @@ public class Test1 extends RoboticsAPIApplication {
 	@Inject
 	private MobileRobot kmr;
 	private Move iiwaMove;
-	private Executor es = Executors.newCachedThreadPool();
+	private ExecutorService es = Executors.newCachedThreadPool();
 
 	@Override
 	public void initialize() {
@@ -85,11 +86,13 @@ public class Test1 extends RoboticsAPIApplication {
 			vcm.awaitFinalized();
 
 		}
+
 	}
 
 	@Override
 	public void dispose() {
 		iiwaMove.bRunning.set(false);
+		es.shutdownNow();
 		kmr.unlock();
 	}
 }

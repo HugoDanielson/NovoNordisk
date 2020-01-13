@@ -210,6 +210,6 @@
         </workpieceTemplate>
     </objectTemplates>
     <processDataContainer>
-        <processData comment="" dataType="java.lang.Double" defaultValue="0.1" displayName="KMR_Vel" id="KMR_vel" max="0.3" min="0.1" unit="m/s" value="0.1"/>
-    </processDataContainer>
+       <processData displayName="KMR_Vel" dataType="java.lang.Double" defaultValue="0.1" id="KMR_vel" min="0.1" max="0.3" value="0.1" unit="m/s" comment=""/>     
+   </processDataContainer>
 </RoboticsAPIData>
