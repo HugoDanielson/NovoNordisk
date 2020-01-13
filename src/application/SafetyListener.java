@@ -43,7 +43,7 @@ public class SafetyListener implements Runnable{
 				}
 			}else {
 				//taskManager.getTaskFunction(IAutomaticResumeFunction.class).enableApplicationResuming(appName);
-				application.setApplicationOverride(0.01);
+				application.setApplicationOverride(0.1);
 			}
 			try {
 				Thread.sleep(500);
