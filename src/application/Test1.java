@@ -70,8 +70,7 @@ public class Test1 extends RoboticsAPIApplication {
 	public void initialize() {
 		 iiwaMove = new Move(lbr, logger, getApplicationData());
 		 kmrManager = new RaspberryControll(kmr, raspberryControll, location, logger, lbr);
-		 controllListener = new ControllListener(logger,getApplicationControl(),resumeManager,this.getClass().getCanonicalName());
-			
+		 	
 	}
 
 	@Override
@@ -81,6 +80,7 @@ public class Test1 extends RoboticsAPIApplication {
 		 * New
 		 */
 		
+		controllListener = new ControllListener(logger,getApplicationControl(),resumeManager,this.getClass().getCanonicalName());
 		
 		kuka_Sunrise_Cabinet.addControllerListener(controllListener);
 
