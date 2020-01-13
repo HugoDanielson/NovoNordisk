@@ -67,8 +67,8 @@ public class ControllListener implements ISunriseControllerStateListener {
 	public void onSafetyStateChanged(Device device, SunriseSafetyState safetyState) {
 		OperatorSafety operatorSafety = safetyState.getOperatorSafetyState();
 		logger.warn("SAFETY VIOLATED!");
-		resumeManager.disableApplicationResuming(appName);
-		application.halt();
+		//resumeManager.disableApplicationResuming(appName);
+		//application.halt();
 
 	}
 
