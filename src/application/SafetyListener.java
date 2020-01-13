@@ -34,7 +34,7 @@ public class SafetyListener implements Runnable{
 				resumeManager.disableApplicationResuming(appName);
 				//taskManager.getTaskFunction(IAutomaticResumeFunction.class).disableApplicationResuming(appName);
 				//application.halt();
-				
+				application.setApplicationOverride(0.1);
 				try {
 					Thread.sleep(500);
 				} catch (InterruptedException e) {
