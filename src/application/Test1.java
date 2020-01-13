@@ -90,7 +90,7 @@ public class Test1 extends RoboticsAPIApplication {
 	public void initialize() {
 		 iiwaMove = new Move(lbr, logger, getApplicationData());
 		 kmrManager = new RaspberryControll(kmr, raspberryControll, location, logger, lbr);
-		 	safetyListener = new SafetyListener(kmr, logger, resumeManager,getApplicationControl(),this.getClass().getCanonicalName(), lbr,taskManager);
+		 	safetyListener = new SafetyListener(kmr, logger, resumeManager,getApplicationControl(),this.getClass().getCanonicalName(), lbr,taskManager,getApplicationControl());
 		 	resumeManager.enableApplicationResuming("Test1.class");
 	}
 
