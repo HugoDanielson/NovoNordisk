@@ -86,8 +86,10 @@ public class Test1 extends RoboticsAPIApplication {
 
 		// kmr.getSafetyState();
 
-		Location pos1 = location.get(11);
-		Location pos2 = location.get(10);
+		Location pos1 = location.get(12);
+		Location pos2 = location.get(13);
+		Location pos3 = location.get(14);
+		Location pos4 = location.get(15);
         VirtualLineMotionContainer vcm;
 //		logger.info("Pos1 = " + pos1.toString());
 //		logger.info("Pos2 = " + pos2.toString());
@@ -104,33 +106,44 @@ public class Test1 extends RoboticsAPIApplication {
 		vcm = kmr.execute(new VirtualLineMotion(kmr.getPose(), pos2.getPose()).setVelocity(new XYTheta(0.1, 0.1, 0.1)));
 		vcm.awaitFinalized();
 		es.execute(iiwaMove);
-		es1.execute(kmrManager);
+		//es1.execute(kmrManager);
+//		while(true){
+//			try {
+//				Thread.sleep(100);
+//			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				//e.printStackTrace();
+//			}
+//		}
+//		
 		while(true){
-			try {
-				Thread.sleep(100);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				//e.printStackTrace();
-			}
+			
+			
+		while (raspberryControll.getAuto()) {
+			
+			double KMR_vel = getApplicationData().getProcessData("KMR_vel").getValue();
+			vcm = kmr.execute(new VirtualLineMotion(pos1, pos2).setVelocity(new XYTheta(KMR_vel, KMR_vel, 0.1)));
+			vcm.awaitFinalized();
+
+			vcm = kmr.execute(new VirtualLineMotion(pos2, pos3).setVelocity(new XYTheta(KMR_vel, KMR_vel, 0.1)));
+			vcm.awaitFinalized();
+			
+			vcm = kmr.execute(new VirtualLineMotion(pos3, pos4).setVelocity(new XYTheta(KMR_vel, KMR_vel, 0.1)));
+			vcm.awaitFinalized();
+			
+			vcm = kmr.execute(new VirtualLineMotion(pos4, pos1).setVelocity(new XYTheta(KMR_vel, KMR_vel, 0.1)));
+			vcm.awaitFinalized();
+
 		}
 		
-//		while(true){
-//			
-//			
-//		while (raspberryControll.getAuto()) {
-//			
-//			double KMR_vel = getApplicationData().getProcessData("KMR_vel").getValue();
-//			vcm = kmr.execute(new VirtualLineMotion(pos2, pos1).setVelocity(new XYTheta(KMR_vel, KMR_vel, 0.1)));
-//			vcm.awaitFinalized();
-//
-//			vcm = kmr.execute(new VirtualLineMotion(pos1, pos2).setVelocity(new XYTheta(KMR_vel, KMR_vel, 0.1)));
-//			vcm.awaitFinalized();
-//
-//		}
-//		
-//		
-//		Thread.sleep(100);
-//		}
+		
+		try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+		}
+		}
 	}
 
 	@Override
