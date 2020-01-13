@@ -16,8 +16,8 @@ public class SafetyListener implements Runnable{
 	private String appName;
 	private LBR lbr;
 	private ITaskManager taskManager;
-	private IApplicationControl iApplicationControl;
-	public SafetyListener(MobileRobot kmr,ITaskLogger logger,AutomaticResumeManager resumeManager,IApplicationControl application,String appName,LBR lbr,ITaskManager taskManager, IApplicationControl iApplicationControl){
+	
+	public SafetyListener(MobileRobot kmr,ITaskLogger logger,AutomaticResumeManager resumeManager,IApplicationControl application,String appName,LBR lbr,ITaskManager taskManager){
 		this.kmr = kmr;
 		this.logger = logger;
 		this.resumeManager = resumeManager;
@@ -34,7 +34,7 @@ public class SafetyListener implements Runnable{
 				resumeManager.disableApplicationResuming(appName);
 				//taskManager.getTaskFunction(IAutomaticResumeFunction.class).disableApplicationResuming(appName);
 				//application.halt();
-				iApplicationControl.setApplicationOverride(0.01);
+				application.setApplicationOverride(0.01);
 				try {
 					Thread.sleep(500);
 				} catch (InterruptedException e) {
@@ -43,7 +43,7 @@ public class SafetyListener implements Runnable{
 				}
 			}else {
 				//taskManager.getTaskFunction(IAutomaticResumeFunction.class).enableApplicationResuming(appName);
-				iApplicationControl.setApplicationOverride(0.01);
+				application.setApplicationOverride(0.01);
 			}
 			try {
 				Thread.sleep(500);
