@@ -54,11 +54,17 @@ import com.kuka.task.ITaskLogger;
 
 @ResumeAfterPauseEvent(delay = 1000, afterRepositioning = true)
 public class Test1 extends RoboticsAPIApplication {
+	@Inject
 	private LBR lbr;
+	@Inject
 	private ITaskLogger logger;
+	@Inject
 	private LocationData location;
+	@Inject
 	private MobileRobot kmr;
+	@Inject
 	private Controller kuka_Sunrise_Cabinet;
+	@Inject
 	private RaspberryIOGroup raspberryControll;
 	private Move iiwaMove;
 	private ExecutorService es = Executors.newCachedThreadPool();
