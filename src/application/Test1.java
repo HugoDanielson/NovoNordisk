@@ -1,5 +1,6 @@
 package application;
 
+import java.util.Date;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -21,6 +22,12 @@ import com.kuka.roboticsAPI.applicationModel.IApplicationControl;
 import com.kuka.roboticsAPI.applicationModel.RoboticsAPIApplication;
 import static com.kuka.roboticsAPI.motionModel.BasicMotions.*;
 
+import com.kuka.roboticsAPI.conditionModel.BooleanIOCondition;
+import com.kuka.roboticsAPI.conditionModel.ConditionObserver;
+import com.kuka.roboticsAPI.conditionModel.IAnyEdgeListener;
+import com.kuka.roboticsAPI.conditionModel.ICondition;
+import com.kuka.roboticsAPI.conditionModel.IRisingEdgeListener;
+import com.kuka.roboticsAPI.conditionModel.NotificationType;
 import com.kuka.roboticsAPI.controllerModel.Controller;
 import com.kuka.roboticsAPI.controllerModel.DispatchedEventData;
 import com.kuka.roboticsAPI.controllerModel.ExecutionService;
@@ -31,6 +38,7 @@ import com.kuka.roboticsAPI.controllerModel.sunrise.SunriseSafetyState.OperatorS
 import com.kuka.roboticsAPI.deviceModel.Device;
 import com.kuka.roboticsAPI.deviceModel.LBR;
 import com.kuka.roboticsAPI.deviceModel.kmp.KmpOmniMove;
+import com.kuka.roboticsAPI.ioModel.AbstractIO;
 import com.kuka.task.ITaskLogger;
 
 /**
@@ -69,14 +77,16 @@ public class Test1 extends RoboticsAPIApplication {
 	private Move iiwaMove;
 	private ExecutorService es = Executors.newCachedThreadPool();
 	private ExecutorService es1 = Executors.newCachedThreadPool();
+	private ExecutorService es2 = Executors.newCachedThreadPool();
 	private ControllListener controllListener;
 	private AutomaticResumeManager resumeManager;
 	private RaspberryControll kmrManager;
+	private SafetyListener safetyListener;
 	@Override
 	public void initialize() {
 		 iiwaMove = new Move(lbr, logger, getApplicationData());
 		 kmrManager = new RaspberryControll(kmr, raspberryControll, location, logger, lbr);
-		 	
+		 	safetyListener = new SafetyListener(kmr, logger);
 	}
 
 	@Override
@@ -85,7 +95,15 @@ public class Test1 extends RoboticsAPIApplication {
 		/*
 		 * New
 		 */
-		
+		IRisingEdgeListener listener = new IRisingEdgeListener() {
+			
+			@Override
+			public void onRisingEdge(ConditionObserver conditionObserver, Date time, int missedEvents) {
+				// TODO Auto-generated method stub
+				
+			}
+		};
+			
 		controllListener = new ControllListener(logger,getApplicationControl(),resumeManager,this.getClass().getCanonicalName());
 		
 		kuka_Sunrise_Cabinet.addControllerListener(controllListener);
@@ -100,6 +118,10 @@ public class Test1 extends RoboticsAPIApplication {
 //		logger.info("Pos1 = " + pos1.toString());
 //		logger.info("Pos2 = " + pos2.toString());
 //		logger.info("KMR = " + kmr.getName());
+        
+        es2.execute(safetyListener);
+        
+        
 		try {
 			kmr.lock();
 		} catch (LockException e1) {
@@ -125,7 +147,7 @@ public class Test1 extends RoboticsAPIApplication {
 		while(true){
 			
 			
-		while (raspberryControll.getAuto()) {
+		
 			
 			double KMR_vel = getApplicationData().getProcessData("KMR_vel").getValue();
 			vcm = kmr.execute(new VirtualLineMotion(pos1, pos2).setVelocity(new XYTheta(KMR_vel, KMR_vel, 0.1)));
@@ -143,13 +165,7 @@ public class Test1 extends RoboticsAPIApplication {
 		}
 		
 		
-		try {
-			Thread.sleep(100);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			//e.printStackTrace();
-		}
-		}
+		
 	}
 
 	@Override
