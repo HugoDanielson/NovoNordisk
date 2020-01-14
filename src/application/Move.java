@@ -28,16 +28,18 @@ public class Move implements Runnable {
 	}
 	@Override
 	public void run() {
-		lbr.move(ptp(data.getFrame("/P1")).setJointVelocityRel(vel).setJointAccelerationRel(acc));
+		lbr.move(lin(data.getFrame("/P1")).setJointVelocityRel(vel).setJointAccelerationRel(acc));
 		while(bRunning.get()){
-			
+			lbr.move(lin(data.getFrame("/P2")).setJointVelocityRel(vel).setJointAccelerationRel(acc));
 			lbr.move(lin(data.getFrame("/P3")).setJointVelocityRel(vel).setJointAccelerationRel(acc));
 			lbr.move(lin(data.getFrame("/P4")).setJointVelocityRel(vel).setJointAccelerationRel(acc));
 			lbr.move(lin(data.getFrame("/P5")).setJointVelocityRel(vel).setJointAccelerationRel(acc));
 			lbr.move(lin(data.getFrame("/P6")).setJointVelocityRel(vel).setJointAccelerationRel(acc));
+			lbr.move(lin(data.getFrame("/P5")).setJointVelocityRel(vel).setJointAccelerationRel(acc));
+			lbr.move(lin(data.getFrame("/P4")).setJointVelocityRel(vel).setJointAccelerationRel(acc));		
 			lbr.move(lin(data.getFrame("/P3")).setJointVelocityRel(vel).setJointAccelerationRel(acc));
-			lbr.move(lin(data.getFrame("/P1")).setJointVelocityRel(vel).setJointAccelerationRel(acc));		
-			
+			lbr.move(lin(data.getFrame("/P2")).setJointVelocityRel(vel).setJointAccelerationRel(acc));
+			lbr.move(lin(data.getFrame("/P1")).setJointVelocityRel(vel).setJointAccelerationRel(acc));
 		}
 		
 	}

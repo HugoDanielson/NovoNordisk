@@ -30,11 +30,12 @@ public class SafetyListener implements Runnable{
 	public void run() {
 		while(true){
 			if(kmr.getSafetyState().toString().contentEquals("PROTECTIVE_STOP")){
-				logger.warn("KMR PROTECTIVE STOP !!!");
+				//logger.warn("KMR PROTECTIVE STOP !!!");
 				resumeManager.disableApplicationResuming(appName);
 				//taskManager.getTaskFunction(IAutomaticResumeFunction.class).disableApplicationResuming(appName);
 				application.setApplicationOverride(0.1);
 				//application.halt();
+				
 				
 				try {
 					Thread.sleep(500);

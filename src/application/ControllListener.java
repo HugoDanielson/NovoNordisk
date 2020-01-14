@@ -41,7 +41,7 @@ public class ControllListener implements ISunriseControllerStateListener {
 
 	@Override
 	public void onIsReadyToMoveChanged(Device device, boolean isReadyToMove) {
-		logger.info("IIWA READY TO MOVE");
+		//logger.info("IIWA READY TO MOVE");
 		resumeManager.enableApplicationResuming(appName);
 	}
 
@@ -66,7 +66,7 @@ public class ControllListener implements ISunriseControllerStateListener {
 	@Override
 	public void onSafetyStateChanged(Device device, SunriseSafetyState safetyState) {
 		OperatorSafety operatorSafety = safetyState.getOperatorSafetyState();
-		logger.warn("SAFETY VIOLATED!");
+		//logger.warn("SAFETY VIOLATED!");
 		//resumeManager.disableApplicationResuming(appName);
 		//application.halt();
 
