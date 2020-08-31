@@ -99,9 +99,9 @@
             </redundancyData>
         </frame>
         <frame id="_cb658e79-7140-4406-87ca-6e63875e7cf6" name="P6">
-            <transformation a="-2.1309905713676636" b="-0.7281379640661028" c="-1.5864954974503107" x="20.90155552491405" y="404.95276468176104" z="444.94293644082273"/>
+            <transformation a="-2.156061044729962" b="-0.7528972848311148" c="-1.6277563579352592" x="20.87130530420022" y="404.94460872997655" z="444.94494348836946"/>
             <additionalInformation>
-                <info key="LastModificationTime" type="java.lang.Long" value="1578964103416"/>
+                <info key="LastModificationTime" type="java.lang.Long" value="1578964035974"/>
                 <info base="LBR_iiwa_14_R820_1" controller="KUKA_Sunrise_Cabinet_1" device="LBR_iiwa_14_R820_1" tcpName="Flange" tool="Flange" type="com.kuka.roboticsAPI.deviceModel.TeachInformation">
                     <tcpTransformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
                 </info>

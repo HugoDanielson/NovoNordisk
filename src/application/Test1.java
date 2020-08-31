@@ -117,8 +117,8 @@ public class Test1 extends RoboticsAPIApplication {
 
 		Location pos1 = location.get(12);
 		Location pos2 = location.get(13);
-		Location pos3 = location.get(14);
-		Location pos4 = location.get(15);
+//		Location pos3 = location.get(14);
+//		Location pos4 = location.get(15);
         VirtualLineMotionContainer vcm;
 //		logger.info("Pos1 = " + pos1.toString());
 //		logger.info("Pos2 = " + pos2.toString());
@@ -158,14 +158,14 @@ public class Test1 extends RoboticsAPIApplication {
 			vcm = kmr.execute(new VirtualLineMotion(pos1, pos2).setVelocity(new XYTheta(KMR_vel, KMR_vel, 0.1)));
 			vcm.awaitFinalized();
 
-			vcm = kmr.execute(new VirtualLineMotion(pos2, pos3).setVelocity(new XYTheta(KMR_vel, KMR_vel, 0.1)));
+			vcm = kmr.execute(new VirtualLineMotion(pos2, pos1).setVelocity(new XYTheta(KMR_vel, KMR_vel, 0.1)));
 			vcm.awaitFinalized();
 			
-			vcm = kmr.execute(new VirtualLineMotion(pos3, pos4).setVelocity(new XYTheta(KMR_vel, KMR_vel, 0.1)));
-			vcm.awaitFinalized();
-			
-			vcm = kmr.execute(new VirtualLineMotion(pos4, pos1).setVelocity(new XYTheta(KMR_vel, KMR_vel, 0.1)));
-			vcm.awaitFinalized();
+//			vcm = kmr.execute(new VirtualLineMotion(pos3, pos4).setVelocity(new XYTheta(KMR_vel, KMR_vel, 0.1)));
+//			vcm.awaitFinalized();
+//			
+//			vcm = kmr.execute(new VirtualLineMotion(pos4, pos1).setVelocity(new XYTheta(KMR_vel, KMR_vel, 0.1)));
+//			vcm.awaitFinalized();
 
 		}
 		
