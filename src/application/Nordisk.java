@@ -5,7 +5,7 @@ import javax.inject.Inject;
 
 import GlobalParameters.GlobalParam.eMoveFrom;
 import GlobalParameters.GlobalParam.eMoveTo;
-import KmrMoves.MoveTo;
+import MoveTo.MoveTo.MoveTo;
 
 import com.kuka.nav.XYTheta;
 import com.kuka.nav.data.LocationData;

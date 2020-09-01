@@ -1,4 +1,4 @@
-package KmrMoves;
+package MoveTo.MoveTo;
 
 import javax.inject.Inject;
 
