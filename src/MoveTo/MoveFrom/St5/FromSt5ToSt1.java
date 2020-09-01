@@ -32,10 +32,10 @@ public void move(XYTheta xYTheta){
 	moves.add(location.get(GlobalParam.LCHECKPOINT1));
 	moves.add(location.get(GlobalParam.ST1));
 
-	VirtualLineMotionContainer vcm = null;
+VirtualLineMotionContainer vcm = null;
 	
 	for (int i = 0; i < moves.size(); i++) {
-		vcm = kmr.execute(new VirtualLineMotion(kmr.getPose(), moves.get(i).getPose()).setBlendingCart(0.25).setVelocity(xYTheta));
+		vcm = kmr.executeAsync(new VirtualLineMotion(kmr.getPose(), moves.get(i).getPose()).setBlendingCart(0.25).setVelocity(xYTheta));
 		
 	}
 	vcm.awaitFinished();
