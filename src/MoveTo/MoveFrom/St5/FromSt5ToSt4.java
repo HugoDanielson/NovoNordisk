@@ -37,7 +37,7 @@ public void move(XYTheta xYTheta){
 	VirtualLineMotionContainer vcm = null;
 	
 	for (int i = 0; i < moves.size(); i++) {
-		vcm = kmr.execute(new VirtualLineMotion(kmr.getPose(), moves.get(i).getPose()).setBlendingCart(0.25).setVelocity(xYTheta));
+		vcm = kmr.executeAsync(new VirtualLineMotion(kmr.getPose(), moves.get(i).getPose()).setBlendingCart(0.25).setVelocity(xYTheta));
 		
 	}
 	vcm.awaitFinished();
