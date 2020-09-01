@@ -2,6 +2,7 @@ package TcpServer;
 
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -11,6 +12,7 @@ import com.kuka.nav.robot.MobileRobot;
 import com.kuka.roboticsAPI.applicationModel.tasks.CycleBehavior;
 import com.kuka.roboticsAPI.applicationModel.tasks.RoboticsAPICyclicBackgroundTask;
 import com.kuka.roboticsAPI.controllerModel.Controller;
+import com.kuka.roboticsAPI.persistenceModel.processDataModel.IProcessData;
 import com.kuka.sunrise.common.task.categories.BackgroundTaskCategory;
 import com.kuka.task.properties.TaskFunctionProvider;
 
@@ -19,6 +21,9 @@ public class TcpServerBackgroun extends RoboticsAPICyclicBackgroundTask implemen
 	
 	@Inject
 	private MobileRobot kmr;
+	@Inject
+	@Named("Error")
+	IProcessData Error;
 	public static TcpServerX tcpServer;
 	private Integer port = 30001;
 	public void initialize() {
@@ -30,9 +35,11 @@ public class TcpServerBackgroun extends RoboticsAPICyclicBackgroundTask implemen
 	public void runCyclic() {
 		if(tcpServer !=null && !tcpServer.isRunning()){
 			tcpServer.connect();
+			Error.setValue("e1");
 		}else {
 			tcpServer = new TcpServerX(port,kmr);
 			tcpServer.connect();
+			Error.setValue("e2");
 		}
 		
 	}
