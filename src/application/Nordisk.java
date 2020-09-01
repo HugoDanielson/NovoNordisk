@@ -1,7 +1,9 @@
 package application;
 
-
 import javax.inject.Inject;
+
+import KmrMoves.FromChargerToLoad1;
+import KmrMoves.MoveTo;
 
 import com.kuka.nav.data.LocationData;
 import com.kuka.nav.fleet.FleetManager;
@@ -15,8 +17,7 @@ import com.kuka.roboticsAPI.deviceModel.kmp.KmpOmniMove;
 import com.kuka.task.ITaskLogger;
 import com.kuka.task.ITaskManager;
 
-
-public class GraphTest extends RoboticsAPIApplication {
+public class Nordisk extends RoboticsAPIApplication {
 	@Inject
 	private LBR lBR_iiwa_14_R820_1;
 
@@ -38,6 +39,9 @@ public class GraphTest extends RoboticsAPIApplication {
 
 	private TopologyGraph topologyGraph;
 	
+	@Inject
+	private MoveTo moveTo;
+
 	@Override
 	public void initialize() {
 		// initialize your application here
@@ -45,12 +49,7 @@ public class GraphTest extends RoboticsAPIApplication {
 
 	@Override
 	public void run() {
-		// your application execution starts here
-		//lBR_iiwa_14_R820_1.move(ptpHome());
-		topologyGraph = graphData.get(3);
-		System.out.println("Graph ="+topologyGraph);
-		System.out.println("Location ="+locData.get(1));
-		
-		
+		moveTo.run(1);
+
 	}
 }
