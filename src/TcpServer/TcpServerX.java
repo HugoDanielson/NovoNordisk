@@ -56,7 +56,7 @@ public class TcpServerX implements Runnable {
 		
 			this.serverSocket = new ServerSocket(serverPort);
 			bRunning.set(true);
-			Thread.sleep(50);
+			Thread.sleep(5000);
 			
 
 		} catch (IOException e1) {
