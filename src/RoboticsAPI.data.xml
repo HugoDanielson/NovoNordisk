@@ -218,7 +218,7 @@
                 <info key="ID" type="java.lang.String" value="1e88bdd1-28c6-4e4d-9ad5-b976dc838c6d"/>
                 <info key="SafetyID" type="java.lang.Integer" value="2"/>
             </additionalInformation>
-            <loadData cogA="0.0" cogB="0.0" cogC="0.0" cogX="0.0" cogY="0.0" cogZ="0.0" inertiaX="0.0" inertiaY="0.0" inertiaZ="0.0" mass="10.0"/>
+            <loadData cogA="0.0" cogB="0.0" cogC="0.0" cogX="162.79971788916643" cogY="-134.38599506060913" cogZ="162.25273721503675" inertiaX="0.0" inertiaY="0.0" inertiaZ="0.0" mass="6.791640638210436"/>
         </toolTemplate>
     </objectTemplates>
     <processDataContainer>
