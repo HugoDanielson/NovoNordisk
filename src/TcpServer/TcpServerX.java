@@ -28,6 +28,12 @@ public class TcpServerX implements Runnable {
 	@Override
 	public void run() {
 		appData.getProcessData("Error").setValue("OpenServerPort");
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+		//	e.printStackTrace();
+		}
 		connect();
 		
 		while (bRunning.get()) {
@@ -56,7 +62,8 @@ public class TcpServerX implements Runnable {
 		
 			this.serverSocket = new ServerSocket(serverPort);
 			bRunning.set(true);
-			Thread.sleep(5000);
+			appData.getProcessData("Error").setValue("Waitring for connection");
+			Thread.sleep(1000);
 			
 
 		} catch (IOException e1) {

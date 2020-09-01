@@ -28,7 +28,7 @@ public class TcpServerBackgroun extends RoboticsAPICyclicBackgroundTask implemen
 	private Integer port = 30001;
 	public void initialize() {
 		// initialize your task here
-		initializeCyclic(0, 1000, TimeUnit.MILLISECONDS, CycleBehavior.BestEffort);
+		initializeCyclic(0, 1, TimeUnit.DAYS, CycleBehavior.BestEffort);
 	}
 
 	@Override
