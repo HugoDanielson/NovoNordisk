@@ -25,7 +25,7 @@ public class TcpServerBackgroun extends RoboticsAPIBackgroundTask implements Itc
 	@Named("Error")
 	IProcessData Error;
 	public static TcpServerX tcpServer;
-	private Integer port = 30003;
+	private Integer port = 30004;
 	public ExecutorService exServer = Executors.newCachedThreadPool();
 
 	@Override
