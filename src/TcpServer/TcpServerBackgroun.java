@@ -26,16 +26,17 @@ public class TcpServerBackgroun extends RoboticsAPIBackgroundTask implements Itc
 	@Named("Error")
 	IProcessData Error;
 	public static TcpServerX tcpServer;
-	private Integer port = 30002;
+	private Integer port = 30003;
 	
 
 	@Override
 	public void run() {
+		tcpServer = new TcpServerX(getApplicationData(),port,kmr);
 		while(true){
 		if(tcpServer !=null && !tcpServer.isRunning()){
 			tcpServer.connect();
 			Error.setValue("e1");
-		}else {
+		}else if(tcpServer ==null) {
 			tcpServer = new TcpServerX(getApplicationData(),port,kmr);
 			try {
 				Thread.sleep(2000);
