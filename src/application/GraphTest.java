@@ -49,6 +49,7 @@ public class GraphTest extends RoboticsAPIApplication {
 		//lBR_iiwa_14_R820_1.move(ptpHome());
 		topologyGraph = graphData.get(3);
 		System.out.println("Graph ="+topologyGraph);
+		System.out.println("Location ="+locData.get(1));
 		
 		
 	}
