@@ -19,33 +19,27 @@ public class FromSt5ToSt2 {
 	private LocationData location;
 	@Inject
 	private MobileRobot kmr;
-	public FromSt5ToSt2(){
-		
-	}
-public void move(XYTheta xYTheta){
-	
-	
-	List<Location> moves = new ArrayList();
-	
-	moves.add(location.get(GlobalParam.LCHECKPOINT5));
-	moves.add(location.get(GlobalParam.LCHECKPOINT4));
-	moves.add(location.get(GlobalParam.LCHECKPOINT2));
-	moves.add(location.get(GlobalParam.ST2));
-	
-	
-	
 
-VirtualLineMotionContainer vcm = null;
-	
-	for (int i = 0; i < moves.size(); i++) {
-		vcm = kmr.executeAsync(new VirtualLineMotion(kmr.getPose(), moves.get(i).getPose()).setBlendingCart(0.25).setVelocity(xYTheta));
-		
+	public FromSt5ToSt2() {
+
 	}
-	vcm.awaitFinished();
-	
-	
-	
-	
-}
-	
+
+	public void move(XYTheta xYTheta) {
+
+		List<Location> moves = new ArrayList();
+
+		moves.add(location.get(GlobalParam.LCHECKPOINT5));
+		moves.add(location.get(GlobalParam.LCHECKPOINT4));
+		moves.add(location.get(GlobalParam.LCHECKPOINT2));
+		moves.add(location.get(GlobalParam.ST2));
+
+		VirtualLineMotionContainer vcm = null;
+
+		for (int i = 0; i < moves.size(); i++) {
+			vcm = kmr.executeAsync(new VirtualLineMotion(kmr.getPose(), moves.get(i).getPose()).setVelocity(xYTheta));
+			vcm.awaitFinished();
+		}
+
+	}
+
 }
