@@ -29,7 +29,6 @@ public void move(){
 	
 	moves.add(location.get(GlobalParam.LCHECKPOINT5));
 	moves.add(location.get(GlobalParam.LCHECKPOINT4));
-	moves.add(location.get(GlobalParam.ST4));
 	moves.add(location.get(GlobalParam.LCHECKPOINT2));
 	moves.add(location.get(GlobalParam.LCHECKPOINT1));
 	moves.add(location.get(GlobalParam.ST1));
