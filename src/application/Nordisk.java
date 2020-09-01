@@ -3,8 +3,11 @@ package application;
 import javax.inject.Inject;
 
 
+import GlobalParameters.GlobalParam.eMoveFrom;
+import GlobalParameters.GlobalParam.eMoveTo;
 import KmrMoves.MoveTo;
 
+import com.kuka.nav.XYTheta;
 import com.kuka.nav.data.LocationData;
 import com.kuka.nav.fleet.FleetManager;
 import com.kuka.nav.fleet.graph.GraphData;
@@ -62,7 +65,17 @@ public class Nordisk extends RoboticsAPIApplication {
 			e.printStackTrace();
 		}
 		
-		moveTo.run(1);
+		moveTo.run(eMoveFrom.St5,eMoveTo.St1, null);
+		moveTo.run(eMoveFrom.St1,eMoveTo.St5, null);
+		
+		moveTo.run(eMoveFrom.St5,eMoveTo.St2, null);
+		moveTo.run(eMoveFrom.St2,eMoveTo.St5, null);
+		
+		moveTo.run(eMoveFrom.St5,eMoveTo.St3, null);
+		moveTo.run(eMoveFrom.St3,eMoveTo.St5, null);
+		
+		moveTo.run(eMoveFrom.St5,eMoveTo.St4, null);
+		moveTo.run(eMoveFrom.St4,eMoveTo.St5, null);
 		
 		kmr.unlock();
 
