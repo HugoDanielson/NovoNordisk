@@ -8,6 +8,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import com.kuka.nav.robot.MobileRobot;
+import com.kuka.roboticsAPI.applicationModel.IApplicationData;
 
 public class TcpServerX implements Runnable {
 	private volatile AtomicBoolean bRunning = new AtomicBoolean(false);
@@ -17,14 +18,19 @@ public class TcpServerX implements Runnable {
 	public ExecutorService exClientQueue= Executors.newCachedThreadPool();
 	private MobileRobot kmr;
 	private AtomicBoolean bClientConnected = new AtomicBoolean(false);
-	public TcpServerX(Integer serverPort,MobileRobot kmr){
+	private IApplicationData appData;
+	public TcpServerX(IApplicationData iApplicationData, Integer serverPort,MobileRobot kmr){
 		this.serverPort = serverPort;
 		this.kmr = kmr;
+		this.appData = iApplicationData;
 	}
 
 	@Override
 	public void run() {
-		while (!bRunning.get()) {
+		appData.getProcessData("Error").setValue("OpenServerPort");
+		connect();
+		
+		while (bRunning.get()) {
 			Socket clientSocket = null;
 			try {
 				clientSocket = this.serverSocket.accept();

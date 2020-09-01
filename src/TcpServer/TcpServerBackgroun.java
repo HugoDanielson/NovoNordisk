@@ -37,7 +37,7 @@ public class TcpServerBackgroun extends RoboticsAPICyclicBackgroundTask implemen
 			tcpServer.connect();
 			Error.setValue("e1");
 		}else {
-			tcpServer = new TcpServerX(port,kmr);
+			tcpServer = new TcpServerX(getApplicationData(),port,kmr);
 			tcpServer.connect();
 			Error.setValue("e2");
 		}
