@@ -223,7 +223,6 @@
     </objectTemplates>
     <processDataContainer>
         <processData comment="" dataType="java.lang.Double" defaultValue="0.1" displayName="KMR_Vel" id="KMR_vel" max="0.3" min="0.1" unit="m/s" value="0.1"/>
-    <processData displayName="Error" dataType="java.lang.String" defaultValue="0" id="Error" value="..."/>
-     
+        <processData dataType="java.lang.String" defaultValue="0" displayName="Error" id="Error" value="e1"/>
     </processDataContainer>
 </RoboticsAPIData>
