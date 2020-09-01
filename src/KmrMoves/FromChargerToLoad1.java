@@ -17,7 +17,9 @@ public class FromChargerToLoad1 {
 	}
 public void move(){
 	Location charger = location.get(LOCID);
+	
 	System.out.println("Location Charger = "+charger);
+	System.out.println("KMR battery state = "+kmr.getBatteryState());
 	
 }
 	
