@@ -37,7 +37,19 @@ public class TcpServerBackgroun extends RoboticsAPIBackgroundTask implements Itc
 			Error.setValue("e1");
 		}else {
 			tcpServer = new TcpServerX(getApplicationData(),port,kmr);
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				//e.printStackTrace();
+			}
 			tcpServer.connect();
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				//e.printStackTrace();
+			}
 			Error.setValue("e2");
 		}
 		try {
