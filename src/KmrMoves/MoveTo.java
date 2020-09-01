@@ -11,6 +11,7 @@ public class MoveTo {
 	}
 
 	public void run(Integer stationNr) {
+		
 		switch (stationNr) {
 		case 1:
 			fromChargerToSt1.move();
