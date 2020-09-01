@@ -62,18 +62,17 @@ public class TcpServerX implements Runnable {
 		
 			this.serverSocket = new ServerSocket(serverPort);
 			bRunning.set(true);
-			appData.getProcessData("Error").setValue("Waitring for connection");
-			Thread.sleep(1000);
+			appData.getProcessData("Error").setValue("PortOpen");
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+			//	e.printStackTrace();
+			}
 			
 
 		} catch (IOException e1) {
-			try {
-				this.serverSocket.close();
-			} catch (IOException e) {
-				serverSocket = null;
-			}
-		} catch (InterruptedException e1) {
-
+			appData.getProcessData("Error").setValue("Waitring for connection Err");
 		}
 	}
 
