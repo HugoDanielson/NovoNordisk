@@ -81,7 +81,7 @@ public class MoveTo {
 
 	public void run(GlobalParam.eMoveFrom eFrom, GlobalParam.eMoveTo eTo, XYTheta xYTheta) {
 		if (xYTheta == null) {
-			xYTheta = new XYTheta(0.1, 0.1, 0.1);
+			xYTheta = new XYTheta(0.2, 0.2, 0.2);
 		}
 
 		switch (eFrom) {
