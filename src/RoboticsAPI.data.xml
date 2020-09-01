@@ -208,7 +208,12 @@
             </frames>
             <loadData cogA="0.0" cogB="0.0" cogC="0.0" cogX="0.0" cogY="0.0" cogZ="0.0" inertiaX="0.0" inertiaY="0.0" inertiaZ="0.0" mass="0.0"/>
         </workpieceTemplate>
-        <toolTemplate class="" name="Gripper">
+        <toolTemplate class="" defaultMotionFrameRef="/TCP" name="Gripper">
+            <frames>
+                <frame id="_8f172066-2042-44a2-8bcd-953fa2e6fe26" name="TCP">
+                    <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                </frame>
+            </frames>
             <additionalInformation>
                 <info key="ID" type="java.lang.String" value="1e88bdd1-28c6-4e4d-9ad5-b976dc838c6d"/>
                 <info key="SafetyID" type="java.lang.Integer" value="2"/>

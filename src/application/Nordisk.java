@@ -2,7 +2,7 @@ package application;
 
 import javax.inject.Inject;
 
-import KmrMoves.FromChargerToLoad1;
+
 import KmrMoves.MoveTo;
 
 import com.kuka.nav.data.LocationData;

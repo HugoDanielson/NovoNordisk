@@ -4,7 +4,7 @@ import javax.inject.Inject;
 
 public class MoveTo {
 	@Inject
-	private FromChargerToLoad1 fromChargerToLoad1;
+	private FromChargerToSt1 fromChargerToSt1;
 
 	public MoveTo() {
 
@@ -13,7 +13,7 @@ public class MoveTo {
 	public void run(Integer stationNr) {
 		switch (stationNr) {
 		case 1:
-			fromChargerToLoad1.move();
+			fromChargerToSt1.move();
 			break;
 		case 2:
 
