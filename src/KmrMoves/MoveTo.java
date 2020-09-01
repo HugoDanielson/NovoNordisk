@@ -7,6 +7,10 @@ import MoveTo.MoveFrom.St1.FromSt1ToSt2;
 import MoveTo.MoveFrom.St1.FromSt1ToSt3;
 import MoveTo.MoveFrom.St1.FromSt1ToSt4;
 import MoveTo.MoveFrom.St1.FromSt1ToSt5;
+import MoveTo.MoveFrom.St2.FromSt2ToSt1;
+import MoveTo.MoveFrom.St2.FromSt2ToSt3;
+import MoveTo.MoveFrom.St2.FromSt2ToSt4;
+import MoveTo.MoveFrom.St2.FromSt2ToSt5;
 import MoveTo.MoveFrom.St3.FromSt3ToSt1;
 import MoveTo.MoveFrom.St3.FromSt3ToSt2;
 import MoveTo.MoveFrom.St3.FromSt3ToSt4;
@@ -34,13 +38,13 @@ public class MoveTo {
 	private FromSt1ToSt5 fromSt1ToSt5;
 
 	@Inject
-	private FromSt1ToSt2 fromSt2ToSt1;
+	private FromSt2ToSt1 fromSt2ToSt1;
 	@Inject
-	private FromSt1ToSt3 fromSt2ToSt3;
+	private FromSt2ToSt3 fromSt2ToSt3;
 	@Inject
-	private FromSt1ToSt4 fromSt2ToSt4;
+	private FromSt2ToSt4 fromSt2ToSt4;
 	@Inject
-	private FromSt1ToSt5 fromSt2ToSt5;
+	private FromSt2ToSt5 fromSt2ToSt5;
 	
 	@Inject
 	private FromSt3ToSt1 fromSt3ToSt1;
