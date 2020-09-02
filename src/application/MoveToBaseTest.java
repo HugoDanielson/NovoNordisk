@@ -60,6 +60,13 @@ public class MoveToBaseTest extends RoboticsAPIApplication {
 	
 		tcp.move(pos1);
 		
+		
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+		//	e.printStackTrace();
+		}
 		WP.getLoadData().setMass(weight.getWeightZ(tcp));
 		
 		WP.attachTo(Gripper.getRootFrame());
