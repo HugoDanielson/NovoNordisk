@@ -124,7 +124,8 @@
             <frame id="_91ce2942-8d2f-4f0c-987a-e05acc80d65c" name="BaseShift">
                 <transformation a="0.0" b="1.571" c="0.0" x="150.0" y="0.0" z="0.0"/>
                 <additionalInformation>
-                    <info key="LastModificationTime" type="java.lang.Long" value="1599028315054"/>
+                    <info key="LastModificationTime" type="java.lang.Long" value="1599028444284"/>
+                    <info key="UseAsBaseForJogging" type="java.lang.Boolean" value="true"/>
                 </additionalInformation>
                 <frame id="_b4604e0d-124d-402d-b84c-7efe5de22414" name="CameraOffset">
                     <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
