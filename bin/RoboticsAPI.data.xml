@@ -329,7 +329,7 @@
             </frames>
             <loadData cogA="0.0" cogB="0.0" cogC="0.0" cogX="0.0" cogY="0.0" cogZ="0.0" inertiaX="0.0" inertiaY="0.0" inertiaZ="0.0" mass="0.0"/>
         </workpieceTemplate>
-        <toolTemplate class="" defaultMotionFrameRef="/TCP/AngleOffset" name="Gripper">
+        <toolTemplate class="" defaultMotionFrameRef="/TCP/AngleOffset/ShiftTCP2" name="Gripper">
             <frames>
                 <frame id="_8f172066-2042-44a2-8bcd-953fa2e6fe26" name="TCP">
                     <transformation a="0.0" b="0.0" c="0.0" x="369.7077921999631" y="-279.7256995159316" z="388.1284288511257"/>

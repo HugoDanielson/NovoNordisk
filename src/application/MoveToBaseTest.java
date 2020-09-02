@@ -23,7 +23,7 @@ public class MoveToBaseTest extends RoboticsAPIApplication {
 	@Inject
 	private KmpOmniMove kMR_omniMove_200_CR_1;
 	@Inject 
-	@Named("TCP") 
+	@Named("Gripper") 
 	private Tool TCP;
 	private com.kuka.roboticsAPI.geometricModel.ObjectFrame tcp;
 	@Inject
