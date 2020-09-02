@@ -84,7 +84,7 @@ public class Nordisk extends RoboticsAPIApplication {
 		
 		if (tcpServerMonitor.isAvailable()) {
 			tcpServer =iTcpApi.getTcpServerBackground().getTcpServer();
-		
+			System.out.println("TcpServer instance = " + tcpServer);
 		} else {
 			System.out.println("Creating new instance of tcpServer");
 			task = taskManager.getTask(TcpServerBackground.class);
@@ -104,14 +104,14 @@ public class Nordisk extends RoboticsAPIApplication {
 			System.out.println("TcpServer instance = " + tcpServer);
 		}
 
-//		Queue<String> clientQueue = tcpServer.getClientMessageQueue().getQueue();
-//		while ((Boolean) RunApp.getValue()) {
-//
-//			if (!clientQueue.isEmpty()) {
-//				System.out.println("recieved message =" + clientQueue.poll());
-//			}
-//
-//		}
+		Queue<String> clientQueue = tcpServer.getClientMessageQueue().getQueue();
+		while ((Boolean) RunApp.getValue()) {
+
+			if (!clientQueue.isEmpty()) {
+				System.out.println("recieved message =" + clientQueue.poll());
+			}
+
+		}
 
 //		try {
 //			kmr.lock();
