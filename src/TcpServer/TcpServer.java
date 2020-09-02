@@ -52,7 +52,7 @@ public class  TcpServer implements Runnable {
 				bClientConnected.set(true);
 				output = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
 				input = new BufferedInputStream(this.clientSocket.getInputStream());
-				clientQueue = new ClientMessageQueue(clientSocket, bClientConnected, kmr,input);
+				clientQueue = new ClientMessageQueue(clientSocket, bClientConnected, kmr,input,appData);
 				esClientQueue.execute(clientQueue);
 			} catch (IOException e1) {
 

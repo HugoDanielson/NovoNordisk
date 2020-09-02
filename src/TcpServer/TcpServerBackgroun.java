@@ -28,7 +28,7 @@ public class TcpServerBackgroun extends RoboticsAPIBackgroundTask implements Itc
 	@Named("ServerRunning")
 	IProcessData ServerRunning;
 	private TcpServer tcpServer;
-	private Integer port = 30005;
+	private Integer port = 30001;
 	public ExecutorService exServer;// = Executors.newCachedThreadPool();
 
 	@Override
