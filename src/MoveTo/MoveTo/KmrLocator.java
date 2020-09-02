@@ -1,4 +1,4 @@
-package application;
+package MoveTo.MoveTo;
 
 import com.kuka.nav.Location;
 import com.kuka.nav.Pose;

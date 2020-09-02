@@ -3,7 +3,7 @@ package TcpServer;
 
 public interface ItcpApi {
 
-	public TcpServer getTcpServer();
+	public TcpServerBackground getTcpServerBackground();
 
 	
 		

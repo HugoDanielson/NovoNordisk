@@ -6,8 +6,6 @@ import java.util.Queue;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-
-
 import GlobalParameters.GlobalParam.eMoveFrom;
 import GlobalParameters.GlobalParam.eMoveTo;
 import MoveTo.MoveTo.MoveTo;
@@ -15,7 +13,6 @@ import TcpServer.ClientMessageQueue;
 import TcpServer.ItcpApi;
 import TcpServer.TcpServer;
 import TcpServer.TcpServerBackground;
-
 
 import com.kuka.nav.XYTheta;
 import com.kuka.nav.data.LocationData;
@@ -60,7 +57,7 @@ public class Nordisk extends RoboticsAPIApplication {
 	private ITaskManager taskmanager;
 
 	private TopologyGraph topologyGraph;
-	
+
 	private ItcpApi iTcpApi;
 	private ITaskFunctionMonitor tcpServerMonitor;
 	private Collection<ITaskInstance> instances;
@@ -71,6 +68,7 @@ public class Nordisk extends RoboticsAPIApplication {
 	private MoveTo moveTo;
 	@Inject
 	private MobileRobot kmr;
+
 	@Override
 	public void initialize() {
 		// initialize your application here
@@ -79,9 +77,11 @@ public class Nordisk extends RoboticsAPIApplication {
 	@Override
 	public void run() {
 		tcpServerMonitor = TaskFunctionMonitor.create(getTaskFunction(ItcpApi.class));
-System.out.println("tcpServerMonitor"+tcpServerMonitor.isAvailable());
+		System.out.println("tcpServerMonitor =" + tcpServerMonitor.isAvailable());
+		
 		if (tcpServerMonitor.isAvailable()) {
-			tcpServer = iTcpApi.getTcpServer();
+			tcpServer = iTcpApi.getTcpServerBackground().getTcpServer();
+			System.out.println("tcpServer="+tcpServer);
 		} else {
 			System.out.println("Creating new instance of tcpServer");
 			task = taskManager.getTask(TcpServerBackground.class);
@@ -96,25 +96,20 @@ System.out.println("tcpServerMonitor"+tcpServerMonitor.isAvailable());
 				}
 
 			}
-			
-			tcpServer = iTcpApi.getTcpServer();
+
+			tcpServer = iTcpApi.getTcpServerBackground().getTcpServer();
 			System.out.println("TcpServer instance = " + tcpServer);
 		}
-		
-		
+
 		Queue<String> clientQueue = tcpServer.getClientMessageQueue().getQueue();
-		while ((Boolean)RunApp.getValue()) {
-			
-			if(!clientQueue.isEmpty()){
-				System.out.println("recieved message ="+clientQueue.poll());
+		while ((Boolean) RunApp.getValue()) {
+
+			if (!clientQueue.isEmpty()) {
+				System.out.println("recieved message =" + clientQueue.poll());
 			}
-		
-			
+
 		}
-		
-		
-		
-		
+
 //		try {
 //			kmr.lock();
 //		} catch (LockException e) {

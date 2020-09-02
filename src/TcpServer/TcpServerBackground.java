@@ -67,11 +67,7 @@ public class TcpServerBackground extends RoboticsAPIBackgroundTask implements It
 
 	}
 
-	@Override
-	public TcpServer getTcpServer() {
-		// TODO Auto-generated method stub
-		return tcpServer;
-	}
+	
 
 	@TaskFunctionProvider
 	public ItcpApi getAppInfoFunction() {
@@ -87,6 +83,17 @@ public class TcpServerBackground extends RoboticsAPIBackgroundTask implements It
 
 		}
 		super.dispose();
+	}
+
+
+
+	@Override
+	public TcpServerBackground getTcpServerBackground() {
+		// TODO Auto-generated method stub
+		return this;
+	}
+	public TcpServer getTcpServer(){
+		return tcpServer;
 	}
 
 }
