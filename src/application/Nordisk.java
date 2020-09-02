@@ -81,7 +81,8 @@ public class Nordisk extends RoboticsAPIApplication {
 	@Inject
 	@Named("Gripper")
 	private Tool Gripper;
-	private com.kuka.roboticsAPI.geometricModel.ObjectFrame tcp;
+	private com.kuka.roboticsAPI.geometricModel.ObjectFrame tcp2;
+	private com.kuka.roboticsAPI.geometricModel.ObjectFrame tcp3;
 
 	@Inject
 	@Named("WP")
@@ -127,19 +128,19 @@ public class Nordisk extends RoboticsAPIApplication {
 			System.out.println("TcpServer instance = " + tcpServer);
 		}
 
-		tcp = Gripper.getFrame("/TCP/AngleOffset/ShiftTCP2");
+		tcp2 = Gripper.getFrame("/TCP/AngleOffset/ShiftTCP2");
 
 		refFrame = "/Station1/BaseShift";
 		offset = Transformation.ofDeg(385, 0, 0, 0, 0, 0);
 		pos1 = lin(getApplicationData().getFrame(refFrame).copyWithRedundancy().transform(getApplicationData().getFrame(refFrame), offset)).setJointVelocityRel(0.1);
 
-		tcp.move(pos1);
+		tcp2.move(pos1);
 
 		refFrame = "/Station1/BaseShift";
 		offset = Transformation.ofDeg(385, 0, 50, 0, 0, 0);
 		pos1 = lin(getApplicationData().getFrame(refFrame).copyWithRedundancy().transform(getApplicationData().getFrame(refFrame), offset)).setJointVelocityRel(0.1);
 
-		tcp.move(pos1);
+		tcp2.move(pos1);
 
 		try {
 			Thread.sleep(1000);
@@ -147,10 +148,15 @@ public class Nordisk extends RoboticsAPIApplication {
 			// TODO Auto-generated catch block
 			// e.printStackTrace();
 		}
-		WP.getLoadData().setMass(weight.getWeightZ(tcp));
+		WP.getLoadData().setMass(weight.getWeightZ(tcp2));
 
 		WP.attachTo(Gripper.getRootFrame());
-		tcp.move(pos1);
+		tcp2.move(pos1);
+		
+		
+		
+		
+		
 		
 		// Move KMP OUT REL
 		
@@ -172,6 +178,37 @@ public class Nordisk extends RoboticsAPIApplication {
 		RelativeMotion motion = new RelativeMotion(x, y, theta);
 		kmr.execute(motion.setVelocity(new XYTheta(0.05, 0.05, 0.05)));
 		
+		
+		
+		// Move iiwa to cary pos
+		tcp2.move(ptp(getApplicationData().getFrame("/FromSt1ToCarryPos/P1")).setJointVelocityRel(0.1));
+		tcp2.move(ptp(getApplicationData().getFrame("/FromSt1ToCarryPos/P2")).setJointVelocityRel(0.1));
+		tcp2.move(ptp(getApplicationData().getFrame("/FromSt1ToCarryPos/P3")).setJointVelocityRel(0.1));
+		
+		moveTo.run(eMoveFrom.St1, eMoveTo.St3, null);
+		
+		tcp3 = Gripper.getFrame("/TCP/AngleOffset/ShiftTCP3");
+		
+		tcp3.move(ptp(getApplicationData().getFrame("/Station3/P1")).setJointVelocityRel(0.1));
+		tcp3.move(ptp(getApplicationData().getFrame("/Station3/P2")).setJointVelocityRel(0.1));
+		tcp3.move(ptp(getApplicationData().getFrame("/Station3/P3")).setJointVelocityRel(0.1));
+		tcp3.move(ptp(getApplicationData().getFrame("/Station3/P4")).setJointVelocityRel(0.1));
+		tcp3.move(ptp(getApplicationData().getFrame("/Station3/P5")).setJointVelocityRel(0.1));
+		
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			// e.printStackTrace();
+		}
+		
+		tcp3.move(ptp(getApplicationData().getFrame("/Station3/P5")).setJointVelocityRel(0.1));
+		tcp3.move(ptp(getApplicationData().getFrame("/Station3/P4")).setJointVelocityRel(0.1));
+		tcp3.move(ptp(getApplicationData().getFrame("/Station3/P3")).setJointVelocityRel(0.1));
+		tcp3.move(ptp(getApplicationData().getFrame("/Station3/P2")).setJointVelocityRel(0.1));
+		tcp3.move(ptp(getApplicationData().getFrame("/Station3/P1")).setJointVelocityRel(0.1));
+		
+		moveTo.run(eMoveFrom.St3, eMoveTo.St5, null);
 		kmr.unlock();
 
 //		while (!tcpServer.getbClientConnected().get()) {
