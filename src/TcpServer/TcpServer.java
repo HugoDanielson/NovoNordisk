@@ -50,6 +50,7 @@ public class  TcpServer implements Runnable {
 			try {
 				appData.getProcessData("Error").setValue("Waiting for connection");
 				clientSocket = serverSocket.accept();
+				appData.getProcessData("Error").setValue("Client connected "+clientSocket.getInetAddress());
 				bClientConnected.set(true);
 				output = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
 				input = new BufferedInputStream(this.clientSocket.getInputStream());
