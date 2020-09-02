@@ -8,6 +8,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
+
 import com.kuka.nav.robot.MobileRobot;
 import com.kuka.roboticsAPI.applicationModel.tasks.CycleBehavior;
 import com.kuka.roboticsAPI.applicationModel.tasks.RoboticsAPIBackgroundTask;
@@ -69,10 +70,7 @@ public class TcpServerBackground extends RoboticsAPIBackgroundTask implements It
 
 	
 
-	@TaskFunctionProvider
-	public ItcpApi getAppInfoFunction() {
-		return this;
-	}
+	
 
 	public void dispose() {
 		if (tcpServer != null) {
@@ -85,7 +83,10 @@ public class TcpServerBackground extends RoboticsAPIBackgroundTask implements It
 		super.dispose();
 	}
 
-
+	@TaskFunctionProvider
+	public ItcpApi getAppInfoFunction() {
+		return this;
+	}
 
 	@Override
 	public TcpServerBackground getTcpServerBackground() {
@@ -96,4 +97,7 @@ public class TcpServerBackground extends RoboticsAPIBackgroundTask implements It
 		return tcpServer;
 	}
 
+	
+
+	
 }

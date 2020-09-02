@@ -64,7 +64,7 @@ public class Nordisk extends RoboticsAPIApplication {
 	private ITask task;
 	@Inject
 	private ITaskManager taskManager;
-	private TcpServerBackground tcpServer;
+	private TcpServer tcpServer;
 	@Inject
 	private MoveTo moveTo;
 	@Inject
@@ -77,12 +77,14 @@ public class Nordisk extends RoboticsAPIApplication {
 
 	@Override
 	public void run() {
-		tcpServerMonitor = TaskFunctionMonitor.create(getTaskFunction(ItcpApi.class));
+		iTcpApi = getTaskFunction(ItcpApi.class);
+		tcpServerMonitor = TaskFunctionMonitor.create(iTcpApi);
 		System.out.println("tcpServerMonitor =" + tcpServerMonitor.isAvailable());
 		
+		
 		if (tcpServerMonitor.isAvailable()) {
-			tcpServer = iTcpApi.getTcpServerBackground();
-			System.out.println("tcpServer="+tcpServer);
+			tcpServer =iTcpApi.getTcpServerBackground().getTcpServer();
+		
 		} else {
 			System.out.println("Creating new instance of tcpServer");
 			task = taskManager.getTask(TcpServerBackground.class);
@@ -98,7 +100,7 @@ public class Nordisk extends RoboticsAPIApplication {
 
 			}
 
-			tcpServer = iTcpApi.getTcpServerBackground();
+			tcpServer = iTcpApi.getTcpServerBackground().getTcpServer();
 			System.out.println("TcpServer instance = " + tcpServer);
 		}
 
