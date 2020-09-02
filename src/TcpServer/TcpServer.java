@@ -44,11 +44,11 @@ public class  TcpServer implements Runnable {
 			// e.printStackTrace();
 		}
 		connect();
-
+		appData.getProcessData("Error").setValue("Waiting for connection");
 		while (bRunning.get()) {
 
 			try {
-				appData.getProcessData("Error").setValue("Waiting for connection");
+				
 				clientSocket = serverSocket.accept();
 				appData.getProcessData("Error").setValue("Client connected "+clientSocket.getInetAddress());
 				bClientConnected.set(true);
@@ -94,7 +94,7 @@ public class  TcpServer implements Runnable {
 		if (clientSocket != null && bRunning.get()) {
 			try {
 
-				output.write(message + "\r");
+				output.write(message + "\n");
 				output.flush();
 				System.out.println("Sent :" + message);
 			} catch (IOException e1) {
