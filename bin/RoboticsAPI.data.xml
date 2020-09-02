@@ -215,7 +215,17 @@
                     <measurementTranslation calculationError="3.018365823363001" method="XYZ4Point" timestamp="1599030050251"/>
                     <frames>
                         <frame id="_c6e3b614-93af-420e-bfd4-a4fbbc04935e" name="Frame">
-                            <transformation a="2.3" b="-1.571" c="1.571" x="0.0" y="-263.0" z="-95.0"/>
+                            <transformation a="2.3" b="-1.571" c="1.571" x="0.0" y="0.0" z="0.0"/>
+                            <frames>
+                                <frame id="_51445392-168a-4212-b8d4-528501d2dbbd" name="Frame">
+                                    <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                                    <frames>
+                                        <frame id="_2b816a6c-f1b6-433e-b4e8-7c7c0ce168f3" name="ShiftTCP">
+                                            <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="-260.0" z="-95.0"/>
+                                        </frame>
+                                    </frames>
+                                </frame>
+                            </frames>
                         </frame>
                     </frames>
                 </frame>
@@ -229,7 +239,7 @@
     </objectTemplates>
     <processDataContainer>
         <processData comment="" dataType="java.lang.Double" defaultValue="0.1" displayName="KMR_Vel" id="KMR_vel" max="0.3" min="0.1" unit="m/s" value="0.1"/>
-        <processData dataType="java.lang.String" defaultValue="0" displayName="Error" id="Error" value="Waiting for connection"/>
+        <processData dataType="java.lang.String" defaultValue="0" displayName="Error" id="Error" value="Client connected /172.31.1.240"/>
         <processData dataType="java.lang.Boolean" defaultValue="false" displayName="ServerRunning" id="ServerRunning" value="true"/>
         <processData dataType="java.lang.String" defaultValue="0" displayName="ServerMessage" id="ServerMessage" value="ooo&#10;"/>
         <processData dataType="java.lang.Boolean" defaultValue="true" displayName="RunApp" id="RunApp" value="true"/>
