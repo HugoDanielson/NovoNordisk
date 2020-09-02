@@ -9,36 +9,24 @@ import java.net.Socket;
 import java.util.Queue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
-import sun.net.www.protocol.http.InMemoryCookieStore;
-
-import com.kuka.nav.data.LocationData;
 import com.kuka.nav.robot.MobileRobot;
-import com.kuka.nav.robot.MobileRobotManager;
 
 
 public class ClientMessageQueue implements Runnable {
 
 	private Queue<String> commandQueue = new LinkedBlockingQueue<String>();
 	private Socket clientSocket = null;
-	private BufferedReader input;
+	private BufferedInputStream input;
 	private AtomicBoolean bClientConnected;
 	private MobileRobot kmr;
-	public ClientMessageQueue(Socket clientSocket, AtomicBoolean bClientConnected,MobileRobot kmr) {
+	public ClientMessageQueue(Socket clientSocket, AtomicBoolean bClientConnected,MobileRobot kmr,BufferedInputStream input) {
 		this.clientSocket = clientSocket;
 		this.bClientConnected = bClientConnected;
 		this.kmr = kmr;
+		this.input = input;
 		Thread.currentThread().setName("CustomerMessageQueueThread");
-		try {
-			input = new BufferedReader(new InputStreamReader(this.clientSocket.getInputStream()));
-		} catch (IOException e) {
-
-		}
-
+		
 	}
 
 	@Override
@@ -46,11 +34,11 @@ public class ClientMessageQueue implements Runnable {
 		try {
 
 			String inpMessage;
-			BufferedInputStream bufferedInput = new BufferedInputStream(this.clientSocket.getInputStream());
+			
 			byte[] readedBytesCount = new byte[4096];
 			while (bClientConnected.get()) {
 				int bytesRead = 0;
-				bytesRead = bufferedInput.read(readedBytesCount);
+				bytesRead = input.read(readedBytesCount);
 
 				if (bytesRead > 0) {
 					inpMessage = new String(readedBytesCount, 0, bytesRead);
@@ -90,5 +78,6 @@ public class ClientMessageQueue implements Runnable {
 		return this.commandQueue;
 
 	}
+	
 
 }

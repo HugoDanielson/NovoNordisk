@@ -24,20 +24,20 @@ public class TcpServerBackgroun extends RoboticsAPIBackgroundTask implements Itc
 	@Inject
 	@Named("Error")
 	IProcessData Error;
-	public static TcpServerX tcpServer;
+	public static TcpServer tcpServer;
 	private Integer port = 30005;
-	public ExecutorService exServer ;//= Executors.newCachedThreadPool();
+	public ExecutorService exServer;// = Executors.newCachedThreadPool();
 
 	@Override
 	public void run() {
-		tcpServer = new TcpServerX(getApplicationData(), port, kmr);
+		tcpServer = new TcpServer(getApplicationData(), port, kmr);
 		while (true) {
 			if (tcpServer != null && !tcpServer.isRunning()) {
 				exServer = Executors.newCachedThreadPool();
 				exServer.execute(tcpServer);
 
 			} else if (tcpServer == null) {
-				tcpServer = new TcpServerX(getApplicationData(), port, kmr);
+				tcpServer = new TcpServer(getApplicationData(), port, kmr);
 				try {
 					Thread.sleep(2000);
 				} catch (InterruptedException e) {
@@ -45,7 +45,7 @@ public class TcpServerBackgroun extends RoboticsAPIBackgroundTask implements Itc
 					// e.printStackTrace();
 				}
 				tcpServer.connect();
-				
+
 				Error.setValue("e2");
 			}
 			try {
@@ -59,9 +59,9 @@ public class TcpServerBackgroun extends RoboticsAPIBackgroundTask implements Itc
 	}
 
 	@Override
-	public TcpServerX getTcpServer() {
+	public TcpServer getTcpServer() {
 		// TODO Auto-generated method stub
-		return null;
+		return tcpServer;
 	}
 
 	@TaskFunctionProvider
@@ -70,9 +70,13 @@ public class TcpServerBackgroun extends RoboticsAPIBackgroundTask implements Itc
 	}
 
 	public void dispose() {
+		if (tcpServer != null) {
+			tcpServer.stop();
+		}
+		if (exServer != null) {
+			exServer.shutdownNow();
 
-		tcpServer.stop();
-		exServer.shutdownNow();
+		}
 		super.dispose();
 	}
 
