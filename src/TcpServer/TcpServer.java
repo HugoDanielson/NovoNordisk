@@ -36,9 +36,9 @@ public class  TcpServer implements Runnable {
 
 	@Override
 	public void run() {
-		appData.getProcessData("Error").setValue("OpenServerPort");
+		appData.getProcessData("Error").setValue("Server Started");
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			// e.printStackTrace();
@@ -48,7 +48,8 @@ public class  TcpServer implements Runnable {
 		while (bRunning.get()) {
 
 			try {
-				clientSocket = this.serverSocket.accept();
+				appData.getProcessData("Error").setValue("Waiting for connection");
+				clientSocket = serverSocket.accept();
 				bClientConnected.set(true);
 				output = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
 				input = new BufferedInputStream(this.clientSocket.getInputStream());
@@ -77,7 +78,7 @@ public class  TcpServer implements Runnable {
 			bRunning.set(true);
 			appData.getProcessData("Error").setValue("PortOpen");
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(2000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				// e.printStackTrace();

@@ -28,30 +28,41 @@ public class TcpServerBackgroun extends RoboticsAPIBackgroundTask implements Itc
 	@Named("ServerRunning")
 	IProcessData ServerRunning;
 	private TcpServer tcpServer;
-	private Integer port = 30001;
+	private Integer port = 30002;
 	public ExecutorService exServer;// = Executors.newCachedThreadPool();
 
 	@Override
 	public void run() {
 		tcpServer = new TcpServer(getApplicationData(), port, kmr);
-		while (true) {
-			if (tcpServer != null && !tcpServer.isRunning()) {
-				exServer = Executors.newCachedThreadPool();
-				exServer.execute(tcpServer);
+		exServer = Executors.newCachedThreadPool();
+		exServer.execute(tcpServer);
 
+		while (!exServer.isShutdown()) {
+			while (!tcpServer.isRunning()) {
+				try {
+					Thread.sleep(500);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					// e.printStackTrace();
+				}
+				ServerRunning.setValue(false);
 			}
-			while (tcpServer != null && tcpServer.isRunning()) {
+			while (tcpServer.isRunning()) {
 				ServerRunning.setValue(true);
 				try {
 					Thread.sleep(500);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
-					//e.printStackTrace();
+					// e.printStackTrace();
 				}
-				
-				
+
 			}
-			ServerRunning.setValue(false);
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				// e.printStackTrace();
+			}
 		}
 
 	}
