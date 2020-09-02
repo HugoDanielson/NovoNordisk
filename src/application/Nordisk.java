@@ -120,6 +120,11 @@ public class Nordisk extends RoboticsAPIApplication {
 			}
 
 		}
+		
+		
+		
+		
+		
 
 //		try {
 //			kmr.lock();
