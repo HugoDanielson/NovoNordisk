@@ -17,7 +17,7 @@ import com.kuka.roboticsAPI.persistenceModel.processDataModel.IProcessData;
 import com.kuka.sunrise.common.task.categories.BackgroundTaskCategory;
 import com.kuka.task.properties.TaskFunctionProvider;
 
-public class TcpServerBackgroun extends RoboticsAPIBackgroundTask implements ItcpApi {
+public class TcpServerBackground extends RoboticsAPIBackgroundTask implements ItcpApi {
 
 	@Inject
 	private MobileRobot kmr;

@@ -104,6 +104,10 @@ public class  TcpServer implements Runnable {
 			System.out.println("ERROR: " + "Camera Server not open Or Client not Connected" + "\n");
 		}
 	}
+	
+	public ClientMessageQueue getClientMessageQueue(){
+		return clientQueue;
+	}
 
 	public synchronized void stop() {
 		bRunning.set(false);
