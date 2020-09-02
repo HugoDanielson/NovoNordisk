@@ -26,9 +26,6 @@ public class MoveToBaseTest extends RoboticsAPIApplication {
 	@Named("Gripper") 
 	private Tool TCP;
 	private com.kuka.roboticsAPI.geometricModel.ObjectFrame tcp;
-	@Inject
-	@Named("WP")
-	private Workpiece WP;
 	
 	String refFrame;
 
