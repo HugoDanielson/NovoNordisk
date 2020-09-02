@@ -4,6 +4,8 @@ package application;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import Util.Weight;
+
 import com.kuka.roboticsAPI.applicationModel.RoboticsAPIApplication;
 import static com.kuka.roboticsAPI.motionModel.BasicMotions.*;
 
@@ -24,27 +26,49 @@ public class MoveToBaseTest extends RoboticsAPIApplication {
 	private KmpOmniMove kMR_omniMove_200_CR_1;
 	@Inject 
 	@Named("Gripper") 
-	private Tool TCP;
+	private Tool Gripper;
 	private com.kuka.roboticsAPI.geometricModel.ObjectFrame tcp;
 	
+	@Inject
+	@Named("WP")
+	private Workpiece WP;
+	
+	@Inject
+	private Weight weight;
 	String refFrame;
 
 	private LIN pos1;
 	private ITransformation offset;
 	@Override
 	public void initialize() {
-		TCP.attachTo(lbr.getFlange());
+		Gripper.attachTo(lbr.getFlange());
 	}
 
 	@Override
 	public void run() {
-		tcp = TCP.getFrame("/TCP/AngleOffset/ShiftTCP2");
+		tcp = Gripper.getFrame("/TCP/AngleOffset/ShiftTCP2");
 		
 		refFrame = "/Station1/BaseShift";
 		offset = Transformation.ofDeg(385, 0, 0, 0, 0, 0);
-		pos1 = lin(getApplicationData().getFrame(refFrame).copyWithRedundancy().transform(getApplicationData().getFrame(refFrame), offset)).setJointVelocityRel(0.3);
+		pos1 = lin(getApplicationData().getFrame(refFrame).copyWithRedundancy().transform(getApplicationData().getFrame(refFrame), offset)).setJointVelocityRel(0.1);
 	
 		tcp.move(pos1);
+		
+		refFrame = "/Station1/BaseShift";
+		offset = Transformation.ofDeg(385, 0, 50, 0, 0, 0);
+		pos1 = lin(getApplicationData().getFrame(refFrame).copyWithRedundancy().transform(getApplicationData().getFrame(refFrame), offset)).setJointVelocityRel(0.1);
+	
+		tcp.move(pos1);
+		
+		WP.getLoadData().setMass(weight.getWeightZ(tcp));
+		
+		WP.attachTo(Gripper.getRootFrame());
+		tcp.move(pos1);
+		
+		
+		
+		
+		
 		
 	}
 }
