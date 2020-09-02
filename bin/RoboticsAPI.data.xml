@@ -115,10 +115,11 @@
             </redundancyData>
         </frame>
         <frame id="_05898e6f-cb8f-45ff-9c1c-94c0c1f44174" name="Station1">
-            <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+            <transformation a="3.1298193752104413" b="-0.0034088965504037133" c="0.01957870455655836" x="271.32668130918904" y="-623.899449487763" z="191.91687729104166"/>
             <additionalInformation>
-                <info key="LastModificationTime" type="java.lang.Long" value="1599025066973"/>
+                <info key="LastModificationTime" type="java.lang.Long" value="1599034616981"/>
                 <info key="UseAsBaseForJogging" type="java.lang.Boolean" value="true"/>
+                <info measurementMethod="Base3Point" timestamp="1599034616981" type="com.kuka.roboticsAPI.deviceModel.MeasurementInformation"/>
             </additionalInformation>
             <frame id="_91ce2942-8d2f-4f0c-987a-e05acc80d65c" name="BaseShift">
                 <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
