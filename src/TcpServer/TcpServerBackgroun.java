@@ -24,7 +24,10 @@ public class TcpServerBackgroun extends RoboticsAPIBackgroundTask implements Itc
 	@Inject
 	@Named("Error")
 	IProcessData Error;
-	public static TcpServer tcpServer;
+	@Inject
+	@Named("ServerRunning")
+	IProcessData ServerRunning;
+	private TcpServer tcpServer;
 	private Integer port = 30005;
 	public ExecutorService exServer;// = Executors.newCachedThreadPool();
 
@@ -36,24 +39,19 @@ public class TcpServerBackgroun extends RoboticsAPIBackgroundTask implements Itc
 				exServer = Executors.newCachedThreadPool();
 				exServer.execute(tcpServer);
 
-			} else if (tcpServer == null) {
-				tcpServer = new TcpServer(getApplicationData(), port, kmr);
+			}
+			while (tcpServer != null && tcpServer.isRunning()) {
+				ServerRunning.setValue(true);
 				try {
-					Thread.sleep(2000);
+					Thread.sleep(500);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
-					// e.printStackTrace();
+					//e.printStackTrace();
 				}
-				tcpServer.connect();
-
-				Error.setValue("e2");
+				
+				
 			}
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				// e.printStackTrace();
-			}
+			ServerRunning.setValue(false);
 		}
 
 	}

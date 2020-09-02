@@ -122,7 +122,7 @@ public class  TcpServer implements Runnable {
 			}
 			bClientConnected.set(false);
 		} catch (IOException e1) {
-
+			appData.getProcessData("Error").setValue("Try to close errr");
 		}
 	}
 
