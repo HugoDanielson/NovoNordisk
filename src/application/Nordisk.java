@@ -80,10 +80,9 @@ public class Nordisk extends RoboticsAPIApplication {
 		iTcpApi = getTaskFunction(ItcpApi.class);
 		tcpServerMonitor = TaskFunctionMonitor.create(iTcpApi);
 		System.out.println("tcpServerMonitor =" + tcpServerMonitor.isAvailable());
-		
-		
+
 		if (tcpServerMonitor.isAvailable()) {
-			tcpServer =iTcpApi.getTcpServerBackground().getTcpServer();
+			tcpServer = iTcpApi.getTcpServerBackground().getTcpServer();
 			System.out.println("TcpServer instance = " + tcpServer);
 		} else {
 			System.out.println("Creating new instance of tcpServer");
@@ -103,7 +102,16 @@ public class Nordisk extends RoboticsAPIApplication {
 			tcpServer = iTcpApi.getTcpServerBackground().getTcpServer();
 			System.out.println("TcpServer instance = " + tcpServer);
 		}
+		while (!tcpServer.getbClientConnected().get()) {
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println("Client not connected");
 
+		}
 		Queue<String> clientQueue = tcpServer.getClientMessageQueue().getQueue();
 		while ((Boolean) RunApp.getValue()) {
 

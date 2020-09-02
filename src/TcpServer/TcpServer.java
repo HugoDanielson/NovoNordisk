@@ -132,4 +132,8 @@ public class  TcpServer implements Runnable {
 		}
 	}
 
+	public AtomicBoolean getbClientConnected() {
+		return bClientConnected;
+	}
+
 }
