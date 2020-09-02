@@ -79,7 +79,7 @@ public class Nordisk extends RoboticsAPIApplication {
 	@Override
 	public void run() {
 		tcpServerMonitor = TaskFunctionMonitor.create(getTaskFunction(ItcpApi.class));
-
+System.out.println("tcpServerMonitor"+tcpServerMonitor.isAvailable());
 		if (tcpServerMonitor.isAvailable()) {
 			tcpServer = iTcpApi.getTcpServer();
 		} else {
