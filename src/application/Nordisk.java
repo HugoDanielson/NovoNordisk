@@ -62,6 +62,7 @@ public class Nordisk extends RoboticsAPIApplication {
 	private ITaskFunctionMonitor tcpServerMonitor;
 	private Collection<ITaskInstance> instances;
 	private ITask task;
+	@Inject
 	private ITaskManager taskManager;
 	private TcpServer tcpServer;
 	@Inject
