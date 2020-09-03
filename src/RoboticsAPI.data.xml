@@ -485,7 +485,7 @@
                                     <transformation a="0.0076" b="-0.02" c="3.2238" x="0.0" y="-260.0" z="-21.0"/>
                                 </frame>
                                 <frame id="_a8c5a0f9-dcc2-4357-8590-380b78dcea48" name="ShiftTCP3">
-                                    <transformation a="0.0" b="0.0" c="0.0" x="240.0" y="-460.0" z="50.0"/>
+                                    <transformation a="0.0" b="0.0" c="0.0" x="-240.0" y="-460.0" z="50.0"/>
                                 </frame>
                             </frames>
                         </frame>
