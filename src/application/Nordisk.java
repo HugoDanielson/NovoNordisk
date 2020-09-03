@@ -132,6 +132,15 @@ public class Nordisk extends RoboticsAPIApplication {
 
 		tcp2 = Gripper.getFrame("/TCP/AngleOffset/ShiftTCP2");
 
+		
+		// Move iiwa from Home to St1 pos
+		moveConteiner = tcp2.moveAsync(ptp(getApplicationData().getFrame("/FromHome/FromHomeToSt1/P1")).setJointVelocityRel(0.1));
+		moveConteiner = tcp2.moveAsync(ptp(getApplicationData().getFrame("/FromHome/FromHomeToSt1/P2")).setJointVelocityRel(0.1));
+		moveConteiner = tcp2.moveAsync(ptp(getApplicationData().getFrame("/FromHome/FromHomeToSt1/P3")).setJointVelocityRel(0.1));
+		moveConteiner.await();
+		
+		moveTo.run(eMoveFrom.St3, eMoveTo.St2, null);
+		
 		refFrame = "/Station1/BaseShift";
 		offset = Transformation.ofDeg(385, 0, 0, 0, 0, 0);
 		pos1 = lin(getApplicationData().getFrame(refFrame).copyWithRedundancy().transform(getApplicationData().getFrame(refFrame), offset)).setJointVelocityRel(0.1);
@@ -184,17 +193,17 @@ public class Nordisk extends RoboticsAPIApplication {
 		
 		// Move iiwa to cary pos
 		moveConteiner = tcp2.moveAsync(ptp(getApplicationData().getFrame("/FromSt1ToCarryPos/P1")).setJointVelocityRel(0.1));
-		moveConteiner = tcp2.moveAsync(ptp(getApplicationData().getFrame("/FromSt1ToCarryPos/P6")).setJointVelocityRel(0.1));
-		moveConteiner = tcp2.moveAsync(ptp(getApplicationData().getFrame("/FromSt1ToCarryPos/P7")).setJointVelocityRel(0.1));
+		moveConteiner = tcp2.moveAsync(ptp(getApplicationData().getFrame("/FromSt1ToCarryPos/P8")).setJointVelocityRel(0.1));
+		moveConteiner = tcp2.moveAsync(ptp(getApplicationData().getFrame("/FromSt1ToCarryPos/P9")).setJointVelocityRel(0.1));
 		moveConteiner.await();
 		
 		moveTo.run(eMoveFrom.St1, eMoveTo.St3, null);
 		
 		tcp3 = Gripper.getFrame("/TCP/AngleOffset/ShiftTCP3");
 		
-		moveConteiner = tcp3.moveAsync(ptp(getApplicationData().getFrame("/Station3/P1")).setJointVelocityRel(0.1));
+		//moveConteiner = tcp3.moveAsync(ptp(getApplicationData().getFrame("/Station3/P1")).setJointVelocityRel(0.1));
 		moveConteiner = tcp3.moveAsync(ptp(getApplicationData().getFrame("/Station3/P2")).setJointVelocityRel(0.1));
-		moveConteiner = tcp3.moveAsync(lin(getApplicationData().getFrame("/Station3/P3")).setJointVelocityRel(0.1));
+		//moveConteiner = tcp3.moveAsync(lin(getApplicationData().getFrame("/Station3/P3")).setJointVelocityRel(0.1));
 		moveConteiner = tcp3.moveAsync(lin(getApplicationData().getFrame("/Station3/P4")).setJointVelocityRel(0.1));
 		moveConteiner = tcp3.moveAsync(lin(getApplicationData().getFrame("/Station3/P5")).setJointVelocityRel(0.1));
 		moveConteiner.await();
@@ -208,11 +217,14 @@ public class Nordisk extends RoboticsAPIApplication {
 		
 		moveConteiner = tcp3.moveAsync(lin(getApplicationData().getFrame("/Station3/P5")).setJointVelocityRel(0.1));
 		moveConteiner = tcp3.moveAsync(lin(getApplicationData().getFrame("/Station3/P4")).setJointVelocityRel(0.1));
-		moveConteiner = tcp3.moveAsync(lin(getApplicationData().getFrame("/Station3/P3")).setJointVelocityRel(0.1));
+		//moveConteiner = tcp3.moveAsync(lin(getApplicationData().getFrame("/Station3/P3")).setJointVelocityRel(0.1));
 		moveConteiner = tcp3.moveAsync(ptp(getApplicationData().getFrame("/Station3/P2")).setJointVelocityRel(0.1));
-		moveConteiner = tcp3.moveAsync(ptp(getApplicationData().getFrame("/Station3/P1")).setJointVelocityRel(0.1));
+		//moveConteiner = tcp3.moveAsync(ptp(getApplicationData().getFrame("/Station3/P1")).setJointVelocityRel(0.1));
 		moveConteiner.await();
-		moveTo.run(eMoveFrom.St3, eMoveTo.St5, null);
+		moveConteiner = tcp2.moveAsync(ptp(getApplicationData().getFrame("/FromSt1ToCarryPos/P9")).setJointVelocityRel(0.1));
+		moveConteiner.await();
+	
+		moveTo.run(eMoveFrom.St3, eMoveTo.St2, null);
 		kmr.unlock();
 
 //		while (!tcpServer.getbClientConnected().get()) {
