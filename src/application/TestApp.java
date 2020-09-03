@@ -47,16 +47,17 @@ public class TestApp extends RoboticsAPIApplication {
 	public void run() {
 		// your application execution starts here
 		tcp3 = Gripper.getFrame("/TCP/AngleOffset/ShiftTCP3");
-
-		tcp3.move(ptp(getApplicationData().getFrame("/Station3/P2")));
+		tcp3.move(ptp(getApplicationData().getFrame("/Station3/P1")).setJointVelocityRel(0.1));
+		tcp3.move(ptp(getApplicationData().getFrame("/Station3/P2")).setJointVelocityRel(0.1));
 		
-		tcp3.move(lin(getApplicationData().getFrame("/Station3/P3")));
-		tcp3.move(lin(getApplicationData().getFrame("/Station3/P4")));
-		tcp3.move(lin(getApplicationData().getFrame("/Station3/P5")));
+		tcp3.move(lin(getApplicationData().getFrame("/Station3/P3")).setJointVelocityRel(0.1));
+		tcp3.move(lin(getApplicationData().getFrame("/Station3/P4")).setJointVelocityRel(0.1));
+		tcp3.move(lin(getApplicationData().getFrame("/Station3/P5")).setJointVelocityRel(0.1));
 		
-		tcp3.move(lin(getApplicationData().getFrame("/Station3/P4")));
-		tcp3.move(lin(getApplicationData().getFrame("/Station3/P3")));
-		tcp3.move(lin(getApplicationData().getFrame("/Station3/P2")));
+		tcp3.move(lin(getApplicationData().getFrame("/Station3/P4")).setJointVelocityRel(0.1));
+		tcp3.move(lin(getApplicationData().getFrame("/Station3/P3")).setJointVelocityRel(0.1));
+		tcp3.move(lin(getApplicationData().getFrame("/Station3/P2")).setJointVelocityRel(0.1));
+		tcp3.move(ptp(getApplicationData().getFrame("/Station3/P1")).setJointVelocityRel(0.1));
 		
 	}
 }
