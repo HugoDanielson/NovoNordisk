@@ -27,8 +27,12 @@ import com.kuka.resource.locking.LockException;
 import com.kuka.roboticsAPI.applicationModel.RoboticsAPIApplication;
 import static com.kuka.roboticsAPI.motionModel.BasicMotions.*;
 
+import com.kuka.roboticsAPI.conditionModel.ICallbackAction;
+import com.kuka.roboticsAPI.conditionModel.MotionPathCondition;
+import com.kuka.roboticsAPI.conditionModel.ReferenceType;
 import com.kuka.roboticsAPI.deviceModel.LBR;
 import com.kuka.roboticsAPI.deviceModel.kmp.KmpOmniMove;
+import com.kuka.roboticsAPI.executionModel.IFiredTriggerInfo;
 import com.kuka.roboticsAPI.geometricModel.Tool;
 import com.kuka.roboticsAPI.geometricModel.Workpiece;
 import com.kuka.roboticsAPI.geometricModel.math.ITransformation;
@@ -91,6 +95,7 @@ public class Nordisk extends RoboticsAPIApplication {
 
 	@Inject
 	private Weight weight;
+	private double wpWeight = 0.0;
 	String refFrame;
 
 	private LIN pos1;
@@ -171,7 +176,8 @@ public class Nordisk extends RoboticsAPIApplication {
 			// TODO Auto-generated catch block
 			// e.printStackTrace();
 		}
-		WP.getLoadData().setMass(weight.getWeightZ(tcp2));
+		wpWeight = weight.getWeightZ(tcp2);
+		WP.getLoadData().setMass(wpWeight);
 
 		WP.attachTo(Gripper.getRootFrame());
 		tcp2.move(pos1);
@@ -204,18 +210,34 @@ public class Nordisk extends RoboticsAPIApplication {
 		tcp3 = Gripper.getFrame("/TCP/AngleOffset/ShiftTCP3");
 		
 		//moveConteiner = tcp3.moveAsync(ptp(getApplicationData().getFrame("/Station3/P1")).setJointVelocityRel(0.1));
-		moveConteiner = tcp3.moveAsync(ptp(getApplicationData().getFrame("/Station3/P2")).setJointVelocityRel(0.1));
-		//moveConteiner = tcp3.moveAsync(lin(getApplicationData().getFrame("/Station3/P3")).setJointVelocityRel(0.1));
-		moveConteiner = tcp3.moveAsync(lin(getApplicationData().getFrame("/Station3/P4")).setJointVelocityRel(0.1));
-		moveConteiner = tcp3.moveAsync(lin(getApplicationData().getFrame("/Station3/P5")).setJointVelocityRel(0.1));
+	
+		MotionPathCondition starPosTrigger = new MotionPathCondition(ReferenceType.START, 5, 0);
+
+		ICallbackAction changeWeight = new ICallbackAction() {
+			@Override
+			public void onTriggerFired(IFiredTriggerInfo triggerInformation) {
+				double weightSubstraction = wpWeight/3;
+				WP.getLoadData().setMass(WP.getLoadData().getMass() - weightSubstraction );
+				System.out.println("New weight = "+WP.getLoadData().getMass());
+			}
+		};
+
+		moveConteiner = tcp3.move(ptp(getApplicationData().getFrame("/Station3/P2")).setJointVelocityRel(0.1));
 		moveConteiner.await();
+		waitMs(8000);
+		moveConteiner = tcp3.move(lin(getApplicationData().getFrame("/Station3/P3")).setJointVelocityRel(0.05).triggerWhen(starPosTrigger, changeWeight));
+		moveConteiner.await();
+		waitMs(8000);
+		moveConteiner = tcp3.move(lin(getApplicationData().getFrame("/Station3/P4")).setJointVelocityRel(0.05).triggerWhen(starPosTrigger, changeWeight));
+		moveConteiner.await();
+		waitMs(8000);
+		moveConteiner = tcp3.move(lin(getApplicationData().getFrame("/Station3/P5")).setJointVelocityRel(0.05).triggerWhen(starPosTrigger, changeWeight));
+		moveConteiner.await();
+		waitMs(8000);
+	
 		
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			// e.printStackTrace();
-		}
+		WP.getLoadData().setMass(0.0);
+		WP.detach();
 		
 		moveConteiner = tcp3.moveAsync(lin(getApplicationData().getFrame("/Station3/P5")).setJointVelocityRel(0.1));
 		moveConteiner = tcp3.moveAsync(lin(getApplicationData().getFrame("/Station3/P4")).setJointVelocityRel(0.1));
@@ -273,5 +295,14 @@ public class Nordisk extends RoboticsAPIApplication {
 //		
 //		kmr.unlock();
 
+	}
+	
+	public void waitMs(long ms){
+		try {
+			Thread.sleep(ms);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			// e.printStackTrace();
+		}
 	}
 }
