@@ -139,6 +139,18 @@ public class Nordisk extends RoboticsAPIApplication {
 		moveConteiner = tcp2.moveAsync(ptp(getApplicationData().getFrame("/FromHome/FromHomeToSt1/P3")).setJointVelocityRel(0.1));
 		moveConteiner.await();
 		
+	// Move KMP OUT REL
+		
+		try {
+			kmr.lock();
+		} catch (LockException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		moveTo.run(eMoveFrom.St3, eMoveTo.St2, null);
 		
 		refFrame = "/Station1/BaseShift";
@@ -169,17 +181,7 @@ public class Nordisk extends RoboticsAPIApplication {
 		
 		
 		
-		// Move KMP OUT REL
-		
-		try {
-			kmr.lock();
-		} catch (LockException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	
 		
 		double x = -0.5; // In meters
 		double y = 0.0; // In meters
