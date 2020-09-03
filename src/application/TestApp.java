@@ -2,10 +2,13 @@ package application;
 
 
 import javax.inject.Inject;
+import javax.inject.Named;
+
 import com.kuka.roboticsAPI.applicationModel.RoboticsAPIApplication;
 import static com.kuka.roboticsAPI.motionModel.BasicMotions.*;
 import com.kuka.roboticsAPI.deviceModel.LBR;
 import com.kuka.roboticsAPI.deviceModel.kmp.KmpOmniMove;
+import com.kuka.roboticsAPI.geometricModel.Tool;
 
 /**
  * Implementation of a robot application.
@@ -31,7 +34,10 @@ public class TestApp extends RoboticsAPIApplication {
 
 	@Inject
 	private KmpOmniMove kMR_omniMove_200_CR_1;
-
+	@Inject
+	@Named("Gripper")
+	private Tool Gripper;
+	private com.kuka.roboticsAPI.geometricModel.ObjectFrame tcp3;
 	@Override
 	public void initialize() {
 		// initialize your application here
@@ -40,9 +46,17 @@ public class TestApp extends RoboticsAPIApplication {
 	@Override
 	public void run() {
 		// your application execution starts here
-		//lBR_iiwa_14_R820_1.move(ptpHome());
-		lbr.getFlange().move(ptp(getApplicationData().getFrame("/P5")));
-		lbr.getFlange().move(ptp(getApplicationData().getFrame("/P6")));
+		tcp3 = Gripper.getFrame("/TCP/AngleOffset/ShiftTCP3");
+
+		tcp3.move(ptp(getApplicationData().getFrame("/Station3/P2")));
+		
+		tcp3.move(lin(getApplicationData().getFrame("/Station3/P3")));
+		tcp3.move(lin(getApplicationData().getFrame("/Station3/P4")));
+		tcp3.move(lin(getApplicationData().getFrame("/Station3/P5")));
+		
+		tcp3.move(lin(getApplicationData().getFrame("/Station3/P4")));
+		tcp3.move(lin(getApplicationData().getFrame("/Station3/P3")));
+		tcp3.move(lin(getApplicationData().getFrame("/Station3/P2")));
 		
 	}
 }
