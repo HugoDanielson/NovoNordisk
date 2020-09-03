@@ -34,7 +34,7 @@ public class MoveToBaseTest extends RoboticsAPIApplication {
 	@Named("WP")
 	private Workpiece WP;
 	
-	@Inject
+
 	private double weight;
 	String refFrame;
 
