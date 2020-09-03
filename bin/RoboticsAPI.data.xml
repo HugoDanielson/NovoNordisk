@@ -501,6 +501,22 @@
                 </redundancyData>
             </frame>
         </frame>
+        <frame id="_f0521a08-2b55-4bc8-a739-688b99f14603" name="P7">
+            <transformation a="2.9380086259868294" b="0.7711505439469879" c="1.5808352264430194" x="78.27885357055843" y="618.898110240551" z="453.9350369690028"/>
+            <additionalInformation>
+                <info key="LastModificationTime" type="java.lang.Long" value="1599121147640"/>
+                <info base="LBR_iiwa_14_R820_1" controller="KUKA_Sunrise_Cabinet_1" device="LBR_iiwa_14_R820_1" tcpName="Flange" tool="Flange" type="com.kuka.roboticsAPI.deviceModel.TeachInformation">
+                    <tcpTransformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                </info>
+            </additionalInformation>
+            <redundancyData>
+                <redundancy transformationProviderName="KUKA_Sunrise_Cabinet_1/LBR_iiwa_14_R820_1" type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy">
+                    <info type="com.kuka.roboticsAPI.deviceModel.StatusTurnRedundancy$StatusParameter" value="5" valueType="java.lang.Integer"/>
+                    <info type="com.kuka.roboticsAPI.deviceModel.StatusTurnRedundancy$TurnParameter" value="51" valueType="java.lang.Integer"/>
+                    <info type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy$E1Parameter" value="0.15181256584551642" valueType="java.lang.Double"/>
+                </redundancy>
+            </redundancyData>
+        </frame>
     </world>
     <objectTemplates>
         <toolTemplate class="" name="NoLoad">
