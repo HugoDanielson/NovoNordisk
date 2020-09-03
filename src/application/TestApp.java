@@ -40,7 +40,7 @@ public class TestApp extends RoboticsAPIApplication {
 	private com.kuka.roboticsAPI.geometricModel.ObjectFrame tcp3;
 	@Override
 	public void initialize() {
-		// initialize your application here
+		Gripper.attachTo(lbr.getFlange());
 	}
 
 	@Override
