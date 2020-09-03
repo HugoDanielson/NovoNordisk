@@ -13,6 +13,8 @@ import com.kuka.nav.line.VirtualLineMotion;
 import com.kuka.nav.line.VirtualLineMotionContainer;
 import com.kuka.nav.robot.MobileRobot;
 import com.kuka.resource.locking.LockException;
+import com.kuka.roboticsAPI.deviceModel.LBR;
+import com.kuka.roboticsAPI.geometricModel.World;
 import com.kuka.task.ITaskLogger;
 
 public class kmrMoveAuto implements Runnable{
@@ -21,6 +23,10 @@ public class kmrMoveAuto implements Runnable{
 	private LocationData location;
 	private MobileRobot kmr;
 	private RaspberryIOGroup raspberryControll;
+	@Inject
+	private LBR lbr;
+	double N_to_KG = 9.81;
+	double weight = 0.0;
 	
 	public kmrMoveAuto (ITaskLogger logger,LocationData location,MobileRobot kmr,RaspberryIOGroup raspberryControll){
 		this.logger  = logger;
@@ -31,35 +37,14 @@ public class kmrMoveAuto implements Runnable{
 
 	@Override
 	public void run() {
-		Location pos1 = location.get(11);
-		Location pos2 = location.get(10);
-
-		logger.info("Pos1 = " + pos1.toString());
-		logger.info("Pos2 = " + pos2.toString());
-		logger.info("KMR = " + kmr.getName());
-//		try {
-//			kmr.lock();
-//		} catch (LockException e1) {
-//			// TODO Auto-generated catch block
-//			//e1.printStackTrace();
-//		} catch (InterruptedException e1) {
-//			// TODO Auto-generated catch block
-//			// e1.printStackTrace();
-//		}
-		VirtualLineMotionContainer vcm;// =kmr.execute(new VirtualLineMotion(pos2, pos1).setVelocity(new XYTheta(0.1, 0.1, 0.1)));
+		weight = Math.abs(lbr.getExternalForceTorque(lbr.getFlange(), World.Current.getRootFrame()).getForce().invert().getX() / N_to_KG);
+		System.out.println("*********** Weight of product world inverse =" + weight+"*********** ");
 		
-		while(Thread.currentThread().isAlive()){
-		
-		vcm = kmr.execute(new VirtualLineMotion(pos2, pos1).setVelocity(new XYTheta(0.1, 0.1, 0.1)));
-		vcm.awaitFinalized();
-		raspberryControll.setKMR_Pos1(true);
-		raspberryControll.setKMR_Pos2(false);
-
-		vcm = kmr.execute(new VirtualLineMotion(pos1, pos2).setVelocity(new XYTheta(0.1, 0.1, 0.1)));
-		vcm.awaitFinalized();
-		raspberryControll.setKMR_Pos1(false);
-		raspberryControll.setKMR_Pos2(true);
-		}
-		
+		weight = Math.abs(lbr.getExternalForceTorque(lbr.getFlange()).getForce().invert().getX() / N_to_KG);
+		System.out.println("*********** Weight of product inverse =" + weight+"*********** ");
+	
+	
+		weight = Math.abs(lbr.getExternalForceTorque(lbr.getFlange()).getForce().getX() / N_to_KG);
+		System.out.println("*********** Weight of product not inverse =" + weight+"*********** ");
 	}
 }
