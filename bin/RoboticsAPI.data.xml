@@ -182,30 +182,50 @@
                     <info key="LastModificationTime" type="java.lang.Long" value="1599025161607"/>
                 </additionalInformation>
                 <frame id="_d731bdc3-38a3-4756-828f-ff24ef265081" name="P1">
-                    <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                    <transformation a="-1.0960051553872598" b="-0.9592620539217288" c="-1.8575653175990932" x="347.23238068490934" y="-40.22776385038057" z="1270.0784552822965"/>
                     <additionalInformation>
-                        <info key="LastModificationTime" type="java.lang.Long" value="1599025167682"/>
+                        <info key="LastModificationTime" type="java.lang.Long" value="1599106966370"/>
+                        <info base="LBR_iiwa_14_R820_1" controller="KUKA_Sunrise_Cabinet_1" device="LBR_iiwa_14_R820_1" tcpName="Gripper/TCP/AngleOffset/ShiftTCP2" tool="Gripper" type="com.kuka.roboticsAPI.deviceModel.TeachInformation">
+                            <tcpTransformation a="0.357439756214473" b="-1.5493280353815473" c="0.45425297649289176" x="180.77958563229691" y="-99.87262070163348" z="388.18138301184985"/>
+                        </info>
                     </additionalInformation>
+                    <redundancyData>
+                        <redundancy transformationProviderName="KUKA_Sunrise_Cabinet_1/LBR_iiwa_14_R820_1" type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy">
+                            <info type="com.kuka.roboticsAPI.deviceModel.StatusTurnRedundancy$StatusParameter" value="2" valueType="java.lang.Integer"/>
+                            <info type="com.kuka.roboticsAPI.deviceModel.StatusTurnRedundancy$TurnParameter" value="91" valueType="java.lang.Integer"/>
+                            <info type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy$E1Parameter" value="0.8103157038931497" valueType="java.lang.Double"/>
+                        </redundancy>
+                    </redundancyData>
                 </frame>
                 <frame id="_db126089-ffa0-4a69-ac8d-5b52b301deff" name="P2">
-                    <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                    <transformation a="-1.5229463994925125" b="-1.1344044193003615" c="0.043891889687180344" x="62.172782860731786" y="-578.5804862997069" z="1059.2637375893526"/>
                     <additionalInformation>
-                        <info key="LastModificationTime" type="java.lang.Long" value="1599025176422"/>
-                    </additionalInformation>
-                </frame>
-                <frame id="_9a27115a-4ea3-46cf-89b0-11f6bf531aa8" name="P3">
-                    <transformation a="-1.6032662910010904" b="-0.09355211227678606" c="3.074271811100431" x="-406.4766008388954" y="-924.8167801495738" z="757.8718458659946"/>
-                    <additionalInformation>
-                        <info key="LastModificationTime" type="java.lang.Long" value="1599033735555"/>
-                        <info base="LBR_iiwa_14_R820_1" controller="KUKA_Sunrise_Cabinet_1" device="LBR_iiwa_14_R820_1" tcpName="Gripper/TCP/AngleOffset/ShiftTCP" tool="Gripper" type="com.kuka.roboticsAPI.deviceModel.TeachInformation">
-                            <tcpTransformation a="0.0" b="-1.5705926535897934" c="-2.4121853071753625" x="125.60744306587958" y="-149.18828438601378" z="388.1813799421246"/>
+                        <info key="LastModificationTime" type="java.lang.Long" value="1599106837489"/>
+                        <info base="LBR_iiwa_14_R820_1" controller="KUKA_Sunrise_Cabinet_1" device="LBR_iiwa_14_R820_1" tcpName="Gripper/TCP/AngleOffset/ShiftTCP2" tool="Gripper" type="com.kuka.roboticsAPI.deviceModel.TeachInformation">
+                            <tcpTransformation a="0.357439756214473" b="-1.5493280353815473" c="0.45425297649289176" x="180.77958563229691" y="-99.87262070163348" z="388.18138301184985"/>
                         </info>
                     </additionalInformation>
                     <redundancyData>
                         <redundancy transformationProviderName="KUKA_Sunrise_Cabinet_1/LBR_iiwa_14_R820_1" type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy">
                             <info type="com.kuka.roboticsAPI.deviceModel.StatusTurnRedundancy$StatusParameter" value="6" valueType="java.lang.Integer"/>
-                            <info type="com.kuka.roboticsAPI.deviceModel.StatusTurnRedundancy$TurnParameter" value="61" valueType="java.lang.Integer"/>
-                            <info type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy$E1Parameter" value="-0.005448388217298317" valueType="java.lang.Double"/>
+                            <info type="com.kuka.roboticsAPI.deviceModel.StatusTurnRedundancy$TurnParameter" value="109" valueType="java.lang.Integer"/>
+                            <info type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy$E1Parameter" value="-0.005270482334236327" valueType="java.lang.Double"/>
+                        </redundancy>
+                    </redundancyData>
+                </frame>
+                <frame id="_9a27115a-4ea3-46cf-89b0-11f6bf531aa8" name="P3">
+                    <transformation a="-1.5824601116312218" b="-0.01919863612105388" c="-0.0033917265230085517" x="46.74046422475121" y="-891.178343408202" z="232.13747173692144"/>
+                    <additionalInformation>
+                        <info key="LastModificationTime" type="java.lang.Long" value="1599107070662"/>
+                        <info base="LBR_iiwa_14_R820_1" controller="KUKA_Sunrise_Cabinet_1" device="LBR_iiwa_14_R820_1" tcpName="Gripper/TCP/AngleOffset/ShiftTCP2" tool="Gripper" type="com.kuka.roboticsAPI.deviceModel.TeachInformation">
+                            <tcpTransformation a="0.357439756214473" b="-1.5493280353815473" c="0.45425297649289176" x="180.77958563229691" y="-99.87262070163348" z="388.18138301184985"/>
+                        </info>
+                    </additionalInformation>
+                    <redundancyData>
+                        <redundancy transformationProviderName="KUKA_Sunrise_Cabinet_1/LBR_iiwa_14_R820_1" type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy">
+                            <info type="com.kuka.roboticsAPI.deviceModel.StatusTurnRedundancy$StatusParameter" value="6" valueType="java.lang.Integer"/>
+                            <info type="com.kuka.roboticsAPI.deviceModel.StatusTurnRedundancy$TurnParameter" value="109" valueType="java.lang.Integer"/>
+                            <info type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy$E1Parameter" value="-0.005341608755495147" valueType="java.lang.Double"/>
                         </redundancy>
                     </redundancyData>
                 </frame>
@@ -217,10 +237,20 @@
                 <info key="LastModificationTime" type="java.lang.Long" value="1599025196709"/>
             </additionalInformation>
             <frame id="_cdcdfa3b-2ac2-4429-b408-3ebc289e0809" name="P1">
-                <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                <transformation a="-1.582076962834416" b="-0.021479449954540066" c="-0.003234635128578364" x="116.8542118643876" y="-1006.3148696797889" z="201.53769302486884"/>
                 <additionalInformation>
-                    <info key="LastModificationTime" type="java.lang.Long" value="1599025201723"/>
+                    <info key="LastModificationTime" type="java.lang.Long" value="1599106783606"/>
+                    <info base="LBR_iiwa_14_R820_1" controller="KUKA_Sunrise_Cabinet_1" device="LBR_iiwa_14_R820_1" tcpName="Gripper/TCP/AngleOffset/ShiftTCP2" tool="Gripper" type="com.kuka.roboticsAPI.deviceModel.TeachInformation">
+                        <tcpTransformation a="0.357439756214473" b="-1.5493280353815473" c="0.45425297649289176" x="180.77958563229691" y="-99.87262070163348" z="388.18138301184985"/>
+                    </info>
                 </additionalInformation>
+                <redundancyData>
+                    <redundancy transformationProviderName="KUKA_Sunrise_Cabinet_1/LBR_iiwa_14_R820_1" type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy">
+                        <info type="com.kuka.roboticsAPI.deviceModel.StatusTurnRedundancy$StatusParameter" value="6" valueType="java.lang.Integer"/>
+                        <info type="com.kuka.roboticsAPI.deviceModel.StatusTurnRedundancy$TurnParameter" value="109" valueType="java.lang.Integer"/>
+                        <info type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy$E1Parameter" value="-0.005303558832472419" valueType="java.lang.Double"/>
+                    </redundancy>
+                </redundancyData>
             </frame>
             <frame id="_19a11106-4888-4c35-9503-50d7e1d3add1" name="P2">
                 <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
