@@ -77,14 +77,14 @@ public class MoveToBaseTest extends RoboticsAPIApplication {
 //		
 		
 		
-		weight = Math.abs(lbr.getExternalForceTorque(lbr.getFlange(), World.Current.getRootFrame()).getForce().invert().getZ() / N_to_KG);
+		weight = lbr.getExternalForceTorque(lbr.getFlange(), World.Current.getRootFrame()).getForce().invert().getZ() / N_to_KG;
 		System.out.println("*********** Weight of product world inverse =" + weight+"*********** ");
 		
-		weight = Math.abs(lbr.getExternalForceTorque(lbr.getFlange()).getForce().invert().getZ() / N_to_KG);
+		weight = lbr.getExternalForceTorque(lbr.getFlange()).getForce().invert().getZ() / N_to_KG;
 		System.out.println("*********** Weight of product inverse =" + weight+"*********** ");
 	
 	
-		weight = Math.abs(lbr.getExternalForceTorque(lbr.getFlange()).getForce().getZ() / N_to_KG);
+		weight =lbr.getExternalForceTorque(lbr.getFlange()).getForce().getZ() / N_to_KG;
 		System.out.println("*********** Weight of product not inverse =" + weight+"*********** ");	
 		
 		
