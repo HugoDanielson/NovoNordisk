@@ -151,7 +151,7 @@ public class Nordisk extends RoboticsAPIApplication {
 			e.printStackTrace();
 		}
 		
-		moveTo.run(eMoveFrom.St3, eMoveTo.St2, null);
+		moveTo.run(eMoveFrom.St2, eMoveTo.St1, null);
 		
 		refFrame = "/Station1/BaseShift";
 		offset = Transformation.ofDeg(385, 0, 0, 0, 0, 0);
