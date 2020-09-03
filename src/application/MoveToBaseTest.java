@@ -13,6 +13,7 @@ import com.kuka.roboticsAPI.deviceModel.LBR;
 import com.kuka.roboticsAPI.deviceModel.kmp.KmpOmniMove;
 import com.kuka.roboticsAPI.geometricModel.Tool;
 import com.kuka.roboticsAPI.geometricModel.Workpiece;
+import com.kuka.roboticsAPI.geometricModel.World;
 import com.kuka.roboticsAPI.geometricModel.math.ITransformation;
 import com.kuka.roboticsAPI.geometricModel.math.Transformation;
 import com.kuka.roboticsAPI.motionModel.LIN;
@@ -34,11 +35,13 @@ public class MoveToBaseTest extends RoboticsAPIApplication {
 	private Workpiece WP;
 	
 	@Inject
-	private Weight weight;
+	private double weight;
 	String refFrame;
 
 	private LIN pos1;
 	private ITransformation offset;
+	double N_to_KG = 9.81;
+
 	@Override
 	public void initialize() {
 		Gripper.attachTo(lbr.getFlange());
@@ -46,35 +49,43 @@ public class MoveToBaseTest extends RoboticsAPIApplication {
 
 	@Override
 	public void run() {
-		tcp = Gripper.getFrame("/TCP/AngleOffset/ShiftTCP2");
+//		tcp = Gripper.getFrame("/TCP/AngleOffset/ShiftTCP2");
+//		
+//		refFrame = "/Station1/BaseShift";
+//		offset = Transformation.ofDeg(385, 0, 0, 0, 0, 0);
+//		pos1 = lin(getApplicationData().getFrame(refFrame).copyWithRedundancy().transform(getApplicationData().getFrame(refFrame), offset)).setJointVelocityRel(0.1);
+//	
+//		tcp.move(pos1);
+//		
+//		refFrame = "/Station1/BaseShift";
+//		offset = Transformation.ofDeg(385, 0, 50, 0, 0, 0);
+//		pos1 = lin(getApplicationData().getFrame(refFrame).copyWithRedundancy().transform(getApplicationData().getFrame(refFrame), offset)).setJointVelocityRel(0.1);
+//	
+//		tcp.move(pos1);
+//		
+//		
+//		try {
+//			Thread.sleep(1000);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//		//	e.printStackTrace();
+//		}
+//		WP.getLoadData().setMass(weight.getWeightZ(tcp));
+//		
+//		WP.attachTo(Gripper.getRootFrame());
+//		tcp.move(pos1);
+//		
 		
-		refFrame = "/Station1/BaseShift";
-		offset = Transformation.ofDeg(385, 0, 0, 0, 0, 0);
-		pos1 = lin(getApplicationData().getFrame(refFrame).copyWithRedundancy().transform(getApplicationData().getFrame(refFrame), offset)).setJointVelocityRel(0.1);
+		
+		weight = Math.abs(lbr.getExternalForceTorque(lbr.getFlange(), World.Current.getRootFrame()).getForce().invert().getX() / N_to_KG);
+		System.out.println("*********** Weight of product world inverse =" + weight+"*********** ");
+		
+		weight = Math.abs(lbr.getExternalForceTorque(lbr.getFlange()).getForce().invert().getX() / N_to_KG);
+		System.out.println("*********** Weight of product inverse =" + weight+"*********** ");
 	
-		tcp.move(pos1);
-		
-		refFrame = "/Station1/BaseShift";
-		offset = Transformation.ofDeg(385, 0, 50, 0, 0, 0);
-		pos1 = lin(getApplicationData().getFrame(refFrame).copyWithRedundancy().transform(getApplicationData().getFrame(refFrame), offset)).setJointVelocityRel(0.1);
 	
-		tcp.move(pos1);
-		
-		
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-		//	e.printStackTrace();
-		}
-		WP.getLoadData().setMass(weight.getWeightZ(tcp));
-		
-		WP.attachTo(Gripper.getRootFrame());
-		tcp.move(pos1);
-		
-		
-		
-		
+		weight = Math.abs(lbr.getExternalForceTorque(lbr.getFlange()).getForce().getX() / N_to_KG);
+		System.out.println("*********** Weight of product not inverse =" + weight+"*********** ");	
 		
 		
 	}

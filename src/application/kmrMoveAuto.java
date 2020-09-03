@@ -37,14 +37,6 @@ public class kmrMoveAuto implements Runnable{
 
 	@Override
 	public void run() {
-		weight = Math.abs(lbr.getExternalForceTorque(lbr.getFlange(), World.Current.getRootFrame()).getForce().invert().getX() / N_to_KG);
-		System.out.println("*********** Weight of product world inverse =" + weight+"*********** ");
 		
-		weight = Math.abs(lbr.getExternalForceTorque(lbr.getFlange()).getForce().invert().getX() / N_to_KG);
-		System.out.println("*********** Weight of product inverse =" + weight+"*********** ");
-	
-	
-		weight = Math.abs(lbr.getExternalForceTorque(lbr.getFlange()).getForce().getX() / N_to_KG);
-		System.out.println("*********** Weight of product not inverse =" + weight+"*********** ");
 	}
 }
