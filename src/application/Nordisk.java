@@ -137,15 +137,14 @@ public class Nordisk extends RoboticsAPIApplication {
 
 		tcp2 = Gripper.getFrame("/TCP/AngleOffset/ShiftTCP2");
 
-		
 		// Move iiwa from Home to St1 pos
 		moveConteiner = tcp2.moveAsync(ptp(getApplicationData().getFrame("/FromHome/FromHomeToSt1/P1")).setJointVelocityRel(0.1));
 		moveConteiner = tcp2.moveAsync(ptp(getApplicationData().getFrame("/FromHome/FromHomeToSt1/P2")).setJointVelocityRel(0.1));
 		moveConteiner = tcp2.moveAsync(ptp(getApplicationData().getFrame("/FromHome/FromHomeToSt1/P3")).setJointVelocityRel(0.1));
 		moveConteiner.await();
-		
-	// Move KMP OUT REL
-		
+
+		// Move KMP OUT REL
+
 		try {
 			kmr.lock();
 		} catch (LockException e) {
@@ -155,9 +154,9 @@ public class Nordisk extends RoboticsAPIApplication {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		moveTo.run(eMoveFrom.St2, eMoveTo.St1, null);
-		
+
 		refFrame = "/Station1/BaseShift";
 		offset = Transformation.ofDeg(385, 0, 0, 0, 0, 0);
 		pos1 = lin(getApplicationData().getFrame(refFrame).copyWithRedundancy().transform(getApplicationData().getFrame(refFrame), offset)).setJointVelocityRel(0.1);
@@ -169,56 +168,41 @@ public class Nordisk extends RoboticsAPIApplication {
 		pos1 = lin(getApplicationData().getFrame(refFrame).copyWithRedundancy().transform(getApplicationData().getFrame(refFrame), offset)).setJointVelocityRel(0.1);
 
 		tcp2.move(pos1);
-
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			// e.printStackTrace();
-		}
+		waitMs(1000);
 		wpWeight = weight.getWeightZ(tcp2);
 		WP.getLoadData().setMass(wpWeight);
 
 		WP.attachTo(Gripper.getRootFrame());
 		tcp2.move(pos1);
-		
-		
-		
-		
-		
-		
-	
-		
-		double x = -0.5; // In meters
-		double y = 0.0; // In meters
-		// Convert degrees to radians
+
+		double x = -0.5; 
+		double y = 0.0; 
 		double theta = Math.toRadians(0);
-		
+
 		RelativeMotion motion = new RelativeMotion(x, y, theta);
 		kmr.execute(motion.setVelocity(new XYTheta(0.05, 0.05, 0.05)));
-		
-		
-		
+
 		// Move iiwa to cary pos
 		moveConteiner = tcp2.moveAsync(ptp(getApplicationData().getFrame("/FromSt1ToCarryPos/P1")).setJointVelocityRel(0.1));
 		moveConteiner = tcp2.moveAsync(ptp(getApplicationData().getFrame("/FromSt1ToCarryPos/P8")).setJointVelocityRel(0.1));
 		moveConteiner = tcp2.moveAsync(ptp(getApplicationData().getFrame("/FromSt1ToCarryPos/P9")).setJointVelocityRel(0.1));
 		moveConteiner.await();
-		
+
 		moveTo.run(eMoveFrom.St1, eMoveTo.St3, null);
-		
+
 		tcp3 = Gripper.getFrame("/TCP/AngleOffset/ShiftTCP3");
-		
-		//moveConteiner = tcp3.moveAsync(ptp(getApplicationData().getFrame("/Station3/P1")).setJointVelocityRel(0.1));
-	
+
+		// moveConteiner =
+// tcp3.moveAsync(ptp(getApplicationData().getFrame("/Station3/P1")).setJointVelocityRel(0.1));
+
 		MotionPathCondition starPosTrigger = new MotionPathCondition(ReferenceType.START, 5, 0);
 
 		ICallbackAction changeWeight = new ICallbackAction() {
 			@Override
 			public void onTriggerFired(IFiredTriggerInfo triggerInformation) {
-				double weightSubstraction = wpWeight/3;
-				WP.getLoadData().setMass(WP.getLoadData().getMass() - weightSubstraction );
-				System.out.println("New weight = "+WP.getLoadData().getMass());
+				double weightSubstraction = wpWeight / 3;
+				WP.getLoadData().setMass(WP.getLoadData().getMass() - weightSubstraction);
+				System.out.println("New weight = " + WP.getLoadData().getMass());
 			}
 		};
 
@@ -234,20 +218,20 @@ public class Nordisk extends RoboticsAPIApplication {
 		moveConteiner = tcp3.move(lin(getApplicationData().getFrame("/Station3/P5")).setJointVelocityRel(0.05).triggerWhen(starPosTrigger, changeWeight));
 		moveConteiner.await();
 		waitMs(8000);
-	
-		
+
 		WP.getLoadData().setMass(0.0);
 		WP.detach();
-		
+
 		moveConteiner = tcp3.moveAsync(lin(getApplicationData().getFrame("/Station3/P5")).setJointVelocityRel(0.2));
 		moveConteiner = tcp3.moveAsync(lin(getApplicationData().getFrame("/Station3/P4")).setJointVelocityRel(0.2));
 		moveConteiner = tcp3.moveAsync(lin(getApplicationData().getFrame("/Station3/P3")).setJointVelocityRel(0.2));
 		moveConteiner = tcp3.moveAsync(ptp(getApplicationData().getFrame("/Station3/P2")).setJointVelocityRel(0.2));
-		//moveConteiner = tcp3.moveAsync(ptp(getApplicationData().getFrame("/Station3/P1")).setJointVelocityRel(0.1));
+		// moveConteiner =
+// tcp3.moveAsync(ptp(getApplicationData().getFrame("/Station3/P1")).setJointVelocityRel(0.1));
 		moveConteiner.await();
 		moveConteiner = tcp2.moveAsync(ptp(getApplicationData().getFrame("/FromSt1ToCarryPos/P9")).setJointVelocityRel(0.2));
 		moveConteiner.await();
-	
+
 		moveTo.run(eMoveFrom.St3, eMoveTo.St2, null);
 		kmr.unlock();
 
@@ -296,8 +280,8 @@ public class Nordisk extends RoboticsAPIApplication {
 //		kmr.unlock();
 
 	}
-	
-	public void waitMs(long ms){
+
+	private void waitMs(long ms) {
 		try {
 			Thread.sleep(ms);
 		} catch (InterruptedException e) {
