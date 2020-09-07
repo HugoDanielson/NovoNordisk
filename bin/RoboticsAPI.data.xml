@@ -662,13 +662,14 @@
         <toolTemplate class="" name="Gripper2">
             <frames>
                 <frame id="_89ff888b-b364-4a8e-9b35-57ebbf6d094e" name="TCP2">
-                    <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                    <transformation a="0.0" b="0.0" c="0.0" x="-253.10177179852167" y="-120.65917823488445" z="-0.023549872344963807"/>
+                    <measurementTranslation calculationError="2.832768895987518" method="XYZ4Point" timestamp="1599465500703"/>
                 </frame>
             </frames>
             <additionalInformation>
                 <info key="ID" type="java.lang.String" value="a97170b0-3398-4121-ac21-23dc2f54ca78"/>
             </additionalInformation>
-            <loadData cogA="0.0" cogB="0.0" cogC="0.0" cogX="0.0" cogY="0.0" cogZ="0.0" inertiaX="0.0" inertiaY="0.0" inertiaZ="0.0" mass="0.0"/>
+            <loadData cogA="0.0" cogB="0.0" cogC="0.0" cogX="51.85107774158827" cogY="-34.19080048271565" cogZ="30.765757974746037" inertiaX="0.0" inertiaY="0.0" inertiaZ="0.0" mass="6.928190689282637"/>
         </toolTemplate>
     </objectTemplates>
     <processDataContainer>
