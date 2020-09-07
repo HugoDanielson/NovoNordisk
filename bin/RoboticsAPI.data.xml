@@ -666,7 +666,7 @@
                     <measurementTranslation calculationError="2.832768895987518" method="XYZ4Point" timestamp="1599465500703"/>
                     <frames>
                         <frame id="_736a665b-afc2-4123-8263-42bfd61c9720" name="AngleOffset">
-                            <transformation a="0.7" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                            <transformation a="0.8" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
                         </frame>
                     </frames>
                 </frame>
