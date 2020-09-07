@@ -5,6 +5,8 @@ import javax.inject.Named;
 
 import com.kuka.roboticsAPI.applicationModel.RoboticsAPIApplication;
 import static com.kuka.roboticsAPI.motionModel.BasicMotions.*;
+
+import com.kuka.roboticsAPI.deviceModel.JointPosition;
 import com.kuka.roboticsAPI.deviceModel.LBR;
 import com.kuka.roboticsAPI.deviceModel.kmp.KmpOmniMove;
 import com.kuka.roboticsAPI.geometricModel.Tool;
@@ -20,7 +22,7 @@ public class BaseST2Test extends RoboticsAPIApplication {
 	@Named("Gripper2")
 	private Tool Gripper2;
 	private com.kuka.roboticsAPI.geometricModel.ObjectFrame tcp;
-
+private JointPosition jPos1;
 	@Override
 	public void initialize() {
 		// initialize your application here
@@ -30,6 +32,17 @@ public class BaseST2Test extends RoboticsAPIApplication {
 	public void run() {
 		// your application execution starts here
 
+		jPos1 = new JointPosition(Math.toRadians(85)
+				,Math.toRadians(-44)
+				,Math.toRadians(43)
+				,Math.toRadians(80)
+				,Math.toRadians(80)
+				,Math.toRadians(-48)
+				,Math.toRadians(-75)
+);
+		
+		lbr.move(ptp(jPos1));
+		
 		Gripper2.attachTo(lbr.getFlange());
 
 		tcp = Gripper2.getFrame("TCP2/AngleOffset/ShiftTCP1");
@@ -48,6 +61,8 @@ public class BaseST2Test extends RoboticsAPIApplication {
 		System.out.println("Robot in moving to P4");
 		tcp.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P4")).setJointVelocityRel(0.2));
 
+		
+		
 
 	}
 	
