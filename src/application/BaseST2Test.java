@@ -41,12 +41,12 @@ public class BaseST2Test extends RoboticsAPIApplication {
 		waitSec(2000);
 		System.out.println("Robot in start motion");
 		System.out.println("Robot in moving to P1");
-		tcp.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P1")).setJointVelocityRel(0.2));
+		tcp.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P1")).setJointVelocityRel(0.2));
 		System.out.println("Robot in moving to P3");
 		tcp.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P3")).setJointVelocityRel(0.2));
 
 		System.out.println("Robot in moving to P4");
-		tcp.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P4")).setJointVelocityRel(0.2));
+		tcp.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P4")).setJointVelocityRel(0.2));
 
 
 	}
