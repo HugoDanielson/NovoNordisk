@@ -563,9 +563,9 @@
                             </additionalInformation>
                         </frame>
                         <frame id="_b850b51c-9906-4423-ad3e-2f15cba10e0e" name="P2">
-                            <transformation a="1.571" b="0.0" c="0.0" x="-180.0" y="-300.0" z="0.0"/>
+                            <transformation a="1.571" b="0.0" c="0.0" x="0.0" y="-300.0" z="-180.0"/>
                             <additionalInformation>
-                                <info key="LastModificationTime" type="java.lang.Long" value="1599463643415"/>
+                                <info key="LastModificationTime" type="java.lang.Long" value="1599463877660"/>
                             </additionalInformation>
                         </frame>
                         <frame id="_59102540-f460-4356-9be3-2f123850017e" name="P3">
