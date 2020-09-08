@@ -37,6 +37,8 @@ public class Nordisk_Gripper2 extends RoboticsAPIApplication {
 	private Weight weight;
 	private double wpWeight = 0.0;
 
+	@Inject
+	@Named("Gripper2")
 	private Tool Gripper2;
 	private com.kuka.roboticsAPI.geometricModel.ObjectFrame tcp;
 
