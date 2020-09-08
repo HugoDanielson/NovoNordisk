@@ -74,7 +74,7 @@ public class Nordisk_Gripper2 extends RoboticsAPIApplication {
 
 		VirtualLineMotionContainer vcm;
 
-		vcm = kmr.execute(new VirtualLineMotion(kmr.getPose(), location.get(2).getPose()).setVelocity( new XYTheta(0.2, 0.2, 0.2)));
+		vcm = kmr.execute(new VirtualLineMotion(kmr.getPose(), location.get(2).getPose()).setVelocity( new XYTheta(0.1, 0.1, 0.1)));
 		vcm.awaitFinished();
 		
 		jPos1 = new JointPosition(Math.toRadians(85)
