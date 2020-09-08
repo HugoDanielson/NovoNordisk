@@ -138,8 +138,10 @@ public class Nordisk_Gripper2 extends RoboticsAPIApplication {
 		tcp3 = Gripper2.getFrame("TCP2/AngleOffset/ShiftTCP4");
 
 		tcp3.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P13")).setJointVelocityRel(0.1));
+		tcp3 = Gripper2.getFrame("TCP2/AngleOffset/ShiftTCP3");
 		waitSec(8000);
 		tcp3.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P14")).setJointVelocityRel(0.05));
+		tcp3 = Gripper2.getFrame("TCP2/AngleOffset/ShiftTCP4");
 		waitSec(8000);
 		tcp3.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P15")).setJointVelocityRel(0.1));
 		waitSec(8000);
