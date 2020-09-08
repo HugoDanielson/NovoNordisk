@@ -42,6 +42,7 @@ public class Nordisk_Gripper2 extends RoboticsAPIApplication {
 	@Named("Gripper2")
 	private Tool Gripper2;
 	private com.kuka.roboticsAPI.geometricModel.ObjectFrame tcp;
+	private com.kuka.roboticsAPI.geometricModel.ObjectFrame tcp3;
 
 	@Inject
 	private LocationData location;
@@ -113,6 +114,29 @@ public class Nordisk_Gripper2 extends RoboticsAPIApplication {
 		tcp.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P3")).setJointVelocityRel(0.2));
 
 		moveTo.run(eMoveFrom.St2, eMoveTo.St4, null);
+		
+		
+		tcp.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P5")).setJointVelocityRel(0.2));
+		tcp.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P6")).setJointVelocityRel(0.2));
+		tcp.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P7")).setJointVelocityRel(0.2));
+		tcp.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P8")).setJointVelocityRel(0.2));
+		tcp.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P9")).setJointVelocityRel(0.2));
+		tcp.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P10")).setJointVelocityRel(0.2));
+		tcp.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P11")).setJointVelocityRel(0.2));
+		
+		tcp3 = Gripper2.getFrame("TCP2/AngleOffset/ShiftTCP3");
+		
+		tcp3.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P12")).setJointVelocityRel(0.2));
+		tcp3.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P13")).setJointVelocityRel(0.2));
+		tcp3.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P14")).setJointVelocityRel(0.2));
+		tcp3.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P15")).setJointVelocityRel(0.2));
+		
+		tcp3.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P15")).setJointVelocityRel(0.2));
+		tcp3.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P14")).setJointVelocityRel(0.2));
+		tcp3.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P13")).setJointVelocityRel(0.2));
+		tcp3.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P12")).setJointVelocityRel(0.2));
+		tcp.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P11")).setJointVelocityRel(0.2));
+		
 		
 		
 		kmr.unlock();
