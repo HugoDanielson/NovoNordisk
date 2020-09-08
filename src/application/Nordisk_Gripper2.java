@@ -108,8 +108,8 @@ public class Nordisk_Gripper2 extends RoboticsAPIApplication {
 		System.out.println("Robot in moving to P3 - Platform prepos");
 		tcp.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P3")).setJointVelocityRel(0.2));
 
-		System.out.println("Robot place to the platform");
-		tcp.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P4")).setJointVelocityRel(0.2));
+//		System.out.println("Robot place to the platform");
+//		tcp.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P4")).setJointVelocityRel(0.2));
 
 		//System.out.println("Robot in lift from the platform");
 		//tcp.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P3")).setJointVelocityRel(0.2));
@@ -122,8 +122,8 @@ public class Nordisk_Gripper2 extends RoboticsAPIApplication {
 		kmr.execute(motion.setVelocity(new XYTheta(0.05, 0.05, 0.05)));
 		moveTo.run(eMoveFrom.St2, eMoveTo.St4, null);
 		
-		System.out.println("Robot in lift from the platform");
-				tcp.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P3")).setJointVelocityRel(0.2));
+//		System.out.println("Robot in lift from the platform");
+//				tcp.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P3")).setJointVelocityRel(0.2));
 //		tcp.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P5")).setJointVelocityRel(0.2));
 //		tcp.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P6")).setJointVelocityRel(0.2));
 		tcp.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P7")).setJointVelocityRel(0.2));
