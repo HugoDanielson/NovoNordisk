@@ -86,7 +86,7 @@ public class Nordisk_Gripper2 extends RoboticsAPIApplication {
 				,Math.toRadians(-48)
 				,Math.toRadians(-75));
 		
-		lbr.move(ptp(jPos1));
+		lbr.move(ptp(jPos1).setJointVelocityRel(0.2));
 		
 		
 
@@ -111,8 +111,8 @@ public class Nordisk_Gripper2 extends RoboticsAPIApplication {
 		System.out.println("Robot place to the platform");
 		tcp.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P4")).setJointVelocityRel(0.2));
 
-		System.out.println("Robot in lift from the platform");
-		tcp.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P3")).setJointVelocityRel(0.2));
+		//System.out.println("Robot in lift from the platform");
+		//tcp.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P3")).setJointVelocityRel(0.2));
 
 		double x = -0.5; 
 		double y = 0.0; 
@@ -122,21 +122,26 @@ public class Nordisk_Gripper2 extends RoboticsAPIApplication {
 		kmr.execute(motion.setVelocity(new XYTheta(0.05, 0.05, 0.05)));
 		moveTo.run(eMoveFrom.St2, eMoveTo.St4, null);
 		
-		
+		System.out.println("Robot in lift from the platform");
+				tcp.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P3")).setJointVelocityRel(0.2));
 //		tcp.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P5")).setJointVelocityRel(0.2));
 //		tcp.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P6")).setJointVelocityRel(0.2));
 		tcp.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P7")).setJointVelocityRel(0.2));
 		tcp.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P8")).setJointVelocityRel(0.2));
 		tcp.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P9")).setJointVelocityRel(0.2));
-		tcp.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P10")).setJointVelocityRel(0.2));
+		//tcp.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P10")).setJointVelocityRel(0.2));
 		tcp.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P11")).setJointVelocityRel(0.2));
 		
 		tcp3 = Gripper2.getFrame("TCP2/AngleOffset/ShiftTCP3");
 		
 		tcp3.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P12")).setJointVelocityRel(0.2));
+		waitSec(8000);
 		tcp3.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P13")).setJointVelocityRel(0.2));
+		waitSec(8000);
 		tcp3.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P14")).setJointVelocityRel(0.2));
+		waitSec(8000);
 		tcp3.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P15")).setJointVelocityRel(0.2));
+		waitSec(8000);
 		
 		tcp3.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P15")).setJointVelocityRel(0.2));
 		tcp3.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P14")).setJointVelocityRel(0.2));
