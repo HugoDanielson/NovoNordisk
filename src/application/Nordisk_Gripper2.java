@@ -12,6 +12,7 @@ import com.kuka.nav.XYTheta;
 import com.kuka.nav.data.LocationData;
 import com.kuka.nav.line.VirtualLineMotion;
 import com.kuka.nav.line.VirtualLineMotionContainer;
+import com.kuka.nav.rel.RelativeMotion;
 import com.kuka.nav.robot.MobileRobot;
 import com.kuka.resource.locking.LockException;
 import com.kuka.roboticsAPI.applicationModel.RoboticsAPIApplication;
@@ -113,6 +114,12 @@ public class Nordisk_Gripper2 extends RoboticsAPIApplication {
 		System.out.println("Robot in lift from the platform");
 		tcp.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P3")).setJointVelocityRel(0.2));
 
+		double x = -0.5; 
+		double y = 0.0; 
+		double theta = Math.toRadians(0);
+
+		RelativeMotion motion = new RelativeMotion(x, y, theta);
+		kmr.execute(motion.setVelocity(new XYTheta(0.05, 0.05, 0.05)));
 		moveTo.run(eMoveFrom.St2, eMoveTo.St4, null);
 		
 		
