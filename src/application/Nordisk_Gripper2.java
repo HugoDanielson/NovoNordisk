@@ -116,7 +116,7 @@ public class Nordisk_Gripper2 extends RoboticsAPIApplication {
 		moveTo.run(eMoveFrom.St2, eMoveTo.St4, null);
 		
 		
-		tcp.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P5")).setJointVelocityRel(0.2));
+		tcp.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P5")).setJointVelocityRel(0.2));
 		tcp.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P6")).setJointVelocityRel(0.2));
 		tcp.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P7")).setJointVelocityRel(0.2));
 		tcp.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/ZCalibration/P8")).setJointVelocityRel(0.2));
