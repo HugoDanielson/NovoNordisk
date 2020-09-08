@@ -13,6 +13,7 @@ import com.kuka.nav.data.LocationData;
 import com.kuka.nav.line.VirtualLineMotion;
 import com.kuka.nav.line.VirtualLineMotionContainer;
 import com.kuka.nav.robot.MobileRobot;
+import com.kuka.resource.locking.LockException;
 import com.kuka.roboticsAPI.applicationModel.RoboticsAPIApplication;
 import static com.kuka.roboticsAPI.motionModel.BasicMotions.*;
 
@@ -54,6 +55,17 @@ public class Nordisk_Gripper2 extends RoboticsAPIApplication {
 	@Override
 	public void initialize() {
 		Gripper2.attachTo(lbr.getFlange());
+
+		try {
+			kmr.lock();
+		} catch (LockException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 
 	@Override
@@ -103,7 +115,7 @@ public class Nordisk_Gripper2 extends RoboticsAPIApplication {
 		moveTo.run(eMoveFrom.St2, eMoveTo.St4, null);
 		
 		
-		
+		kmr.unlock();
 	}
 
 	public void waitSec(long waitTime) {
