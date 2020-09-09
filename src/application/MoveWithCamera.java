@@ -128,10 +128,10 @@ public class MoveWithCamera extends RoboticsAPIApplication {
 	@Override
 	public void run() {
 		
-		CameraInit camInit = new CameraInit(getTaskFunction(IcameraAPI.class),2, taskManager, camera);
+		CameraInit camInit = new CameraInit(getTaskFunction(IcameraAPI.class),1, taskManager, camera);
 		camInit.run();
 		camera = camInit.getCamera();
-		camera.changeProgramNr(2);
+		
 		
 		VirtualLineMotionContainer vcm;
 
@@ -155,7 +155,7 @@ public class MoveWithCamera extends RoboticsAPIApplication {
 		tcp1 = Gripper2.getFrame("/TCP2/AngleOffset/ShiftTCP1");	
 		tcp1.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CamPosition")).setJointJerkRel(0.2));
 		
-		
+		camera.changeProgramNr(2);
 		camera.trigger();
 		System.out.println("Camera Offset ="+camera.getResult().toString());
 		
