@@ -947,7 +947,7 @@
                                     <transformation a="0.0" b="0.0" c="0.0" x="95.0" y="0.0" z="0.0"/>
                                 </frame>
                                 <frame id="_a2a82d1c-d6a4-4186-a2ca-463e4d2c392b" name="ShiftTCP4">
-                                    <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="530.0"/>
+                                    <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="300.0"/>
                                 </frame>
                             </frames>
                         </frame>
