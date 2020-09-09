@@ -37,7 +37,7 @@ public class CameraAPIbackground extends RoboticsAPIBackgroundTask implements Ic
 
 	private boolean bConnected = false;
 	private String ipAddress = "172.31.1.130";
-	private int port = 23;
+	private int port = 30001;
 	public Socket clientSocket;
 	private InetSocketAddress inetAddress;
 	private InetAddress hostname;
