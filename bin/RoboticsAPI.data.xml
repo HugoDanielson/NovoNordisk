@@ -931,8 +931,8 @@
         <toolTemplate class="" name="Gripper2">
             <frames>
                 <frame id="_89ff888b-b364-4a8e-9b35-57ebbf6d094e" name="TCP2">
-                    <transformation a="0.0" b="0.0" c="0.0" x="-253.10177179852167" y="-120.65917823488445" z="-0.023549872344963807"/>
-                    <measurementTranslation calculationError="2.832768895987518" method="XYZ4Point" timestamp="1599465500703"/>
+                    <transformation a="0.0" b="0.0" c="0.0" x="-250.1421876332531" y="-118.95829217902072" z="6.776314843662297"/>
+                    <measurementTranslation calculationError="8.41836863902771" method="XYZ4Point" timestamp="1599637336273"/>
                     <frames>
                         <frame id="_736a665b-afc2-4123-8263-42bfd61c9720" name="AngleOffset">
                             <transformation a="0.85" b="-1.571" c="1.571" x="0.0" y="0.0" z="0.0"/>
