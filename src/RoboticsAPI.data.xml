@@ -983,6 +983,11 @@
                     <frames>
                         <frame id="_b6dcc91b-bff3-42d3-9de3-81b95cd6d567" name="AngleChange">
                             <transformation a="0.7" b="1.571" c="1.571" x="0.0" y="0.0" z="0.0"/>
+                            <frames>
+                                <frame id="_43337a7b-f735-4262-ab7e-a0dfd4bc6d9f" name="Shift1">
+                                    <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="261.0" z="390.0"/>
+                                </frame>
+                            </frames>
                         </frame>
                     </frames>
                 </frame>
