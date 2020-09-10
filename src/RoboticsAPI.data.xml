@@ -547,7 +547,7 @@
                     <info key="UseAsBaseForJogging" type="java.lang.Boolean" value="true"/>
                 </additionalInformation>
                 <frame id="_b1b9a088-8868-40b1-b309-a95b243649ca" name="CameraOffset">
-                    <transformation a="-6.981317007977317E-5" b="0.0" c="0.0" x="-7.061" y="-2.04" z="0.0"/>
+                    <transformation a="2.268928027592628E-4" b="0.0" c="0.0" x="-7.247" y="-1.575" z="0.0"/>
                     <additionalInformation>
                         <info key="LastModificationTime" type="java.lang.Long" value="1599461205768"/>
                     </additionalInformation>
@@ -772,9 +772,9 @@
                         </redundancyData>
                     </frame>
                     <frame id="_14838ff6-6746-4023-926e-ac289b9ca42f" name="P1">
-                        <transformation a="1.571" b="0.0" c="0.0" x="0.0" y="-300.0" z="100.0"/>
+                        <transformation a="1.571" b="0.0" c="0.0" x="0.0" y="-150.0" z="100.0"/>
                         <additionalInformation>
-                            <info key="LastModificationTime" type="java.lang.Long" value="1599463602262"/>
+                            <info key="LastModificationTime" type="java.lang.Long" value="1599720083039"/>
                         </additionalInformation>
                     </frame>
                     <frame id="_e598fc0d-8c36-4251-be75-c36613c55671" name="P4">
@@ -982,7 +982,7 @@
                                     <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="261.0" z="390.0"/>
                                 </frame>
                                 <frame id="_1794b78b-87b5-4fd4-a094-7c82226eee9c" name="Shift2">
-                                    <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="261.0" z="0.0"/>
+                                    <transformation a="0.0" b="0.0" c="0.1" x="0.0" y="261.0" z="0.0"/>
                                 </frame>
                             </frames>
                         </frame>
