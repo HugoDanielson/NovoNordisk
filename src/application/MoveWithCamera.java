@@ -11,6 +11,8 @@ import javax.inject.Named;
 import Camera.CameraAPIbackground;
 import Camera.CameraInit;
 import Camera.IcameraAPI;
+import GlobalParameters.GlobalParam.eMoveFrom;
+import GlobalParameters.GlobalParam.eMoveTo;
 import MoveTo.MoveTo.MoveTo;
 import TcpServer.ItcpApi;
 import TcpServer.TcpServer;
@@ -171,7 +173,25 @@ public class MoveWithCamera extends RoboticsAPIApplication {
 		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P1")).setJointJerkRel(0.1));
 		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P2")).setJointJerkRel(0.05));
 		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P1")).setJointJerkRel(0.05));
+		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P3")).setJointJerkRel(0.05));
+		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P4")).setJointJerkRel(0.05));
+		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P5")).setJointJerkRel(0.05));
+		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P6")).setJointJerkRel(0.05));
 
+		
+		double x = -0.5; 
+		double y = 0.0; 
+		double theta = Math.toRadians(0);
+
+		RelativeMotion motion = new RelativeMotion(x, y, theta);
+		kmr.execute(motion.setVelocity(new XYTheta(0.05, 0.05, 0.05)));
+		moveTo.run(eMoveFrom.St2, eMoveTo.St4, null);
+		moveFineLocation(locData.get(4), 0.05, kmr);
+		
+		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P7")).setJointJerkRel(0.05));
+		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P8")).setJointJerkRel(0.05));
+
+		
 		
 		kmr.unlock();
 		
