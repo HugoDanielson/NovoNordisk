@@ -982,7 +982,7 @@
         <processData dataType="java.lang.Boolean" defaultValue="false" displayName="ServerRunning" id="ServerRunning" value="true"/>
         <processData dataType="java.lang.String" defaultValue="0" displayName="ServerMessage" id="ServerMessage" value="ooo&#10;"/>
         <processData dataType="java.lang.Boolean" defaultValue="true" displayName="RunApp" id="RunApp" value="true"/>
-        <processData dataType="java.lang.String" defaultValue="0" displayName="sCameraStatus" id="sCameraStatus" value="Connected"/>
-        <processData dataType="java.lang.Boolean" defaultValue="true" displayName="bCameraConnected" id="bCameraConnected" value="true"/>
+        <processData dataType="java.lang.String" defaultValue="0" displayName="sCameraStatus" id="sCameraStatus" value="Waiting for connection"/>
+         <processData dataType="java.lang.Boolean" defaultValue="true" displayName="bCameraConnected" id="bCameraConnected" value="true"/>
     </processDataContainer>
 </RoboticsAPIData>

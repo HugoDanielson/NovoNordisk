@@ -148,7 +148,7 @@ public class CameraAPIbackground extends RoboticsAPIBackgroundTask implements Ic
 		}
 		if (!bLoggedIn && inMessage.contains(PASSWORD)) {
 			inMessage = "NA";
-			sendMessage("admin");
+			sendMessage("");
 			return "NA";
 		}
 		if (!bLoggedIn && inMessage.contains(LOGGEDIN)) {
