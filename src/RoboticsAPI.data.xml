@@ -547,7 +547,7 @@
                     <info key="UseAsBaseForJogging" type="java.lang.Boolean" value="true"/>
                 </additionalInformation>
                 <frame id="_b1b9a088-8868-40b1-b309-a95b243649ca" name="CameraOffset">
-                    <transformation a="-2.268928027592628E-4" b="0.0" c="0.0" x="-7.077" y="-1.975" z="0.0"/>
+                    <transformation a="2.268928027592628E-4" b="0.0" c="0.0" x="-7.247" y="-1.575" z="0.0"/>
                     <additionalInformation>
                         <info key="LastModificationTime" type="java.lang.Long" value="1599461205768"/>
                     </additionalInformation>
@@ -734,9 +734,9 @@
                         </redundancyData>
                     </frame>
                     <frame id="_b850b51c-9906-4423-ad3e-2f15cba10e0e" name="P2">
-                        <transformation a="1.571" b="0.0" c="0.0" x="0.0" y="-300.0" z="-180.0"/>
+                        <transformation a="1.571" b="0.0" c="0.0" x="0.0" y="-150.0" z="-180.0"/>
                         <additionalInformation>
-                            <info key="LastModificationTime" type="java.lang.Long" value="1599463877660"/>
+                            <info key="LastModificationTime" type="java.lang.Long" value="1599720336718"/>
                         </additionalInformation>
                     </frame>
                     <frame id="_fcd55276-cc63-4fbd-ba1a-168bf7d8c5f9" name="P10">

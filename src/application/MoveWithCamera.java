@@ -169,7 +169,8 @@ public class MoveWithCamera extends RoboticsAPIApplication {
 		
 		tcp2 = ZCQY.getFrame("/ZCQY_Text/AngleChange/Shift2");	
 		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P1")).setJointJerkRel(0.2));
-		
+		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P2")).setJointJerkRel(0.2));
+
 		
 		kmr.unlock();
 		
