@@ -236,7 +236,7 @@ public class CameraAPIbackground extends RoboticsAPIBackgroundTask implements Ic
 			}
 		}
 
-		camResult.setResX(-Double.valueOf(inMessage.substring(3)));
+		camResult.setResX(Double.valueOf(inMessage.substring(3)));
 		inMessage = "NA";
 		// System.out.println("Send >" + eCamCommand.GetResultY.getValue());
 		sendMessage(eCamCommand.GetResultY.getValue());
@@ -246,7 +246,7 @@ public class CameraAPIbackground extends RoboticsAPIBackgroundTask implements Ic
 			} catch (InterruptedException e) {
 			}
 		}
-		camResult.setResY(-Double.valueOf(inMessage.substring(3)));
+		camResult.setResY(Double.valueOf(inMessage.substring(3)));
 		inMessage = "NA";
 		// System.out.println("Send >" + eCamCommand.GetResultA.getValue());
 		sendMessage(eCamCommand.GetResultA.getValue());
