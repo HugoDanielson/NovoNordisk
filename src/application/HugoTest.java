@@ -24,7 +24,7 @@ public class HugoTest extends RoboticsAPIApplication {
 	private LocationData locations;
 	@Inject
 	private KmpOmniMove kMR_omniMove_200_CR_1;
-	
+	private int i;
 @Inject
 private MapZoneData mapData;
 	@Override
@@ -36,11 +36,13 @@ private MapZoneData mapData;
 	public void run() {
 		// your application execution starts here
 		Collection<MapZone> data = mapData.getAll();
-		
+		i = 0;
 		for (MapZone mapZone : data) {
+			String name = "Zone"+i;
 			System.out.println("MapData = "+mapZone.getName());
 			System.out.println("Robot is inside =" +mapZone.isInside(kmp));
-			System.out.println("Zone shape ="+mapZone.getShape());
+			mapZone.getShape().setName(name);
+			System.out.println("Zone shape ="+mapZone.getName());
 		}
 		
 	}
