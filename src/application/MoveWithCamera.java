@@ -170,13 +170,13 @@ public class MoveWithCamera extends RoboticsAPIApplication {
 		base.setBase(getFrame("/Station2/BaseShift/CameraOffset"), camera.getResult().getResX(), camera.getResult().getResY(), 0, camera.getResult().getResA(), 0, 0);
 		
 		tcp2 = ZCQY.getFrame("/ZCQY_Text/AngleChange/Shift2");	
-		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P1")).setJointVelocityRel(0.1));
-		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P2")).setJointVelocityRel(0.1));
-		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P1")).setJointVelocityRel(0.1));
-		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P3")).setJointVelocityRel(0.1));
-		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P4")).setJointVelocityRel(0.1));
-		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P5")).setJointVelocityRel(0.1));
-		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P6")).setJointVelocityRel(0.1));
+		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P1")).setBlendingCart(20).setJointVelocityRel(0.1));
+		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P2")).setBlendingCart(20).setJointVelocityRel(0.1));
+		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P1")).setBlendingCart(20).setJointVelocityRel(0.1));
+		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P3")).setBlendingCart(20).setJointVelocityRel(0.1));
+		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P4")).setBlendingCart(20).setJointVelocityRel(0.1));
+		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P5")).setBlendingCart(20).setJointVelocityRel(0.1));
+		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P6")).setJointVelocityRel(0.1));
 
 		
 		double x = -0.5; 
@@ -188,7 +188,7 @@ public class MoveWithCamera extends RoboticsAPIApplication {
 		moveTo.run(eMoveFrom.St2, eMoveTo.St4, null);
 		moveFineLocation(locData.get(4), 0.05, kmr);
 		
-		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P7")).setJointVelocityRel(0.1));
+		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P7")).setBlendingCart(20).setJointVelocityRel(0.1));
 		
 		tcp1.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P8")).setJointVelocityRel(0.05));
 
