@@ -14,6 +14,7 @@ import Camera.IcameraAPI;
 import MoveTo.MoveTo.MoveTo;
 import TcpServer.ItcpApi;
 import TcpServer.TcpServer;
+import Util.BaseManipulation;
 import Util.Weight;
 
 
@@ -95,6 +96,9 @@ public class MoveWithCamera extends RoboticsAPIApplication {
 	@Inject
 	@Named("WP")
 	private Workpiece WP;
+	
+	@Inject
+	private BaseManipulation base;
 
 	@Inject
 	private Weight weight;
@@ -158,6 +162,13 @@ public class MoveWithCamera extends RoboticsAPIApplication {
 		camera.changeProgramNr(2);
 		camera.trigger();
 		System.out.println("Camera Offset ="+camera.getResult().toString());
+		
+		
+		base.DeleteOldData(getFrame("/Station2/BaseShift/CameraOffset"));
+		base.setBase(getFrame("/Station2/BaseShift/CameraOffset"), 0, 0, 0, 0, 0, 0);
+		
+		
+		
 		
 		kmr.unlock();
 		
