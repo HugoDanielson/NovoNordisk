@@ -24,8 +24,7 @@ public class HugoTest extends RoboticsAPIApplication {
 	private LocationData locations;
 	@Inject
 	private KmpOmniMove kMR_omniMove_200_CR_1;
-	@Inject
-	private MapZone zones;
+	
 @Inject
 private MapZoneData mapData;
 	@Override
