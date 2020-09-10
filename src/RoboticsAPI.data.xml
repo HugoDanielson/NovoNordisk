@@ -975,6 +975,17 @@
             </additionalInformation>
             <loadData cogA="0.0" cogB="0.0" cogC="0.0" cogX="51.85107774158827" cogY="-34.19080048271565" cogZ="30.765757974746037" inertiaX="0.0" inertiaY="0.0" inertiaZ="0.0" mass="6.928190689282637"/>
         </toolTemplate>
+        <toolTemplate class="" name="ZCQY">
+            <frames>
+                <frame id="_7ca7071b-4073-4985-882d-611b3e43b005" name="ZCQY_Text">
+                    <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                </frame>
+            </frames>
+            <additionalInformation>
+                <info key="ID" type="java.lang.String" value="bb8736c9-b33f-4611-af5f-803459edb492"/>
+            </additionalInformation>
+            <loadData cogA="0.0" cogB="0.0" cogC="0.0" cogX="0.0" cogY="0.0" cogZ="0.0" inertiaX="0.0" inertiaY="0.0" inertiaZ="0.0" mass="0.0"/>
+        </toolTemplate>
     </objectTemplates>
     <processDataContainer>
         <processData comment="" dataType="java.lang.Double" defaultValue="0.1" displayName="KMR_Vel" id="KMR_vel" max="0.3" min="0.1" unit="m/s" value="0.1"/>
