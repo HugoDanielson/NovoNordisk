@@ -159,7 +159,7 @@ public class MoveWithCamera extends RoboticsAPIApplication {
 		lbr.move(ptp(jPos1).setJointVelocityRel(0.2));
 		
 		tcp1 = ZCQY.getFrame("/ZCQY_Text/AngleChange/Shift1");	
-		tcp1.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CamPosition")).setJointJerkRel(0.1));
+		tcp1.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CamPosition")).setJointVelocityRel(0.1));
 		
 		camera.changeProgramNr(2);
 		camera.trigger();
@@ -170,13 +170,13 @@ public class MoveWithCamera extends RoboticsAPIApplication {
 		base.setBase(getFrame("/Station2/BaseShift/CameraOffset"), camera.getResult().getResX(), camera.getResult().getResY(), 0, camera.getResult().getResA(), 0, 0);
 		
 		tcp2 = ZCQY.getFrame("/ZCQY_Text/AngleChange/Shift2");	
-		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P1")).setJointJerkRel(0.1));
-		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P2")).setJointJerkRel(0.05));
-		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P1")).setJointJerkRel(0.05));
-		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P3")).setJointJerkRel(0.05));
-		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P4")).setJointJerkRel(0.05));
-		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P5")).setJointJerkRel(0.05));
-		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P6")).setJointJerkRel(0.05));
+		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P1")).setJointVelocityRel(0.1));
+		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P2")).setJointVelocityRel(0.1));
+		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P1")).setJointVelocityRel(0.1));
+		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P3")).setJointVelocityRel(0.1));
+		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P4")).setJointVelocityRel(0.1));
+		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P5")).setJointVelocityRel(0.1));
+		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P6")).setJointVelocityRel(0.1));
 
 		
 		double x = -0.5; 
@@ -188,8 +188,9 @@ public class MoveWithCamera extends RoboticsAPIApplication {
 		moveTo.run(eMoveFrom.St2, eMoveTo.St4, null);
 		moveFineLocation(locData.get(4), 0.05, kmr);
 		
-		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P7")).setJointJerkRel(0.05));
-		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P8")).setJointJerkRel(0.05));
+		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P7")).setJointVelocityRel(0.1));
+		
+		tcp1.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P8")).setJointVelocityRel(0.05));
 
 		
 		
