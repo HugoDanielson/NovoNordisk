@@ -41,8 +41,6 @@ private MapZoneData mapData;
 			String name = "Zone"+i;
 			System.out.println("MapData = "+mapZone.getName());
 			System.out.println("Robot is inside =" +mapZone.isInside(kmp));
-			mapZone.getShape().setName(name);
-			System.out.println("Zone shape ="+mapZone.getName());
 		}
 		
 	}
