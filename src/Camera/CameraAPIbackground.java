@@ -258,13 +258,9 @@ public class CameraAPIbackground extends RoboticsAPIBackgroundTask implements Ic
 		}
 	System.out.println("Camera A string ="+inMessage.substring(3));
 	
-	if(Math.abs(Double.valueOf(inMessage.substring(3))) > 10 ){
-		camResult.setResA(-(360+Double.valueOf(inMessage.substring(3))));	
-	}else{
 		camResult.setResA(Double.valueOf(inMessage.substring(3)));	
-	}
-	camResult.setResA(0.0);
-	System.out.println("Camera A string ="+camResult.getResA());
+	
+	
 		
 		inMessage = "NA";
 		// System.out.println("Send >" + eCamCommand.GetError.getValue());
