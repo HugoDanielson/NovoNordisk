@@ -157,7 +157,7 @@ public class MoveWithCamera extends RoboticsAPIApplication {
 		lbr.move(ptp(jPos1).setJointVelocityRel(0.2));
 		
 		tcp1 = ZCQY.getFrame("/ZCQY_Text/AngleChange/Shift1");	
-		tcp1.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CamPosition")).setJointJerkRel(0.2));
+		tcp1.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CamPosition")).setJointJerkRel(0.1));
 		
 		camera.changeProgramNr(2);
 		camera.trigger();
@@ -167,7 +167,8 @@ public class MoveWithCamera extends RoboticsAPIApplication {
 		base.DeleteOldData(getFrame("/Station2/BaseShift/CameraOffset"));
 		base.setBase(getFrame("/Station2/BaseShift/CameraOffset"), camera.getResult().getResX(), camera.getResult().getResY(), 0, camera.getResult().getResA(), 0, 0);
 		
-		
+		tcp2 = ZCQY.getFrame("/ZCQY_Text/AngleChange/Shift2");	
+		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P1")).setJointJerkRel(0.2));
 		
 		
 		kmr.unlock();
