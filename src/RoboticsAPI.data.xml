@@ -980,6 +980,11 @@
                 <frame id="_7ca7071b-4073-4985-882d-611b3e43b005" name="ZCQY_Text">
                     <transformation a="0.0" b="0.0" c="0.0" x="111.93754446607053" y="252.50545113740696" z="88.59305648736017"/>
                     <measurementTranslation calculationError="2.3027604775932504" method="XYZ4Point" timestamp="1599721093279"/>
+                    <frames>
+                        <frame id="_b6dcc91b-bff3-42d3-9de3-81b95cd6d567" name="AngleChange">
+                            <transformation a="2.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                        </frame>
+                    </frames>
                 </frame>
             </frames>
             <additionalInformation>
