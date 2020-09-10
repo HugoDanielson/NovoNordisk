@@ -764,7 +764,8 @@
         <toolTemplate class="" name="ZCQY_LearningText">
             <frames>
                 <frame id="_ac801011-e747-47ed-a1a3-cfc678a1d19b" name="TCP_ZCQY">
-                    <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                    <transformation a="0.0" b="0.0" c="0.0" x="116.70762329961782" y="253.65982948217845" z="88.4611648075172"/>
+                    <measurementTranslation calculationError="10.37705930102394" method="XYZ4Point" timestamp="1599706215599"/>
                 </frame>
             </frames>
             <additionalInformation>
