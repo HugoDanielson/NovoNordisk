@@ -547,7 +547,7 @@
                     <info key="UseAsBaseForJogging" type="java.lang.Boolean" value="true"/>
                 </additionalInformation>
                 <frame id="_b1b9a088-8868-40b1-b309-a95b243649ca" name="CameraOffset">
-                    <transformation a="2.268928027592628E-4" b="0.0" c="0.0" x="-7.247" y="-1.575" z="0.0"/>
+                    <transformation a="-2.6179938779914935E-4" b="0.0" c="0.0" x="-7.049" y="-2.081" z="0.0"/>
                     <additionalInformation>
                         <info key="LastModificationTime" type="java.lang.Long" value="1599461205768"/>
                     </additionalInformation>
