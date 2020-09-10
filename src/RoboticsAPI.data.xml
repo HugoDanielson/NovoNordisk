@@ -547,7 +547,7 @@
                     <info key="UseAsBaseForJogging" type="java.lang.Boolean" value="true"/>
                 </additionalInformation>
                 <frame id="_b1b9a088-8868-40b1-b309-a95b243649ca" name="CameraOffset">
-                    <transformation a="-2.6179938779914935E-4" b="0.0" c="0.0" x="-7.049" y="-2.081" z="0.0"/>
+                    <transformation a="2.268928027592628E-4" b="0.0" c="0.0" x="-7.247" y="-1.575" z="0.0"/>
                     <additionalInformation>
                         <info key="LastModificationTime" type="java.lang.Long" value="1599461205768"/>
                     </additionalInformation>
@@ -734,9 +734,9 @@
                         </redundancyData>
                     </frame>
                     <frame id="_b850b51c-9906-4423-ad3e-2f15cba10e0e" name="P2">
-                        <transformation a="1.571" b="0.0" c="0.0" x="0.0" y="-150.0" z="-180.0"/>
+                        <transformation a="1.571" b="0.0" c="0.0" x="0.0" y="-250.0" z="-100.0"/>
                         <additionalInformation>
-                            <info key="LastModificationTime" type="java.lang.Long" value="1599720336718"/>
+                            <info key="LastModificationTime" type="java.lang.Long" value="1599720625730"/>
                         </additionalInformation>
                     </frame>
                     <frame id="_fcd55276-cc63-4fbd-ba1a-168bf7d8c5f9" name="P10">
@@ -772,9 +772,9 @@
                         </redundancyData>
                     </frame>
                     <frame id="_14838ff6-6746-4023-926e-ac289b9ca42f" name="P1">
-                        <transformation a="1.571" b="0.0" c="0.0" x="0.0" y="-150.0" z="100.0"/>
+                        <transformation a="1.571" b="0.0" c="0.0" x="0.0" y="-250.0" z="100.0"/>
                         <additionalInformation>
-                            <info key="LastModificationTime" type="java.lang.Long" value="1599720083039"/>
+                            <info key="LastModificationTime" type="java.lang.Long" value="1599720611965"/>
                         </additionalInformation>
                     </frame>
                     <frame id="_e598fc0d-8c36-4251-be75-c36613c55671" name="P4">
