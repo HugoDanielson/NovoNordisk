@@ -534,11 +534,11 @@
             </redundancyData>
         </frame>
         <frame id="_b7d8a877-b55e-41bd-8018-dc349db21c14" name="Station2">
-            <transformation a="3.1337565502002076" b="0.006880716715109605" c="0.03382081547978628" x="737.3000400488365" y="-270.80583407799634" z="-24.259817723157795"/>
+            <transformation a="3.118068658708543" b="0.0052403591047615414" c="-0.0018421244991892961" x="763.6078467352581" y="-316.9914600397449" z="-21.651918794936506"/>
             <additionalInformation>
-                <info key="LastModificationTime" type="java.lang.Long" value="1599711002736"/>
+                <info key="LastModificationTime" type="java.lang.Long" value="1599723846054"/>
                 <info key="UseAsBaseForJogging" type="java.lang.Boolean" value="true"/>
-                <info measurementMethod="Base3Point" timestamp="1599711002736" type="com.kuka.roboticsAPI.deviceModel.MeasurementInformation"/>
+                <info measurementMethod="Base3Point" timestamp="1599723846054" type="com.kuka.roboticsAPI.deviceModel.MeasurementInformation"/>
             </additionalInformation>
             <frame id="_3cab541f-f7c4-4f3b-bbd4-489a88956e2a" name="BaseShift">
                 <transformation a="1.571" b="0.0" c="0.0" x="0.0" y="340.0" z="0.0"/>
