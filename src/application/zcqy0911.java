@@ -194,7 +194,7 @@ public class zcqy0911 extends RoboticsAPIApplication {
 		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P7")).setBlendingCart(20).setJointVelocityRel(0.1));
 		kmr.execute(motion.setVelocity(new XYTheta(0.05, 0.05, 0.05)));
 		moveTo.run(eMoveFrom.St4, eMoveTo.St2, null);
-		moveFineLocation(locData.get(4), 0.05, kmr);
+		moveFineLocation(locData.get(2), 0.05, kmr);
 		
 		
 		kmr.unlock();

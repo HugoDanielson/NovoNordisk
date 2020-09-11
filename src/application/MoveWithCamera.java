@@ -138,12 +138,13 @@ public class MoveWithCamera extends RoboticsAPIApplication {
 		//camInit.run();
 		//camera = camInit.getCamera();
 		
+		//***AGV MOVE***//
 		
-		VirtualLineMotionContainer vcm;
+		//VirtualLineMotionContainer vcm;
 
-		vcm = kmr.execute(new VirtualLineMotion(kmr.getPose(), locData.get(2).getPose()).setVelocity( new XYTheta(0.1, 0.1, 0.1)));
-		vcm.awaitFinished();	
-		moveFineLocation(locData.get(2), 0.05, kmr);
+		//vcm = kmr.execute(new VirtualLineMotion(kmr.getPose(), locData.get(2).getPose()).setVelocity( new XYTheta(0.1, 0.1, 0.1)));
+		//vcm.awaitFinished();	
+		//moveFineLocation(locData.get(2), 0.05, kmr);
 		
 		
 		
