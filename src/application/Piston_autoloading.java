@@ -137,13 +137,14 @@ public class Piston_autoloading extends RoboticsAPIApplication {
 		//camInit.run();
 		//camera = camInit.getCamera();
 		
-		//***AGV MOVE***//
+		//***move AGV to Charger from anywhere***//
 		
-		//VirtualLineMotionContainer vcm;
+		VirtualLineMotionContainer vcm;
 
-		//vcm = kmr.execute(new VirtualLineMotion(kmr.getPose(), locData.get(2).getPose()).setVelocity( new XYTheta(0.1, 0.1, 0.1)));
-		//vcm.awaitFinished();	
-		//moveFineLocation(locData.get(2), 0.05, kmr);
+		vcm = kmr.execute(new VirtualLineMotion(kmr.getPose(), locData.get(5).getPose()).setVelocity( new XYTheta(0.1, 0.1, 0.1)));
+		vcm.awaitFinished();
+		//Finetune
+		moveFineLocation(locData.get(5), 0.05, kmr);
 		
 		
 		
@@ -158,8 +159,9 @@ public class Piston_autoloading extends RoboticsAPIApplication {
 		
 		//lbr.move(ptp(jPos1).setJointVelocityRel(0.2));
 		
-		ZCQY.getFrame("/ZCQY_Text/AngleChange/Shift1");
-		
+		//tcp1 = ZCQY.getFrame("/ZCQY_Text/AngleChange/Shift1");
+		tcp2 = ZCQY.getFrame("/ZCQY_Text/AngleChange/Shift2");	
+		tcp3 = ZCQY.getFrame("/ZCQY_Text/AngleChange/Shift3");	
 		//camera.changeProgramNr(2);
 		//camera.trigger();
 		//System.out.println("Camera Offset ="+camera.getResult().toString());
@@ -168,9 +170,30 @@ public class Piston_autoloading extends RoboticsAPIApplication {
 		base.DeleteOldData(getFrame("/Station2/BaseShift/CameraOffset"));
 		//base.setBase(getFrame("/Station2/BaseShift/CameraOffset"), camera.getResult().getResX(), camera.getResult().getResY(), 0, camera.getResult().getResA(), 0, 0);
 		
-		tcp2 = ZCQY.getFrame("/ZCQY_Text/AngleChange/Shift2");	
-		tcp3 = ZCQY.getFrame("/ZCQY_Text/AngleChange/Shift3");	
+		//move AGV from Charger(st5) to T-BOX(st2)
+		double x = -0.5; 
+		double y = 0.0; 
+		double theta = Math.toRadians(0);
+		RelativeMotion motion = new RelativeMotion(x, y, theta);
+		kmr.execute(motion.setVelocity(new XYTheta(0.05, 0.05, 0.05)));
+		moveTo.run(eMoveFrom.St5, eMoveTo.St2, null);
+		moveFineLocation(locData.get(2), 0.05, kmr);
+		 
+		//Grip the support box
+		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P1")).setBlendingCart(50).setJointVelocityRel(0.1));
+		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P2")).setBlendingCart(50).setJointVelocityRel(0.1));
+		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P1")).setBlendingCart(50).setJointVelocityRel(0.1));
+		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P3")).setBlendingCart(50).setJointVelocityRel(0.1));
+		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P4")).setBlendingCart(50).setJointVelocityRel(0.1));
+		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P5")).setBlendingCart(50).setJointVelocityRel(0.1));
+		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P6")).setJointVelocityRel(0.1));
+
+		//move AGV from T-BOX(st2) to piston loading place(st4)
+		kmr.execute(motion.setVelocity(new XYTheta(0.05, 0.05, 0.05)));
+		moveTo.run(eMoveFrom.St2, eMoveTo.St4, null);
+		moveFineLocation(locData.get(4), 0.05, kmr);
 		
+		//loading piston
 		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P7")).setBlendingCart(20).setJointVelocityRel(0.1));
 		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P8")).setJointVelocityRel(0.1));
 		tcp3.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P9")).setJointVelocityRel(0.1));
