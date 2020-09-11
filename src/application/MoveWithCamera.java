@@ -111,9 +111,9 @@ public class MoveWithCamera extends RoboticsAPIApplication {
 	private ITransformation offset;
 	private IMotionContainer moveConteiner;
 	
-	public CameraAPIbackground camera;
-	private IcameraAPI iCammeraAPI;
-	private ITaskFunctionMonitor cameraMonitor;
+	//public CameraAPIbackground camera;
+	//private IcameraAPI iCammeraAPI;
+	//private ITaskFunctionMonitor cameraMonitor;
 	private ExecutorService esCameraInit = Executors.newSingleThreadExecutor();
 	@Override
 	public void initialize() {
@@ -134,9 +134,9 @@ public class MoveWithCamera extends RoboticsAPIApplication {
 	@Override
 	public void run() {
 		
-		CameraInit camInit = new CameraInit(getTaskFunction(IcameraAPI.class),1, taskManager, camera);
-		camInit.run();
-		camera = camInit.getCamera();
+		//CameraInit camInit = new CameraInit(getTaskFunction(IcameraAPI.class),1, taskManager, camera);
+		//camInit.run();
+		//camera = camInit.getCamera();
 		
 		
 		VirtualLineMotionContainer vcm;
@@ -161,13 +161,13 @@ public class MoveWithCamera extends RoboticsAPIApplication {
 		tcp1 = ZCQY.getFrame("/ZCQY_Text/AngleChange/Shift1");	
 		tcp1.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CamPosition")).setJointVelocityRel(0.1));
 		
-		camera.changeProgramNr(2);
-		camera.trigger();
-		System.out.println("Camera Offset ="+camera.getResult().toString());
+		//camera.changeProgramNr(2);
+		//camera.trigger();
+		//System.out.println("Camera Offset ="+camera.getResult().toString());
 		
 		
 		base.DeleteOldData(getFrame("/Station2/BaseShift/CameraOffset"));
-		base.setBase(getFrame("/Station2/BaseShift/CameraOffset"), camera.getResult().getResX(), camera.getResult().getResY(), 0, camera.getResult().getResA(), 0, 0);
+		//base.setBase(getFrame("/Station2/BaseShift/CameraOffset"), camera.getResult().getResX(), camera.getResult().getResY(), 0, camera.getResult().getResA(), 0, 0);
 		
 		tcp2 = ZCQY.getFrame("/ZCQY_Text/AngleChange/Shift2");	
 		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P1")).setBlendingCart(50).setJointVelocityRel(0.1));
