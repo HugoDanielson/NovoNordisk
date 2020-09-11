@@ -157,7 +157,7 @@ public class Piston_autoloading extends RoboticsAPIApplication {
 				,Math.toRadians(-48)
 				,Math.toRadians(-75));
 		
-		//lbr.move(ptp(jPos1).setJointVelocityRel(0.2));
+		lbr.move(ptp(jPos1).setJointVelocityRel(0.2));
 		
 		//tcp1 = ZCQY.getFrame("/ZCQY_Text/AngleChange/Shift1");
 		tcp2 = ZCQY.getFrame("/ZCQY_Text/AngleChange/Shift2");	
@@ -178,7 +178,7 @@ public class Piston_autoloading extends RoboticsAPIApplication {
 		kmr.execute(motion.setVelocity(new XYTheta(0.05, 0.05, 0.05)));
 		moveTo.run(eMoveFrom.St5, eMoveTo.St2, null);
 		moveFineLocation(locData.get(2), 0.05, kmr);
-		 
+		
 		//Grip the support box
 		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P1")).setBlendingCart(50).setJointVelocityRel(0.1));
 		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P2")).setBlendingCart(50).setJointVelocityRel(0.1));
