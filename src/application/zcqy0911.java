@@ -55,7 +55,7 @@ import com.kuka.task.ITaskLogger;
 import com.kuka.task.ITaskManager;
 
 
-public class MoveWithCamera extends RoboticsAPIApplication {
+public class zcqy0911 extends RoboticsAPIApplication {
 	@Inject
 	private LBR lbr;
 	@Inject
@@ -170,10 +170,31 @@ public class MoveWithCamera extends RoboticsAPIApplication {
 		//base.setBase(getFrame("/Station2/BaseShift/CameraOffset"), camera.getResult().getResX(), camera.getResult().getResY(), 0, camera.getResult().getResA(), 0, 0);
 		
 		tcp2 = ZCQY.getFrame("/ZCQY_Text/AngleChange/Shift2");	
+		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P1")).setBlendingCart(50).setJointVelocityRel(0.1));
+		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P2")).setBlendingCart(50).setJointVelocityRel(0.1));
+		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P1")).setBlendingCart(50).setJointVelocityRel(0.1));
+		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P3")).setBlendingCart(50).setJointVelocityRel(0.1));
+		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P4")).setBlendingCart(50).setJointVelocityRel(0.1));
+		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P5")).setBlendingCart(50).setJointVelocityRel(0.1));
+		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P6")).setJointVelocityRel(0.1));
+
+		
+		double x = -0.5; 
+		double y = 0.0; 
+		double theta = Math.toRadians(0);
+
+		RelativeMotion motion = new RelativeMotion(x, y, theta);
+		kmr.execute(motion.setVelocity(new XYTheta(0.05, 0.05, 0.05)));
+		moveTo.run(eMoveFrom.St2, eMoveTo.St4, null);
+		moveFineLocation(locData.get(4), 0.05, kmr);
 		
 		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P7")).setBlendingCart(20).setJointVelocityRel(0.1));
+		
 		tcp1.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P8")).setJointVelocityRel(0.05));
 		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P7")).setBlendingCart(20).setJointVelocityRel(0.1));
+		kmr.execute(motion.setVelocity(new XYTheta(0.05, 0.05, 0.05)));
+		moveTo.run(eMoveFrom.St4, eMoveTo.St2, null);
+		moveFineLocation(locData.get(4), 0.05, kmr);
 		
 		
 		kmr.unlock();
