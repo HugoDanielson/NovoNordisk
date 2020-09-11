@@ -94,7 +94,7 @@ public class MoveWithCamera extends RoboticsAPIApplication {
 	private Tool ZCQY;
 	private com.kuka.roboticsAPI.geometricModel.ObjectFrame tcp1;
 	private com.kuka.roboticsAPI.geometricModel.ObjectFrame tcp2;
-
+	private com.kuka.roboticsAPI.geometricModel.ObjectFrame tcp3;
 	@Inject
 	@Named("WP")
 	private Workpiece WP;
@@ -171,11 +171,14 @@ public class MoveWithCamera extends RoboticsAPIApplication {
 		//base.setBase(getFrame("/Station2/BaseShift/CameraOffset"), camera.getResult().getResX(), camera.getResult().getResY(), 0, camera.getResult().getResA(), 0, 0);
 		
 		tcp2 = ZCQY.getFrame("/ZCQY_Text/AngleChange/Shift2");	
+		tcp3 = ZCQY.getFrame("/ZCQY_Text/AngleChange/Shift3");	
 		
 		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P7")).setBlendingCart(20).setJointVelocityRel(0.1));
-		tcp1.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P8")).setJointVelocityRel(0.05));
-		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P7")).setBlendingCart(20).setJointVelocityRel(0.1));
-		
+		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P8")).setJointVelocityRel(0.1));
+		tcp3.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P9")).setJointVelocityRel(0.1));
+		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P8")).setJointVelocityRel(0.1));
+		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P7")).setBlendingCart(20).setJointVelocityRel(0.1));
+
 		
 		kmr.unlock();
 		
