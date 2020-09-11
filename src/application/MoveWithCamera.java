@@ -192,7 +192,8 @@ public class MoveWithCamera extends RoboticsAPIApplication {
 		
 		tcp1.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P8")).setJointVelocityRel(0.05));
 		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P7")).setBlendingCart(20).setJointVelocityRel(0.1));
-		
+		moveTo.run(eMoveFrom.St4, eMoveTo.St2, null);
+		moveFineLocation(locData.get(4), 0.05, kmr);
 		
 		
 		kmr.unlock();
