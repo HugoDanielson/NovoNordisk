@@ -110,9 +110,7 @@ public class Piston_autoloading extends RoboticsAPIApplication {
 	private ITransformation offset;
 	private IMotionContainer moveConteiner;
 	
-	//public CameraAPIbackground camera;
-	//private IcameraAPI iCammeraAPI;
-	//private ITaskFunctionMonitor cameraMonitor;
+	
 	private ExecutorService esCameraInit = Executors.newSingleThreadExecutor();
 	@Override
 	public void initialize() {
@@ -133,22 +131,13 @@ public class Piston_autoloading extends RoboticsAPIApplication {
 	@Override
 	public void run() {
 		
-		//CameraInit camInit = new CameraInit(getTaskFunction(IcameraAPI.class),1, taskManager, camera);
-		//camInit.run();
-		//camera = camInit.getCamera();
-		
 		//***move AGV to Charger from anywhere***//
-		
 		VirtualLineMotionContainer vcm;
-
 		vcm = kmr.execute(new VirtualLineMotion(kmr.getPose(), locData.get(5).getPose()).setVelocity( new XYTheta(0.1, 0.1, 0.1)));
 		vcm.awaitFinished();
+		
 		//Finetune
-		moveFineLocation(locData.get(5), 0.05, kmr);
-		
-		
-		
-		
+		moveFineLocation(locData.get(5), 0.05, kmr);	
 		JointPosition jPos1 = new JointPosition(Math.toRadians(85)
 				,Math.toRadians(-44)
 				,Math.toRadians(43)
@@ -161,14 +150,8 @@ public class Piston_autoloading extends RoboticsAPIApplication {
 		
 		//tcp1 = ZCQY.getFrame("/ZCQY_Text/AngleChange/Shift1");
 		tcp2 = ZCQY.getFrame("/ZCQY_Text/AngleChange/Shift2");	
-		tcp3 = ZCQY.getFrame("/ZCQY_Text/AngleChange/Shift3");	
-		//camera.changeProgramNr(2);
-		//camera.trigger();
-		//System.out.println("Camera Offset ="+camera.getResult().toString());
-		
-		
+		tcp3 = ZCQY.getFrame("/ZCQY_Text/AngleChange/Shift3");
 		base.DeleteOldData(getFrame("/Station2/BaseShift/CameraOffset"));
-		//base.setBase(getFrame("/Station2/BaseShift/CameraOffset"), camera.getResult().getResX(), camera.getResult().getResY(), 0, camera.getResult().getResA(), 0, 0);
 		
 		//move AGV from Charger(st5) to T-BOX(st2)
 		double x = -0.5; 
@@ -182,6 +165,7 @@ public class Piston_autoloading extends RoboticsAPIApplication {
 		//Grip the support box
 		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P1")).setBlendingCart(50).setJointVelocityRel(0.1));
 		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P2")).setBlendingCart(50).setJointVelocityRel(0.1));
+		waitSec(2000);
 		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P1")).setBlendingCart(50).setJointVelocityRel(0.1));
 		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P3")).setBlendingCart(50).setJointVelocityRel(0.1));
 		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P4")).setBlendingCart(50).setJointVelocityRel(0.1));
@@ -191,15 +175,22 @@ public class Piston_autoloading extends RoboticsAPIApplication {
 		//move AGV from T-BOX(st2) to piston loading place(st4)
 		kmr.execute(motion.setVelocity(new XYTheta(0.05, 0.05, 0.05)));
 		moveTo.run(eMoveFrom.St2, eMoveTo.St4, null);
-		moveFineLocation(locData.get(4), 0.05, kmr);
+		moveFineLocation(locData.get(4), 0.2, kmr);
 		
 		//loading piston
 		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P7")).setBlendingCart(20).setJointVelocityRel(0.1));
 		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P8")).setJointVelocityRel(0.1));
 		tcp3.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P9")).setJointVelocityRel(0.1));
+		waitSec(5000);
 		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P8")).setJointVelocityRel(0.1));
 		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P7")).setBlendingCart(20).setJointVelocityRel(0.1));
 
+		//back to T-BOX(st2)
+		kmr.execute(motion.setVelocity(new XYTheta(0.05, 0.05, 0.05)));
+		moveTo.run(eMoveFrom.St4, eMoveTo.St2, null);
+		moveFineLocation(locData.get(2), 0.2, kmr);
+		
+		//put down the support box
 		
 		kmr.unlock();
 		
@@ -252,6 +243,16 @@ public class Piston_autoloading extends RoboticsAPIApplication {
 		esCameraInit.shutdownNow();
 		esCameraInit = null;
 		System.gc();
+
+	}
+	public void waitSec(long waitTime) {
+
+		try {
+			Thread.sleep(waitTime);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			// e.printStackTrace();
+		}
 
 	}
 }

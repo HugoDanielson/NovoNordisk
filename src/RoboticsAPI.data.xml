@@ -744,9 +744,9 @@
                         </redundancyData>
                     </frame>
                     <frame id="_b850b51c-9906-4423-ad3e-2f15cba10e0e" name="P2">
-                        <transformation a="1.571" b="0.0" c="0.0" x="0.0" y="-250.0" z="-100.0"/>
+                        <transformation a="1.571" b="0.0" c="0.0" x="0.0" y="-250.0" z="-130.0"/>
                         <additionalInformation>
-                            <info key="LastModificationTime" type="java.lang.Long" value="1599720625730"/>
+                            <info key="LastModificationTime" type="java.lang.Long" value="1599810334304"/>
                         </additionalInformation>
                     </frame>
                     <frame id="_fcd55276-cc63-4fbd-ba1a-168bf7d8c5f9" name="P10">
