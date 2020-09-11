@@ -159,7 +159,7 @@ public class MoveWithCamera extends RoboticsAPIApplication {
 		lbr.move(ptp(jPos1).setJointVelocityRel(0.2));
 		
 		tcp1 = ZCQY.getFrame("/ZCQY_Text/AngleChange/Shift1");	
-		tcp1.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CamPosition")).setJointVelocityRel(0.1));
+		//tcp1.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CamPosition")).setJointVelocityRel(0.1));
 		
 		//camera.changeProgramNr(2);
 		//camera.trigger();
