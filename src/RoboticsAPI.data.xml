@@ -995,7 +995,7 @@
                                     <transformation a="0.0" b="0.0" c="0.1" x="0.0" y="261.0" z="0.0"/>
                                 </frame>
                                 <frame id="_ebe5a165-9811-477d-8423-0d3ee95305f0" name="Shift3">
-                                    <transformation a="0.0" b="0.0" c="0.0" x="95.0" y="390.0" z="390.0"/>
+                                    <transformation a="0.0" b="0.0" c="0.0" x="-95.0" y="390.0" z="390.0"/>
                                 </frame>
                             </frames>
                         </frame>
