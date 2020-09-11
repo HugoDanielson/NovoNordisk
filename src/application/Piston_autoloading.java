@@ -191,13 +191,13 @@ public class Piston_autoloading extends RoboticsAPIApplication {
 		moveFineLocation(locData.get(2), 0.1, kmr);
 		
 		//put down the support box
-		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P10")).setBlendingCart(20).setJointVelocityRel(0.3));
-		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P11")).setBlendingCart(20).setJointVelocityRel(0.3));
+		//tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P10")).setBlendingCart(20).setJointVelocityRel(0.3));
+		//tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P11")).setBlendingCart(20).setJointVelocityRel(0.3));
 
 		//back to Charger(st5)
-		kmr.execute(motion.setVelocity(new XYTheta(0.2, 0.2, 0.2)));
-		moveTo.run(eMoveFrom.St2, eMoveTo.St5, null);
-		moveFineLocation(locData.get(5), 0.1, kmr);
+		//kmr.execute(motion.setVelocity(new XYTheta(0.2, 0.2, 0.2)));
+		//moveTo.run(eMoveFrom.St2, eMoveTo.St5, null);
+		//moveFineLocation(locData.get(5), 0.1, kmr);
 		
 		kmr.unlock();
 		
