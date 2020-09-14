@@ -158,7 +158,7 @@ public class Piston_autoloading extends RoboticsAPIApplication {
 		double y = 0.0; 
 		double theta = Math.toRadians(0);
 		RelativeMotion motion = new RelativeMotion(x, y, theta);
-		kmr.execute(motion.setVelocity(new XYTheta(0.5, 0.5, 0.5)));
+		kmr.execute(motion.setVelocity(new XYTheta(1, 1, 1)));
 		moveTo.run(eMoveFrom.St5, eMoveTo.St2, null);
 		moveFineLocation(locData.get(2), 0.1, kmr);
 		
@@ -186,16 +186,16 @@ public class Piston_autoloading extends RoboticsAPIApplication {
 		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P7")).setBlendingCart(20).setJointVelocityRel(0.1));
 
 		//back to T-BOX(st2)
-		kmr.execute(motion.setVelocity(new XYTheta(0.5, 0.5, 0.5)));
+		kmr.execute(motion.setVelocity(new XYTheta(1, 1, 1)));
 		moveTo.run(eMoveFrom.St4, eMoveTo.St2, null);
 		moveFineLocation(locData.get(2), 0.1, kmr);
 		
 		//put down the support box
-		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P10")).setBlendingCart(20).setJointVelocityRel(0.3));
-		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P11")).setBlendingCart(20).setJointVelocityRel(0.3));
+		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P10")).setJointVelocityRel(0.1));
+		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P11")).setJointVelocityRel(0.3));
 
 		//back to Charger(st5)
-		kmr.execute(motion.setVelocity(new XYTheta(0.5, 0.5, 0.5)));
+		kmr.execute(motion.setVelocity(new XYTheta(1, 1, 1)));
 		moveTo.run(eMoveFrom.St2, eMoveTo.St5, null);
 		moveFineLocation(locData.get(5), 0.1, kmr);
 		
