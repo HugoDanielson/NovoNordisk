@@ -145,7 +145,7 @@ public class HEPA_autoloading extends RoboticsAPIApplication {
 				,Math.toRadians(80)
 				,Math.toRadians(-48)
 				,Math.toRadians(-75));
-		//initialize Robot Arm
+		//initialize iiwa
 		lbr.move(ptp(jPos1).setJointVelocityRel(0.2));
 		
 		//tcp1 = ZCQY.getFrame("/ZCQY_Text/AngleChange/Shift1");
@@ -171,18 +171,17 @@ public class HEPA_autoloading extends RoboticsAPIApplication {
 		tcp2.moveAsync(lin(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P4")).setJointVelocityRel(0.05));
 		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P5")).setJointVelocityRel(0.1));
 		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P6")).setJointVelocityRel(0.2));
-		tcp2.moveAsync(lin(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P7")).setJointVelocityRel(0.3));
-		tcp2.moveAsync(lin(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P8")).setJointVelocityRel(0.3));
-		tcp2.moveAsync(lin(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P9")).setJointVelocityRel(0.3));
-		tcp2.moveAsync(lin(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P10")).setJointVelocityRel(0.3));
-		tcp2.moveAsync(lin(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P11")).setJointVelocityRel(0.3));
-		tcp2.moveAsync(lin(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P12")).setJointVelocityRel(0.3));
 
 		
-		//move AGV from HEPA Trolley(St1) to caps loading place(st3)
+		//move AGV from HEPA Trolley(St1) to sub station(st2)
+		moveTo.run(eMoveFrom.St1, eMoveTo.St2, null);
+		moveFineLocation(locData.get(2), 0.9, kmr);
+		
+		
+		//move AGV from sub station(st2) to caps loading place(st3)
 		
 		kmr.execute(motion.setVelocity(new XYTheta(0.9, 0.9, 0.9)));
-		moveTo.run(eMoveFrom.St1, eMoveTo.St3, null);
+		moveTo.run(eMoveFrom.St2, eMoveTo.St3, null);
 		moveFineLocation(locData.get(3), 0.9, kmr);
 		
 		
