@@ -822,6 +822,18 @@
                 </frame>
             </frame>
         </frame>
+        <frame id="_e04677b6-6bd5-47ec-9d52-06416a91971b" name="P7">
+            <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+            <additionalInformation>
+                <info key="LastModificationTime" type="java.lang.Long" value="1600049953111"/>
+            </additionalInformation>
+        </frame>
+        <frame id="_063eec92-d4cc-4450-aceb-fe52f49d6013" name="HEPA_Station">
+            <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+            <additionalInformation>
+                <info key="LastModificationTime" type="java.lang.Long" value="1600050016950"/>
+            </additionalInformation>
+        </frame>
     </world>
     <objectTemplates>
         <toolTemplate class="" name="NoLoad">
