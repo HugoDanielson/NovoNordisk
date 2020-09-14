@@ -159,7 +159,7 @@ public class HEPA_autoloading extends RoboticsAPIApplication {
 		double theta = Math.toRadians(0);
 		RelativeMotion motion = new RelativeMotion(x, y, theta);
 		kmr.execute(motion.setVelocity(new XYTheta(1, 1, 1)));
-		moveTo.run(eMoveFrom.LCHECKPOINT5, eMoveTo.St1, null);
+		moveTo.run(eMoveFrom.St5, eMoveTo.St1, null);
 		moveFineLocation(locData.get(1), 0.1, kmr);
 		
 		kmr.unlock();
