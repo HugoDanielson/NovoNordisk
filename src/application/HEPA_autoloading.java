@@ -165,18 +165,19 @@ public class HEPA_autoloading extends RoboticsAPIApplication {
 		
 		
 		//Grip the support box
-		tcp2.move(lin(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P1")).setJointVelocityRel(0.3));
+		tcp2.move(lin(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P1")).setJointVelocityRel(0.2));
 		tcp2.move(lin(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P2")).setJointVelocityRel(0.2));
-		tcp2.moveAsync(lin(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P3")).setJointVelocityRel(0.2));
-		tcp2.moveAsync(lin(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P4")).setJointVelocityRel(0.2));
-		tcp2.moveAsync(lin(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P5")).setJointVelocityRel(0.2));
-		tcp2.moveAsync(lin(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P6")).setJointVelocityRel(0.2));
+		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P3")).setJointVelocityRel(0.2));
+		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P4")).setJointVelocityRel(0.2));
+		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P5")).setJointVelocityRel(0.2));
+		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P6")).setJointVelocityRel(0.2));
 
 		
 		//move AGV from HEPA Trolley(St1) to caps loading place(st3)
-		//kmr.execute(motion.setVelocity(new XYTheta(0.9, 0.9, 0.9)));
-		//moveTo.run(eMoveFrom.St1, eMoveTo.St3, null);
-		//moveFineLocation(locData.get(3), 0.9, kmr);
+		
+		kmr.execute(motion.setVelocity(new XYTheta(0.9, 0.9, 0.9)));
+		moveTo.run(eMoveFrom.St1, eMoveTo.St3, null);
+		moveFineLocation(locData.get(3), 0.9, kmr);
 		
 		
 		//
