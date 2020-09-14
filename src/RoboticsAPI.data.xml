@@ -833,6 +833,12 @@
             <additionalInformation>
                 <info key="LastModificationTime" type="java.lang.Long" value="1600050016950"/>
             </additionalInformation>
+            <frame id="_6664fb20-08d5-4722-b2db-d481cbeb68a0" name="ZCQYBaseStation">
+                <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                <additionalInformation>
+                    <info key="LastModificationTime" type="java.lang.Long" value="1600050124999"/>
+                </additionalInformation>
+            </frame>
         </frame>
     </world>
     <objectTemplates>
