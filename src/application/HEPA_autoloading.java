@@ -133,7 +133,7 @@ public class HEPA_autoloading extends RoboticsAPIApplication {
 		
 		//***move AGV to Charger from anywhere***//
 		VirtualLineMotionContainer vcm;
-		vcm = kmr.execute(new VirtualLineMotion(kmr.getPose(), locData.get(5).getPose()).setVelocity( new XYTheta(1, 1, 1)));
+		vcm = kmr.execute(new VirtualLineMotion(kmr.getPose(), locData.get(5).getPose()).setVelocity( new XYTheta(0.9, 0.9, 0.9)));
 		vcm.awaitFinished();
 		
 		//Finetune
@@ -159,7 +159,7 @@ public class HEPA_autoloading extends RoboticsAPIApplication {
 		double y = 0.0; 
 		double theta = Math.toRadians(0);
 		RelativeMotion motion = new RelativeMotion(x, y, theta);
-		kmr.execute(motion.setVelocity(new XYTheta(2, 2, 2)));
+		kmr.execute(motion.setVelocity(new XYTheta(0.9, 0.9, 0.9)));
 		moveTo.run(eMoveFrom.St5, eMoveTo.St1, null);
 		moveFineLocation(locData.get(1), 0.9, kmr);
 		
