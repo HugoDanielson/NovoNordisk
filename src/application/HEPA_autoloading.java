@@ -153,6 +153,7 @@ public class HEPA_autoloading extends RoboticsAPIApplication {
 		tcp3 = ZCQY.getFrame("/ZCQY_Text/AngleChange/Shift3");
 		base.DeleteOldData(getFrame("/Station1/BaseShift/CameraOffset/ZCalibration"));
 		
+		
 		//move AGV from Charger(LcheckPoint5) to HEPA Trolley(st6)
 		double x = -0.5; 
 		double y = 0.0; 
@@ -161,6 +162,17 @@ public class HEPA_autoloading extends RoboticsAPIApplication {
 		kmr.execute(motion.setVelocity(new XYTheta(1, 1, 1)));
 		moveTo.run(eMoveFrom.St5, eMoveTo.St1, null);
 		moveFineLocation(locData.get(1), 0.1, kmr);
+		
+		
+		//Grip the support box
+		tcp2.move(lin(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P1")).setJointVelocityRel(0.3));
+		tcp2.moveAsync(lin(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P2")).setJointVelocityRel(0.1));
+		tcp2.moveAsync(lin(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P3")).setJointVelocityRel(0.1));
+		tcp2.moveAsync(lin(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P4")).setJointVelocityRel(0.1));
+		tcp2.moveAsync(lin(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P5")).setJointVelocityRel(0.1));
+
+		
+		//Autoloading caps
 		
 		kmr.unlock();
 		
