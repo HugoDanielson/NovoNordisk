@@ -13,8 +13,7 @@ public class GlobalParam {
 	public static Integer ST4 = 4;
 	public static Integer ST5 = 5;
 	
-	public static enum eMoveFrom{St1,St2,St3,St4,St5};
-	public static enum eMoveTo{St1,St2,St3,St4,St5};
-	
+	public static enum eMoveFrom{St1,St2,St3,St4,St5,LCHECKPOINT1,LCHECKPOINT2,LCHECKPOINT3,LCHECKPOINT4,LCHECKPOINT5};
+	public static enum eMoveTo{St1,St2,St3,St4,St5,LCHECKPOINT1,LCHECKPOINT2,LCHECKPOINT3,LCHECKPOINT4,LCHECKPOINT5};
 
 }

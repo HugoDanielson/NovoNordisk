@@ -137,7 +137,7 @@ public class HEPA_autoloading extends RoboticsAPIApplication {
 		vcm.awaitFinished();
 		
 		//Finetune
-		moveFineLocation(locData.get(5), 0.05, kmr);	
+		moveFineLocation(locData.get(5), 0.5, kmr);	
 		JointPosition jPos1 = new JointPosition(Math.toRadians(85)
 				,Math.toRadians(-44)
 				,Math.toRadians(43)
@@ -145,59 +145,22 @@ public class HEPA_autoloading extends RoboticsAPIApplication {
 				,Math.toRadians(80)
 				,Math.toRadians(-48)
 				,Math.toRadians(-75));
-		
-		lbr.move(ptp(jPos1).setJointVelocityRel(0.2));
+		//initialize Robot Arm
+		lbr.move(ptp(jPos1).setJointVelocityRel(0.1));
 		
 		//tcp1 = ZCQY.getFrame("/ZCQY_Text/AngleChange/Shift1");
 		tcp2 = ZCQY.getFrame("/ZCQY_Text/AngleChange/Shift2");	
 		tcp3 = ZCQY.getFrame("/ZCQY_Text/AngleChange/Shift3");
-		base.DeleteOldData(getFrame("/Station2/BaseShift/CameraOffset"));
+		base.DeleteOldData(getFrame("/Station1/BaseShift/CameraOffset/ZCalibration"));
 		
-		//move AGV from Charger(st5) to T-BOX(st2)
+		//move AGV from Charger(LcheckPoint5) to HEPA Trolley(st6)
 		double x = -0.5; 
 		double y = 0.0; 
 		double theta = Math.toRadians(0);
 		RelativeMotion motion = new RelativeMotion(x, y, theta);
 		kmr.execute(motion.setVelocity(new XYTheta(1, 1, 1)));
-		moveTo.run(eMoveFrom.St5, eMoveTo.St2, null);
-		moveFineLocation(locData.get(2), 0.1, kmr);
-		
-		//Grip the support box
-		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P1")).setBlendingCart(50).setJointVelocityRel(0.1));
-		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P2")).setBlendingCart(50).setJointVelocityRel(0.1));
-		waitSec(2000);
-		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P1")).setBlendingCart(50).setJointVelocityRel(0.1));
-		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P3")).setBlendingCart(50).setJointVelocityRel(0.3));
-		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P4")).setBlendingCart(50).setJointVelocityRel(0.3));
-		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P5")).setBlendingCart(50).setJointVelocityRel(0.3));
-		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P6")).setJointVelocityRel(0.3));
-
-		//move AGV from T-BOX(st2) to piston loading place(st4)
-		kmr.execute(motion.setVelocity(new XYTheta(0.4, 0.4, 0.4)));
-		moveTo.run(eMoveFrom.St2, eMoveTo.St4, null);
-		moveFineLocation(locData.get(4), 0.1, kmr);
-		
-		//loading piston
-		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P7")).setBlendingCart(20).setJointVelocityRel(0.1));
-		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P8")).setJointVelocityRel(0.1));
-		tcp3.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P9")).setJointVelocityRel(0.1));
-		waitSec(5000);
-		tcp2.move(lin(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P8")).setJointVelocityRel(0.1));
-		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P7")).setBlendingCart(20).setJointVelocityRel(0.1));
-
-		//back to T-BOX(st2)
-		kmr.execute(motion.setVelocity(new XYTheta(1, 1, 1)));
-		moveTo.run(eMoveFrom.St4, eMoveTo.St2, null);
-		moveFineLocation(locData.get(2), 0.1, kmr);
-		
-		//put down the support box
-		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P10")).setJointVelocityRel(0.1));
-		tcp2.move(ptp(getApplicationData().getFrame("/Station2/BaseShift/CameraOffset/P11")).setJointVelocityRel(0.3));
-
-		//back to Charger(st5)
-		kmr.execute(motion.setVelocity(new XYTheta(1, 1, 1)));
-		moveTo.run(eMoveFrom.St2, eMoveTo.St5, null);
-		moveFineLocation(locData.get(5), 0.1, kmr);
+		moveTo.run(eMoveFrom.LCHECKPOINT5, eMoveTo.St1, null);
+		moveFineLocation(locData.get(1), 0.1, kmr);
 		
 		kmr.unlock();
 		
