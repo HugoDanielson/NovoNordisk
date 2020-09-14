@@ -171,6 +171,7 @@ public class HEPA_autoloading extends RoboticsAPIApplication {
 		tcp2.moveAsync(lin(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P4")).setJointVelocityRel(0.2));
 		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P5")).setJointVelocityRel(0.2));
 		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P6")).setJointVelocityRel(0.2));
+		tcp2.move(lin(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P7")).setJointVelocityRel(0.3));
 
 		
 		//move AGV from HEPA Trolley(St1) to caps loading place(st3)
