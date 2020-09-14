@@ -133,7 +133,7 @@ public class HEPA_autoloading extends RoboticsAPIApplication {
 		
 		//***move AGV to Charger from anywhere***//
 		VirtualLineMotionContainer vcm;
-		vcm = kmr.execute(new VirtualLineMotion(kmr.getPose(), locData.get(5).getPose()).setVelocity( new XYTheta(0.5, 0.5, 0.5)));
+		vcm = kmr.execute(new VirtualLineMotion(kmr.getPose(), locData.get(5).getPose()).setVelocity( new XYTheta(1, 1, 1)));
 		vcm.awaitFinished();
 		
 		//Finetune
@@ -146,7 +146,7 @@ public class HEPA_autoloading extends RoboticsAPIApplication {
 				,Math.toRadians(-48)
 				,Math.toRadians(-75));
 		//initialize Robot Arm
-		lbr.move(ptp(jPos1).setJointVelocityRel(0.1));
+		lbr.move(ptp(jPos1).setJointVelocityRel(0.2));
 		
 		//tcp1 = ZCQY.getFrame("/ZCQY_Text/AngleChange/Shift1");
 		tcp2 = ZCQY.getFrame("/ZCQY_Text/AngleChange/Shift2");	
@@ -159,9 +159,9 @@ public class HEPA_autoloading extends RoboticsAPIApplication {
 		double y = 0.0; 
 		double theta = Math.toRadians(0);
 		RelativeMotion motion = new RelativeMotion(x, y, theta);
-		kmr.execute(motion.setVelocity(new XYTheta(1, 1, 1)));
+		kmr.execute(motion.setVelocity(new XYTheta(2, 2, 2)));
 		moveTo.run(eMoveFrom.St5, eMoveTo.St1, null);
-		moveFineLocation(locData.get(1), 0.1, kmr);
+		moveFineLocation(locData.get(1), 0.9, kmr);
 		
 		
 		//Grip the support box
@@ -170,12 +170,13 @@ public class HEPA_autoloading extends RoboticsAPIApplication {
 		tcp2.moveAsync(lin(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P3")).setJointVelocityRel(0.2));
 		tcp2.moveAsync(lin(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P4")).setJointVelocityRel(0.2));
 		tcp2.moveAsync(lin(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P5")).setJointVelocityRel(0.2));
+		tcp2.moveAsync(lin(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P6")).setJointVelocityRel(0.2));
 
 		
 		//move AGV from HEPA Trolley(St1) to caps loading place(st3)
-		kmr.execute(motion.setVelocity(new XYTheta(0.4, 0.4, 0.4)));
+		kmr.execute(motion.setVelocity(new XYTheta(0.9, 0.9, 0.9)));
 		moveTo.run(eMoveFrom.St1, eMoveTo.St3, null);
-		moveFineLocation(locData.get(3), 0.1, kmr);
+		moveFineLocation(locData.get(3), 0.9, kmr);
 		
 		
 		//
