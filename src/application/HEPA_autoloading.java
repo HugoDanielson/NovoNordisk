@@ -137,7 +137,7 @@ public class HEPA_autoloading extends RoboticsAPIApplication {
 		vcm.awaitFinished();
 		
 		//Finetune
-		moveFineLocation(locData.get(5), 0.5, kmr);	
+		moveFineLocation(locData.get(5), 0.05, kmr);	
 		JointPosition jPos1 = new JointPosition(Math.toRadians(85)
 				,Math.toRadians(-44)
 				,Math.toRadians(43)
@@ -174,9 +174,9 @@ public class HEPA_autoloading extends RoboticsAPIApplication {
 
 		
 		//move AGV from HEPA Trolley(St1) to caps loading place(st3)
-		kmr.execute(motion.setVelocity(new XYTheta(0.9, 0.9, 0.9)));
-		moveTo.run(eMoveFrom.St1, eMoveTo.St3, null);
-		moveFineLocation(locData.get(3), 0.9, kmr);
+		//kmr.execute(motion.setVelocity(new XYTheta(0.9, 0.9, 0.9)));
+		//moveTo.run(eMoveFrom.St1, eMoveTo.St3, null);
+		//moveFineLocation(locData.get(3), 0.9, kmr);
 		
 		
 		//
