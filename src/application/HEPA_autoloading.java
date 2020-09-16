@@ -201,9 +201,9 @@ public class HEPA_autoloading extends RoboticsAPIApplication {
 		
 		
 		tcp2.move(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P5")).setJointVelocityRel(0.1));
-		tcp2.move(lin(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P4")).setJointVelocityRel(0.1));
-		tcp2.moveAsync(lin(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P3")).setJointVelocityRel(0.2));
-		tcp2.moveAsync(lin(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P2")).setJointVelocityRel(0.2));
+		tcp2.move(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P4")).setJointVelocityRel(0.1));
+		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P3")).setJointVelocityRel(0.2));
+		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P2")).setJointVelocityRel(0.2));
 
 		
 		//back to HEPA Trolley(St1)
