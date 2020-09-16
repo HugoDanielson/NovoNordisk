@@ -394,9 +394,9 @@
                             </redundancyData>
                         </frame>
                         <frame id="_1dd32e5c-2ab7-4147-a7ed-d93f3c9524dd" name="P17">
-                            <transformation a="1.5039305497989455" b="0.014860873014285477" c="0.022343395292897496" x="104.48078177835828" y="-105.88176368768671" z="-383.53932808165086"/>
+                            <transformation a="1.5798498442924234" b="0.017795330996992802" c="0.009494766177554737" x="16.659505923795734" y="-396.8797638318099" z="-162.54055718287015"/>
                             <additionalInformation>
-                                <info key="LastModificationTime" type="java.lang.Long" value="1600248269845"/>
+                                <info key="LastModificationTime" type="java.lang.Long" value="1600249243396"/>
                                 <info base="LBR_iiwa_14_R820_1" controller="KUKA_Sunrise_Cabinet_1" device="LBR_iiwa_14_R820_1" tcpName="ZCQY/ZCQY_Text/AngleChange/Shift2" tool="ZCQY" type="com.kuka.roboticsAPI.deviceModel.TeachInformation">
                                     <tcpTransformation a="0.0" b="-1.5705926535897934" c="2.371000002064479" x="-87.65201235548975" y="84.32398372222104" z="88.53989778229831"/>
                                 </info>
@@ -405,7 +405,7 @@
                                 <redundancy transformationProviderName="KUKA_Sunrise_Cabinet_1/LBR_iiwa_14_R820_1" type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy">
                                     <info type="com.kuka.roboticsAPI.deviceModel.StatusTurnRedundancy$StatusParameter" value="5" valueType="java.lang.Integer"/>
                                     <info type="com.kuka.roboticsAPI.deviceModel.StatusTurnRedundancy$TurnParameter" value="98" valueType="java.lang.Integer"/>
-                                    <info type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy$E1Parameter" value="0.750507350898012" valueType="java.lang.Double"/>
+                                    <info type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy$E1Parameter" value="0.750540786934074" valueType="java.lang.Double"/>
                                 </redundancy>
                             </redundancyData>
                         </frame>
