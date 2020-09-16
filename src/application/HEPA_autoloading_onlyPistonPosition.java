@@ -212,6 +212,8 @@ public class HEPA_autoloading_onlyPistonPosition extends RoboticsAPIApplication 
 		//put down support box
 		tcp2.move(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P11")).setJointVelocityRel(0.1));
 		tcp2.move(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P10")).setJointVelocityRel(0.2));
+		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P3")).setJointVelocityRel(0.2));
+		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P4")).setJointVelocityRel(0.1));
 
 		
 		//back to charger(st5)
