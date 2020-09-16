@@ -94,6 +94,7 @@ public class HEPA_autoloading extends RoboticsAPIApplication {
 	private Tool ZCQY;
 	private com.kuka.roboticsAPI.geometricModel.ObjectFrame tcp2;
 	private com.kuka.roboticsAPI.geometricModel.ObjectFrame tcp3;
+	private com.kuka.roboticsAPI.geometricModel.ObjectFrame tcp4;
 	@Inject
 	@Named("WP")
 	private Workpiece WP;
@@ -151,6 +152,7 @@ public class HEPA_autoloading extends RoboticsAPIApplication {
 		//tcp1 = ZCQY.getFrame("/ZCQY_Text/AngleChange/Shift1");
 		tcp2 = ZCQY.getFrame("/ZCQY_Text/AngleChange/Shift2");	
 		tcp3 = ZCQY.getFrame("/ZCQY_Text/AngleChange/Shift3");
+		tcp4 = ZCQY.getFrame("/ZCQY_Text/AngleChange/Shift4");
 		base.DeleteOldData(getFrame("/Station1/BaseShift/CameraOffset/ZCalibration"));
 		
 		
@@ -185,7 +187,22 @@ public class HEPA_autoloading extends RoboticsAPIApplication {
 		moveFineLocation(locData.get(3), 0.9, kmr);
 		
 		
-		//
+		//loading caps
+		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P7")).setJointVelocityRel(0.2));
+		tcp4.moveAsync(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P8")).setJointVelocityRel(0.1));
+		tcp3.moveAsync(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P9")).setJointVelocityRel(0.1));
+		waitSec(3000);
+		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P7")).setJointVelocityRel(0.2));
+		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P6")).setJointVelocityRel(0.2));
+
+		
+		//back to HEPA Trolley(St1)
+		moveTo.run(eMoveFrom.St3, eMoveTo.St1, null);
+		moveFineLocation(locData.get(1), 0.9, kmr);
+		
+		
+		//put down support box
+		
 		kmr.unlock();
 		
 	}
