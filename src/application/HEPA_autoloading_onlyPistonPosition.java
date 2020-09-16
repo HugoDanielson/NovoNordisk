@@ -181,6 +181,8 @@ public class HEPA_autoloading_onlyPistonPosition extends RoboticsAPIApplication 
 		tcp2.moveAsync(lin(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P4")).setJointVelocityRel(0.2));
 		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P5")).setJointVelocityRel(0.1));
 		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P6")).setJointVelocityRel(0.2));
+		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P19")).setJointVelocityRel(0.1));
+		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P18")).setJointVelocityRel(0.1));
 		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P12")).setJointVelocityRel(0.1));
 
 		//move AGV from sub station(st2) to pistons loading place(st4)
@@ -202,7 +204,8 @@ public class HEPA_autoloading_onlyPistonPosition extends RoboticsAPIApplication 
 		//back to sub station(st2)
 		moveTo.run(eMoveFrom.St4, eMoveTo.St2, null);
 		
-		
+		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P19")).setJointVelocityRel(0.1));
+		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P18")).setJointVelocityRel(0.1));
 		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P6")).setJointVelocityRel(0.2));
 		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P5")).setJointVelocityRel(0.1));
 		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P4")).setJointVelocityRel(0.1));
