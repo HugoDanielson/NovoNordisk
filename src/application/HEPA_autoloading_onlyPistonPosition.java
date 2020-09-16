@@ -176,6 +176,10 @@ public class HEPA_autoloading_onlyPistonPosition extends RoboticsAPIApplication 
 		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P12")).setJointVelocityRel(0.1));
 
 		
+		//move AGV from HEPA Trolley(St1) to sub station(st2)
+		moveTo.run(eMoveFrom.St1, eMoveTo.St4, null);
+		moveFineLocation(locData.get(4), 0.9, kmr);
+		
 		//move AGV from HEPA Trolley(St1) to pistons loading place(st4)
 		moveTo.run(eMoveFrom.St1, eMoveTo.St4, null);
 		moveFineLocation(locData.get(4), 0.9, kmr);
