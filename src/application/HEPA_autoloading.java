@@ -216,10 +216,10 @@ public class HEPA_autoloading extends RoboticsAPIApplication {
 
 		
 		//Grip the pistons box
-		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P2")).setJointVelocityRel(0.2));
-		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P10")).setJointVelocityRel(0.2));
-		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P11")).setJointVelocityRel(0.2));
-		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P10")).setJointVelocityRel(0.2));
+		tcp2.move(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P2")).setJointVelocityRel(0.2));
+		tcp2.move(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P10")).setJointVelocityRel(0.2));
+		tcp2.move(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P11")).setJointVelocityRel(0.2));
+		tcp2.move(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P10")).setJointVelocityRel(0.2));
 		tcp2.moveAsync(lin(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P3")).setJointVelocityRel(0.2));
 		tcp2.moveAsync(lin(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P4")).setJointVelocityRel(0.05));
 		tcp2.moveAsync(ptp(getApplicationData().getFrame("/Station1/BaseShift/CameraOffset/ZCalibration/P5")).setJointVelocityRel(0.1));
