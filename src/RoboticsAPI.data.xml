@@ -1130,6 +1130,19 @@
                 </additionalInformation>
             </frame>
         </frame>
+        <frame id="_eb0e806f-d480-4d5d-b949-76a5196b620d" name="St2_New">
+            <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+            <additionalInformation>
+                <info key="LastModificationTime" type="java.lang.Long" value="1603176345307"/>
+                <info key="UseAsBaseForJogging" type="java.lang.Boolean" value="true"/>
+            </additionalInformation>
+            <frame id="_e25245a6-8ecb-494a-aab3-34375f8cb306" name="BaseShift">
+                <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                <additionalInformation>
+                    <info key="LastModificationTime" type="java.lang.Long" value="1603176354950"/>
+                </additionalInformation>
+            </frame>
+        </frame>
     </world>
     <objectTemplates>
         <toolTemplate class="" name="NoLoad">
