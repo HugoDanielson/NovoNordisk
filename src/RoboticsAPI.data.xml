@@ -1325,7 +1325,7 @@
                     <measurementTranslation calculationError="0.996656899222855" method="XYZ4Point" timestamp="1603179538881"/>
                     <frames>
                         <frame id="_bfa0e5b3-5a42-4f76-8ef9-4ca32c51983d" name="TCP">
-                            <transformation a="0.0" b="-1.571" c="1.571" x="0.0" y="0.0" z="0.0"/>
+                            <transformation a="0.0" b="0.0" c="0.0" x="10.0" y="-77.0" z="145.0"/>
                         </frame>
                     </frames>
                 </frame>
