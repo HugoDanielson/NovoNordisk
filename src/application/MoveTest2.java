@@ -49,18 +49,7 @@ public class MoveTest2 extends RoboticsAPIApplication {
 	private com.kuka.roboticsAPI.geometricModel.ObjectFrame tcp1;
 	
 
-	@Inject
-	@Named("WP")
-	private Workpiece WP;
 
-	@Inject
-	private Weight weight;
-	private double wpWeight = 0.0;
-	String refFrame;
-
-	private LIN pos1;
-	private ITransformation offset;
-	private IMotionContainer moveConteiner;
 
 
 	@Override
