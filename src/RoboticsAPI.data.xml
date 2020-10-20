@@ -1138,9 +1138,9 @@
                 <info measurementMethod="Base3Point" timestamp="1603183937741" type="com.kuka.roboticsAPI.deviceModel.MeasurementInformation"/>
             </additionalInformation>
             <frame id="_e25245a6-8ecb-494a-aab3-34375f8cb306" name="BaseShift">
-                <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                <transformation a="0.0" b="0.0" c="0.0" x="-10.0" y="-19.0" z="-250.0"/>
                 <additionalInformation>
-                    <info key="LastModificationTime" type="java.lang.Long" value="1603176354950"/>
+                    <info key="LastModificationTime" type="java.lang.Long" value="1603177334112"/>
                 </additionalInformation>
             </frame>
         </frame>
