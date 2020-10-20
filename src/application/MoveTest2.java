@@ -76,6 +76,7 @@ public class MoveTest2 extends RoboticsAPIApplication {
 		
 		tcp1 = EmptyGripper.getFrame("/AngleChange/TCP");
 		// Move iiwa from Home to St1 pos
+		
 		 tcp1.move(ptp(getApplicationData().getFrame("/St2_New/BaseShift/P1")).setJointVelocityRel(0.1));
 		 tcp1.move(lin(getApplicationData().getFrame("/St2_New/BaseShift/P2")).setJointVelocityRel(0.1));
 		 tcp1.move(lin(getApplicationData().getFrame("/St2_New/BaseShift/P3")).setJointVelocityRel(0.1));
