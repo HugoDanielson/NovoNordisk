@@ -1321,13 +1321,14 @@
         <toolTemplate class="" defaultMotionFrameRef="" name="EmptyGripper">
             <frames>
                 <frame id="_a5a68af0-8213-40bc-be06-c8dbb1d57e10" name="TCP">
-                    <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                    <transformation a="0.0" b="0.0" c="0.0" x="-78.61423400262066" y="143.04489290011645" z="-1.250999440756896"/>
+                    <measurementTranslation calculationError="0.996656899222855" method="XYZ4Point" timestamp="1603179538881"/>
                 </frame>
             </frames>
             <additionalInformation>
                 <info key="ID" type="java.lang.String" value="6ed42090-c059-4c09-9075-e825c2e5f630"/>
             </additionalInformation>
-            <loadData cogA="0.0" cogB="0.0" cogC="0.0" cogX="0.0" cogY="0.0" cogZ="0.0" inertiaX="0.0" inertiaY="0.0" inertiaZ="0.0" mass="0.0"/>
+            <loadData cogA="0.0" cogB="0.0" cogC="0.0" cogX="24.47464500078565" cogY="134.94079068152632" cogZ="-17.96982869888326" inertiaX="0.0" inertiaY="0.0" inertiaZ="0.0" mass="1.5010661472874496"/>
         </toolTemplate>
         <toolTemplate class="" name="EmptyCage">
             <frames>
@@ -1338,7 +1339,7 @@
             <additionalInformation>
                 <info key="ID" type="java.lang.String" value="c70b61b9-cd2d-4fd2-adba-d7eefed7416e"/>
             </additionalInformation>
-            <loadData cogA="0.0" cogB="0.0" cogC="0.0" cogX="0.0" cogY="0.0" cogZ="0.0" inertiaX="0.0" inertiaY="0.0" inertiaZ="0.0" mass="0.0"/>
+            <loadData cogA="0.0" cogB="0.0" cogC="0.0" cogX="-4.277974786754776" cogY="27.983344612784347" cogZ="13.405514264628035" inertiaX="0.0" inertiaY="0.0" inertiaZ="0.0" mass="4.550968856577746"/>
         </toolTemplate>
     </objectTemplates>
     <processDataContainer>
