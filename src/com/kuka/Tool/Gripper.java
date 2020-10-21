@@ -37,21 +37,21 @@ public class Gripper extends Tool {
 		Ios.setExtendPin(false);
 		waitMs(500);
 		if (!Ios.getClampedSensor()) {
-			Ios.setClampedLight(true);
+			Ios.setClampedLight(false);
 			return false;
 		} else {
-			Ios.setClampedLight(false);
+			Ios.setClampedLight(true);
 			return true;
 		}
 
 	}
 
 	public boolean isExtended() {
-		return Ios.getClampedSensor();
+		return !Ios.getClampedSensor();
 	}
 
 	public boolean isRetracted() {
-		return !Ios.getClampedSensor();
+		return Ios.getClampedSensor();
 	}
 
 	private void waitMs(long time) {
