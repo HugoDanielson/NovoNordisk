@@ -8,7 +8,7 @@
   <BusList>
     <Bus BusDriverName="ECatIODriver" BusInstanceName="SYS-X44">
       <IOList>
-        <DigitalIO Name="BMS.AIR_Status" Type="INPUT" Scope="USER_IO" StartBit="832" BitSize="8" Signed="false">
+        <DigitalIO Name="BMS.AIR_Status" Type="INPUT" Scope="USER_IO" StartBit="848" BitSize="8" Signed="false">
           <Description>1 = both contactors (+/-) are active</Description>
         </DigitalIO>
         <DigitalIO Name="BMS.ChargerState" Type="OUTPUT" Scope="USER_IO" StartBit="12592" BitSize="1" Signed="false">
@@ -20,148 +20,148 @@
         <DigitalIO Name="BMS.ChargingRelayEnable" Type="OUTPUT" Scope="USER_IO" StartBit="12615" BitSize="1" Signed="false">
           <Description>Switches the ChargingRelay to enable/disable of the vehicles bottom mounted charging contacts.</Description>
         </DigitalIO>
-        <DigitalIO Name="BMS.CountdownForShutdown" Type="INPUT" Scope="USER_IO" StartBit="856" BitSize="4" Signed="false">
+        <DigitalIO Name="BMS.CountdownForShutdown" Type="INPUT" Scope="USER_IO" StartBit="872" BitSize="4" Signed="false">
           <Description>Timefrom 15sec to 0sec if a Protection Flag switches to 1</Description>
         </DigitalIO>
-        <DigitalIO Name="BMS.ErrorCodeNumber" Type="INPUT" Scope="USER_IO" StartBit="880" BitSize="8" Signed="false">
+        <DigitalIO Name="BMS.ErrorCodeNumber" Type="INPUT" Scope="USER_IO" StartBit="896" BitSize="8" Signed="false">
           <Description>Error number from the Module from 1 to 8. [Explanation within the Can Protocol]</Description>
         </DigitalIO>
-        <DigitalIO Name="BMS.ErrorModuleNumber" Type="INPUT" Scope="USER_IO" StartBit="872" BitSize="8" Signed="false">
+        <DigitalIO Name="BMS.ErrorModuleNumber" Type="INPUT" Scope="USER_IO" StartBit="888" BitSize="8" Signed="false">
           <Description>Number of the Module within the Battery who has an error. [0 = no module faulty]</Description>
         </DigitalIO>
-        <DigitalIO Name="BMS.Heartbeat" Type="INPUT" Scope="USER_IO" StartBit="776" BitSize="8" Signed="false">
+        <DigitalIO Name="BMS.Heartbeat" Type="INPUT" Scope="USER_IO" StartBit="792" BitSize="8" Signed="false">
           <Description>Counts up from 0 to 255 every second.</Description>
         </DigitalIO>
-        <DigitalIO Name="BMS.IMD_Error" Type="INPUT" Scope="USER_IO" StartBit="888" BitSize="1" Signed="false">
+        <DigitalIO Name="BMS.IMD_Error" Type="INPUT" Scope="USER_IO" StartBit="904" BitSize="1" Signed="false">
           <Description />
         </DigitalIO>
-        <DigitalIO Name="BMS.IMD_ErrorCode" Type="INPUT" Scope="USER_IO" StartBit="892" BitSize="4" Signed="false">
+        <DigitalIO Name="BMS.IMD_ErrorCode" Type="INPUT" Scope="USER_IO" StartBit="908" BitSize="4" Signed="false">
           <Description />
         </DigitalIO>
-        <DigitalIO Name="BMS.IMD_Value" Type="INPUT" Scope="USER_IO" StartBit="960" BitSize="8" Signed="false">
+        <DigitalIO Name="BMS.IMD_Value" Type="INPUT" Scope="USER_IO" StartBit="976" BitSize="8" Signed="false">
           <Description />
         </DigitalIO>
-        <DigitalIO Name="BMS.LoadCycles" Type="INPUT" Scope="USER_IO" StartBit="1032" BitSize="16" Signed="false">
+        <DigitalIO Name="BMS.LoadCycles" Type="INPUT" Scope="USER_IO" StartBit="1048" BitSize="16" Signed="false">
           <Description>Number of load cycles of this battery</Description>
         </DigitalIO>
-        <DigitalIO Name="BMS.MaxCellTemperature" Type="INPUT" Scope="USER_IO" StartBit="936" BitSize="8" Signed="true">
+        <DigitalIO Name="BMS.MaxCellTemperature" Type="INPUT" Scope="USER_IO" StartBit="952" BitSize="8" Signed="true">
           <Description>Temperature of cell with the highest temperature</Description>
         </DigitalIO>
-        <DigitalIO Name="BMS.MaxCellVoltage" Type="INPUT" Scope="USER_IO" StartBit="920" BitSize="8" Signed="false">
+        <DigitalIO Name="BMS.MaxCellVoltage" Type="INPUT" Scope="USER_IO" StartBit="936" BitSize="8" Signed="false">
           <Description>Voltage of cell with the highest voltage. [Offset = 1800mV / Factor = 10]</Description>
         </DigitalIO>
-        <DigitalIO Name="BMS.MinCellTemperature" Type="INPUT" Scope="USER_IO" StartBit="928" BitSize="8" Signed="true">
+        <DigitalIO Name="BMS.MinCellTemperature" Type="INPUT" Scope="USER_IO" StartBit="944" BitSize="8" Signed="true">
           <Description>Temperature of cell with the lowest temperature</Description>
         </DigitalIO>
-        <DigitalIO Name="BMS.MinCellVoltage" Type="INPUT" Scope="USER_IO" StartBit="912" BitSize="8" Signed="false">
+        <DigitalIO Name="BMS.MinCellVoltage" Type="INPUT" Scope="USER_IO" StartBit="928" BitSize="8" Signed="false">
           <Description>Voltage of cell with the lowest voltage. [Offset = 1800mV / Factor = 0,1V]</Description>
         </DigitalIO>
-        <DigitalIO Name="BMS.NumberOfModules" Type="INPUT" Scope="USER_IO" StartBit="904" BitSize="8" Signed="false">
+        <DigitalIO Name="BMS.NumberOfModules" Type="INPUT" Scope="USER_IO" StartBit="920" BitSize="8" Signed="false">
           <Description>Identified Number of existing Modules.</Description>
         </DigitalIO>
-        <DigitalIO Name="BMS.OperatingHours" Type="INPUT" Scope="USER_IO" StartBit="1048" BitSize="16" Signed="false">
+        <DigitalIO Name="BMS.OperatingHours" Type="INPUT" Scope="USER_IO" StartBit="1064" BitSize="16" Signed="false">
           <Description>Sum of rounded operating hours</Description>
         </DigitalIO>
         <DigitalIO Name="BMS.OperationModeBattery" Type="OUTPUT" Scope="USER_IO" StartBit="12576" BitSize="1" Signed="false">
           <Description />
         </DigitalIO>
-        <DigitalIO Name="BMS.ProductionDate1" Type="INPUT" Scope="USER_IO" StartBit="1160" BitSize="8" Signed="false">
+        <DigitalIO Name="BMS.ProductionDate1" Type="INPUT" Scope="USER_IO" StartBit="1176" BitSize="8" Signed="false">
           <Description />
         </DigitalIO>
-        <DigitalIO Name="BMS.ProductionDate2" Type="INPUT" Scope="USER_IO" StartBit="1168" BitSize="8" Signed="false">
+        <DigitalIO Name="BMS.ProductionDate2" Type="INPUT" Scope="USER_IO" StartBit="1184" BitSize="8" Signed="false">
           <Description />
         </DigitalIO>
-        <DigitalIO Name="BMS.Protection_ComErrorModule" Type="INPUT" Scope="USER_IO" StartBit="845" BitSize="1" Signed="false">
+        <DigitalIO Name="BMS.Protection_ComErrorModule" Type="INPUT" Scope="USER_IO" StartBit="861" BitSize="1" Signed="false">
           <Description>No Communication to one of the Modules</Description>
         </DigitalIO>
-        <DigitalIO Name="BMS.Protection_FaultMinusContactor" Type="INPUT" Scope="USER_IO" StartBit="849" BitSize="1" Signed="false">
+        <DigitalIO Name="BMS.Protection_FaultMinusContactor" Type="INPUT" Scope="USER_IO" StartBit="865" BitSize="1" Signed="false">
           <Description>Error with minus Contactor</Description>
         </DigitalIO>
-        <DigitalIO Name="BMS.Protection_FaultPlusContactor" Type="INPUT" Scope="USER_IO" StartBit="848" BitSize="1" Signed="false">
+        <DigitalIO Name="BMS.Protection_FaultPlusContactor" Type="INPUT" Scope="USER_IO" StartBit="864" BitSize="1" Signed="false">
           <Description>Error with plus Contactor</Description>
         </DigitalIO>
-        <DigitalIO Name="BMS.Protection_Overcurrent" Type="INPUT" Scope="USER_IO" StartBit="842" BitSize="1" Signed="false">
+        <DigitalIO Name="BMS.Protection_Overcurrent" Type="INPUT" Scope="USER_IO" StartBit="858" BitSize="1" Signed="false">
           <Description>Current is above critical maximum</Description>
         </DigitalIO>
-        <DigitalIO Name="BMS.Protection_Overtemperature" Type="INPUT" Scope="USER_IO" StartBit="843" BitSize="1" Signed="false">
+        <DigitalIO Name="BMS.Protection_Overtemperature" Type="INPUT" Scope="USER_IO" StartBit="859" BitSize="1" Signed="false">
           <Description>Cell temperature exceeds maximum critical temperature setting</Description>
         </DigitalIO>
-        <DigitalIO Name="BMS.Protection_Overvoltage" Type="INPUT" Scope="USER_IO" StartBit="841" BitSize="1" Signed="false">
+        <DigitalIO Name="BMS.Protection_Overvoltage" Type="INPUT" Scope="USER_IO" StartBit="857" BitSize="1" Signed="false">
           <Description>Some cell is above critical maximum voltage</Description>
         </DigitalIO>
-        <DigitalIO Name="BMS.Protection_SensorBroken" Type="INPUT" Scope="USER_IO" StartBit="847" BitSize="1" Signed="false">
+        <DigitalIO Name="BMS.Protection_SensorBroken" Type="INPUT" Scope="USER_IO" StartBit="863" BitSize="1" Signed="false">
           <Description>A Current/Voltage sensor is defective.</Description>
         </DigitalIO>
-        <DigitalIO Name="BMS.Protection_Undervoltage" Type="INPUT" Scope="USER_IO" StartBit="840" BitSize="1" Signed="false">
+        <DigitalIO Name="BMS.Protection_Undervoltage" Type="INPUT" Scope="USER_IO" StartBit="856" BitSize="1" Signed="false">
           <Description>Some cell is below critical minimum voltage</Description>
         </DigitalIO>
-        <DigitalIO Name="BMS.ReferenceCharge" Type="INPUT" Scope="USER_IO" StartBit="824" BitSize="8" Signed="false">
+        <DigitalIO Name="BMS.ReferenceCharge" Type="INPUT" Scope="USER_IO" StartBit="840" BitSize="8" Signed="false">
           <Description>1 = Reference Charge is neccessary</Description>
         </DigitalIO>
-        <DigitalIO Name="BMS.SerialNumberPart1" Type="INPUT" Scope="USER_IO" StartBit="1096" BitSize="8" Signed="false">
+        <DigitalIO Name="BMS.SerialNumberPart1" Type="INPUT" Scope="USER_IO" StartBit="1112" BitSize="8" Signed="false">
           <Description />
         </DigitalIO>
-        <DigitalIO Name="BMS.SerialNumberPart2" Type="INPUT" Scope="USER_IO" StartBit="1104" BitSize="16" Signed="false">
+        <DigitalIO Name="BMS.SerialNumberPart2" Type="INPUT" Scope="USER_IO" StartBit="1120" BitSize="16" Signed="false">
           <Description />
         </DigitalIO>
-        <DigitalIO Name="BMS.SerialNumberPart3" Type="INPUT" Scope="USER_IO" StartBit="1120" BitSize="8" Signed="false">
+        <DigitalIO Name="BMS.SerialNumberPart3" Type="INPUT" Scope="USER_IO" StartBit="1136" BitSize="8" Signed="false">
           <Description />
         </DigitalIO>
-        <DigitalIO Name="BMS.SerialNumberPart4" Type="INPUT" Scope="USER_IO" StartBit="1128" BitSize="32" Signed="false">
+        <DigitalIO Name="BMS.SerialNumberPart4" Type="INPUT" Scope="USER_IO" StartBit="1144" BitSize="32" Signed="false">
           <Description />
         </DigitalIO>
-        <DigitalIO Name="BMS.StateOfCharge" Type="INPUT" Scope="USER_IO" StartBit="944" BitSize="8" Signed="false">
+        <DigitalIO Name="BMS.StateOfCharge" Type="INPUT" Scope="USER_IO" StartBit="960" BitSize="8" Signed="false">
           <Description>Estimated state of charge of the battery pack from 0 to 100 Percent.</Description>
         </DigitalIO>
-        <DigitalIO Name="BMS.StateOfHealth" Type="INPUT" Scope="USER_IO" StartBit="952" BitSize="8" Signed="false">
+        <DigitalIO Name="BMS.StateOfHealth" Type="INPUT" Scope="USER_IO" StartBit="968" BitSize="8" Signed="false">
           <Description />
         </DigitalIO>
-        <DigitalIO Name="BMS.Status" Type="INPUT" Scope="USER_IO" StartBit="784" BitSize="8" Signed="false">
+        <DigitalIO Name="BMS.Status" Type="INPUT" Scope="USER_IO" StartBit="800" BitSize="8" Signed="false">
           <Description>Status of the BMS/Battery. [0 = Error, 1 = Charge, 2 = Discharge]</Description>
         </DigitalIO>
-        <DigitalIO Name="BMS.SW_VersionHash_0" Type="INPUT" Scope="USER_IO" StartBit="984" BitSize="8" Signed="false">
+        <DigitalIO Name="BMS.SW_VersionHash_0" Type="INPUT" Scope="USER_IO" StartBit="1000" BitSize="8" Signed="false">
           <Description />
         </DigitalIO>
-        <DigitalIO Name="BMS.SW_VersionHash_1" Type="INPUT" Scope="USER_IO" StartBit="992" BitSize="8" Signed="false">
+        <DigitalIO Name="BMS.SW_VersionHash_1" Type="INPUT" Scope="USER_IO" StartBit="1008" BitSize="8" Signed="false">
           <Description />
         </DigitalIO>
-        <DigitalIO Name="BMS.SW_VersionHash_2" Type="INPUT" Scope="USER_IO" StartBit="1000" BitSize="8" Signed="false">
+        <DigitalIO Name="BMS.SW_VersionHash_2" Type="INPUT" Scope="USER_IO" StartBit="1016" BitSize="8" Signed="false">
           <Description />
         </DigitalIO>
-        <DigitalIO Name="BMS.SW_VersionHash_3" Type="INPUT" Scope="USER_IO" StartBit="1008" BitSize="8" Signed="false">
+        <DigitalIO Name="BMS.SW_VersionHash_3" Type="INPUT" Scope="USER_IO" StartBit="1024" BitSize="8" Signed="false">
           <Description />
         </DigitalIO>
-        <DigitalIO Name="BMS.SW_VersionHash_4" Type="INPUT" Scope="USER_IO" StartBit="1016" BitSize="8" Signed="false">
+        <DigitalIO Name="BMS.SW_VersionHash_4" Type="INPUT" Scope="USER_IO" StartBit="1032" BitSize="8" Signed="false">
           <Description />
         </DigitalIO>
-        <DigitalIO Name="BMS.SW_VersionHash_5" Type="INPUT" Scope="USER_IO" StartBit="1024" BitSize="8" Signed="false">
+        <DigitalIO Name="BMS.SW_VersionHash_5" Type="INPUT" Scope="USER_IO" StartBit="1040" BitSize="8" Signed="false">
           <Description />
         </DigitalIO>
-        <DigitalIO Name="BMS.TotalCurrent" Type="INPUT" Scope="USER_IO" StartBit="792" BitSize="16" Signed="true">
+        <DigitalIO Name="BMS.TotalCurrent" Type="INPUT" Scope="USER_IO" StartBit="808" BitSize="16" Signed="true">
           <Description>Total current value encoded in 0.01A units</Description>
         </DigitalIO>
-        <DigitalIO Name="BMS.TotalVoltage" Type="INPUT" Scope="USER_IO" StartBit="808" BitSize="16" Signed="true">
+        <DigitalIO Name="BMS.TotalVoltage" Type="INPUT" Scope="USER_IO" StartBit="824" BitSize="16" Signed="true">
           <Description>Total voltage word of all cells added together, encoded in 0.01V</Description>
         </DigitalIO>
-        <DigitalIO Name="BMS.Warning_LowVoltageTrigger1" Type="INPUT" Scope="USER_IO" StartBit="869" BitSize="1" Signed="false">
+        <DigitalIO Name="BMS.Warning_LowVoltageTrigger1" Type="INPUT" Scope="USER_IO" StartBit="885" BitSize="1" Signed="false">
           <Description />
         </DigitalIO>
-        <DigitalIO Name="BMS.Warning_LowVoltageTrigger2" Type="INPUT" Scope="USER_IO" StartBit="870" BitSize="1" Signed="false">
+        <DigitalIO Name="BMS.Warning_LowVoltageTrigger2" Type="INPUT" Scope="USER_IO" StartBit="886" BitSize="1" Signed="false">
           <Description />
         </DigitalIO>
-        <DigitalIO Name="BMS.Warning_Overcurrent" Type="INPUT" Scope="USER_IO" StartBit="866" BitSize="1" Signed="false">
+        <DigitalIO Name="BMS.Warning_Overcurrent" Type="INPUT" Scope="USER_IO" StartBit="882" BitSize="1" Signed="false">
           <Description>Current is over high current warning setting.</Description>
         </DigitalIO>
-        <DigitalIO Name="BMS.Warning_Overtemperature" Type="INPUT" Scope="USER_IO" StartBit="867" BitSize="1" Signed="false">
+        <DigitalIO Name="BMS.Warning_Overtemperature" Type="INPUT" Scope="USER_IO" StartBit="883" BitSize="1" Signed="false">
           <Description>Maximum cell temperature exceeds warning temperature setting.</Description>
         </DigitalIO>
-        <DigitalIO Name="BMS.Warning_Overvoltage" Type="INPUT" Scope="USER_IO" StartBit="865" BitSize="1" Signed="false">
+        <DigitalIO Name="BMS.Warning_Overvoltage" Type="INPUT" Scope="USER_IO" StartBit="881" BitSize="1" Signed="false">
           <Description>Voltage is over high voltage warning setting.</Description>
         </DigitalIO>
-        <DigitalIO Name="BMS.Warning_PreChargingFailure" Type="INPUT" Scope="USER_IO" StartBit="868" BitSize="1" Signed="false">
+        <DigitalIO Name="BMS.Warning_PreChargingFailure" Type="INPUT" Scope="USER_IO" StartBit="884" BitSize="1" Signed="false">
           <Description>No charging is possible.</Description>
         </DigitalIO>
-        <DigitalIO Name="BMS.Warning_Undervoltage" Type="INPUT" Scope="USER_IO" StartBit="864" BitSize="1" Signed="false">
+        <DigitalIO Name="BMS.Warning_Undervoltage" Type="INPUT" Scope="USER_IO" StartBit="880" BitSize="1" Signed="false">
           <Description>Voltage is below low voltage warning setting.</Description>
         </DigitalIO>
         <DigitalIO Name="ControlPanel.APP_BLUE" Type="OUTPUT" Scope="USER_IO" StartBit="12604" BitSize="1" Signed="false">
@@ -203,13 +203,13 @@
         <DigitalIO Name="ControlPanel.SAFETY_RED" Type="OUTPUT" Scope="USER_IO" StartBit="12605" BitSize="1" Signed="false">
           <Description />
         </DigitalIO>
-        <DigitalIO Name="ControlPanel.SOCKET_CONNECTED" Type="INPUT" Scope="USER_IO" StartBit="1293" BitSize="1" Signed="false">
+        <DigitalIO Name="ControlPanel.SOCKET_CONNECTED" Type="INPUT" Scope="USER_IO" StartBit="1309" BitSize="1" Signed="false">
           <Description>True when the socket is connected.</Description>
         </DigitalIO>
-        <DigitalIO Name="ControlPanel.KEY_SWITCH_2" Type="INPUT" Scope="USER_IO" StartBit="1282" BitSize="1" Signed="false">
+        <DigitalIO Name="ControlPanel.KEY_SWITCH_2" Type="INPUT" Scope="USER_IO" StartBit="1298" BitSize="1" Signed="false">
           <Description />
         </DigitalIO>
-        <DigitalIO Name="ControlPanel.KEY_SWITCH_0" Type="INPUT" Scope="USER_IO" StartBit="1284" BitSize="1" Signed="false">
+        <DigitalIO Name="ControlPanel.KEY_SWITCH_0" Type="INPUT" Scope="USER_IO" StartBit="1300" BitSize="1" Signed="false">
           <Description />
         </DigitalIO>
         <DigitalIO Name="ControlPanel.PLAY_BUTTON_LED" Type="OUTPUT" Scope="USER_IO" StartBit="12600" BitSize="1" Signed="false">
@@ -218,76 +218,76 @@
         <DigitalIO Name="ControlPanel.STOP_BUTTON_LED" Type="OUTPUT" Scope="USER_IO" StartBit="12601" BitSize="1" Signed="false">
           <Description />
         </DigitalIO>
-        <DigitalIO Name="ControlPanel.PLAY_BUTTON" Type="INPUT" Scope="USER_IO" StartBit="1280" BitSize="1" Signed="false">
+        <DigitalIO Name="ControlPanel.PLAY_BUTTON" Type="INPUT" Scope="USER_IO" StartBit="1296" BitSize="1" Signed="false">
           <Description />
         </DigitalIO>
-        <DigitalIO Name="ControlPanel.STOP_BUTTON" Type="INPUT" Scope="USER_IO" StartBit="1281" BitSize="1" Signed="false">
+        <DigitalIO Name="ControlPanel.STOP_BUTTON" Type="INPUT" Scope="USER_IO" StartBit="1297" BitSize="1" Signed="false">
           <Description />
         </DigitalIO>
-        <DigitalIO Name="RemoteControl.Connected" Type="INPUT" Scope="USER_IO" StartBit="1366" BitSize="1" Signed="false">
+        <DigitalIO Name="RemoteControl.Connected" Type="INPUT" Scope="USER_IO" StartBit="1382" BitSize="1" Signed="false">
           <Description>True if the JAY Controller is connected.</Description>
         </DigitalIO>
-        <DigitalIO Name="RemoteControl.Mode" Type="INPUT" Scope="USER_IO" StartBit="1521" BitSize="3" Signed="false">
+        <DigitalIO Name="RemoteControl.Mode" Type="INPUT" Scope="USER_IO" StartBit="1537" BitSize="3" Signed="false">
           <Description>Rotary switch for mode 1-3.</Description>
         </DigitalIO>
-        <DigitalIO Name="RemoteControl.Theta" Type="INPUT" Scope="USER_IO" StartBit="1616" BitSize="16" Signed="true">
+        <DigitalIO Name="RemoteControl.Theta" Type="INPUT" Scope="USER_IO" StartBit="1632" BitSize="16" Signed="true">
           <Description>Rotary joystick IO value.</Description>
         </DigitalIO>
-        <DigitalIO Name="RemoteControl.X" Type="INPUT" Scope="USER_IO" StartBit="1600" BitSize="16" Signed="true">
+        <DigitalIO Name="RemoteControl.X" Type="INPUT" Scope="USER_IO" StartBit="1616" BitSize="16" Signed="true">
           <Description>X joystick IO value.</Description>
         </DigitalIO>
-        <DigitalIO Name="RemoteControl.Y" Type="INPUT" Scope="USER_IO" StartBit="1584" BitSize="16" Signed="true">
+        <DigitalIO Name="RemoteControl.Y" Type="INPUT" Scope="USER_IO" StartBit="1600" BitSize="16" Signed="true">
           <Description>Y joystick IO value.</Description>
         </DigitalIO>
-        <DigitalIO Name="RemoteControl.Z" Type="INPUT" Scope="USER_IO" StartBit="1632" BitSize="16" Signed="true">
+        <DigitalIO Name="RemoteControl.Z" Type="INPUT" Scope="USER_IO" StartBit="1648" BitSize="16" Signed="true">
           <Description>Z joystick IO value.</Description>
         </DigitalIO>
-        <DigitalIO Name="BMS.EmergencyShutdownExecuted" Type="INPUT" Scope="USER_IO" StartBit="863" BitSize="1" Signed="false">
+        <DigitalIO Name="BMS.EmergencyShutdownExecuted" Type="INPUT" Scope="USER_IO" StartBit="879" BitSize="1" Signed="false">
           <Description>1 = If the countdown for shutdown reaches zero after a Protection Flag</Description>
         </DigitalIO>
-        <DigitalIO Name="BMS.Protection_ModuleDefective" Type="INPUT" Scope="USER_IO" StartBit="844" BitSize="1" Signed="false">
+        <DigitalIO Name="BMS.Protection_ModuleDefective" Type="INPUT" Scope="USER_IO" StartBit="860" BitSize="1" Signed="false">
           <Description />
         </DigitalIO>
-        <DigitalIO Name="BMS.SW_Version_Date1" Type="INPUT" Scope="USER_IO" StartBit="968" BitSize="8" Signed="false">
+        <DigitalIO Name="BMS.SW_Version_Date1" Type="INPUT" Scope="USER_IO" StartBit="984" BitSize="8" Signed="false">
           <Description />
         </DigitalIO>
-        <DigitalIO Name="BMS.SW_Version_Date2" Type="INPUT" Scope="USER_IO" StartBit="976" BitSize="8" Signed="false">
+        <DigitalIO Name="BMS.SW_Version_Date2" Type="INPUT" Scope="USER_IO" StartBit="992" BitSize="8" Signed="false">
           <Description>Date if the Software Version. [Month: Bit 0-3 / Year: Bit 4-7]</Description>
         </DigitalIO>
-        <DigitalIO Name="ControlPanel.BOTTOM_FAN_MONITORING_1" Type="INPUT" Scope="USER_IO" StartBit="1288" BitSize="1" Signed="false">
+        <DigitalIO Name="ControlPanel.BOTTOM_FAN_MONITORING_1" Type="INPUT" Scope="USER_IO" StartBit="1304" BitSize="1" Signed="false">
           <Description />
         </DigitalIO>
-        <DigitalIO Name="ControlPanel.BOTTOM_FAN_MONITORING_2" Type="INPUT" Scope="USER_IO" StartBit="1287" BitSize="1" Signed="false">
+        <DigitalIO Name="ControlPanel.BOTTOM_FAN_MONITORING_2" Type="INPUT" Scope="USER_IO" StartBit="1303" BitSize="1" Signed="false">
           <Description />
         </DigitalIO>
-        <DigitalIO Name="ControlPanel.OPTIONAL_MONITORING_1" Type="INPUT" Scope="USER_IO" StartBit="1290" BitSize="1" Signed="false">
+        <DigitalIO Name="ControlPanel.OPTIONAL_MONITORING_1" Type="INPUT" Scope="USER_IO" StartBit="1306" BitSize="1" Signed="false">
           <Description>Lift in back: Endposition down</Description>
         </DigitalIO>
-        <DigitalIO Name="ControlPanel.OPTIONAL_MONITORING_2" Type="INPUT" Scope="USER_IO" StartBit="1289" BitSize="1" Signed="false">
+        <DigitalIO Name="ControlPanel.OPTIONAL_MONITORING_2" Type="INPUT" Scope="USER_IO" StartBit="1305" BitSize="1" Signed="false">
           <Description>Lift in front: Endposition down</Description>
         </DigitalIO>
-        <DigitalIO Name="ControlPanel.OPTIONAL_MONITORING_3" Type="INPUT" Scope="USER_IO" StartBit="1295" BitSize="1" Signed="false">
+        <DigitalIO Name="ControlPanel.OPTIONAL_MONITORING_3" Type="INPUT" Scope="USER_IO" StartBit="1311" BitSize="1" Signed="false">
           <Description>Lift in back: screw nut frukture</Description>
         </DigitalIO>
-        <DigitalIO Name="ControlPanel.OPTIONAL_MONITORING_4" Type="INPUT" Scope="USER_IO" StartBit="1294" BitSize="1" Signed="false">
+        <DigitalIO Name="ControlPanel.OPTIONAL_MONITORING_4" Type="INPUT" Scope="USER_IO" StartBit="1310" BitSize="1" Signed="false">
           <Description>Lift in front: screw nut frukture</Description>
         </DigitalIO>
-        <DigitalIO Name="ControlPanel.IIWA_BASE_FAN_MONITORING" Type="INPUT" Scope="USER_IO" StartBit="1292" BitSize="1" Signed="false">
+        <DigitalIO Name="ControlPanel.IIWA_BASE_FAN_MONITORING" Type="INPUT" Scope="USER_IO" StartBit="1308" BitSize="1" Signed="false">
           <Description />
         </DigitalIO>
-        <DigitalIO Name="ControlPanel.SIDE_FAN_MONITORING_1" Type="INPUT" Scope="USER_IO" StartBit="1286" BitSize="1" Signed="false">
+        <DigitalIO Name="ControlPanel.SIDE_FAN_MONITORING_1" Type="INPUT" Scope="USER_IO" StartBit="1302" BitSize="1" Signed="false">
           <Description />
         </DigitalIO>
-        <DigitalIO Name="ControlPanel.SIDE_FAN_MONITORING_2" Type="INPUT" Scope="USER_IO" StartBit="1283" BitSize="1" Signed="false">
+        <DigitalIO Name="ControlPanel.SIDE_FAN_MONITORING_2" Type="INPUT" Scope="USER_IO" StartBit="1299" BitSize="1" Signed="false">
           <Description />
         </DigitalIO>
-        <DigitalIO Name="RemoteControl.Heartbeat" Type="INPUT" Scope="USER_IO" StartBit="1363" BitSize="1" Signed="false">
+        <DigitalIO Name="RemoteControl.Heartbeat" Type="INPUT" Scope="USER_IO" StartBit="1379" BitSize="1" Signed="false">
           <Description />
         </DigitalIO>
-        <DigitalIO Name="RemoteControl.DeactivateProtectionField" Type="INPUT" Scope="USER_IO" StartBit="1520" BitSize="1" Signed="false">
+        <DigitalIO Name="RemoteControl.DeactivateProtectionField" Type="INPUT" Scope="USER_IO" StartBit="1536" BitSize="1" Signed="false">
           <Description>Deactivates the protection field monitoring.</Description>
         </DigitalIO>
-        <DigitalIO Name="RemoteControl.ActivateAcousticWarningSignal" Type="INPUT" Scope="USER_IO" StartBit="1525" BitSize="1" Signed="false">
+        <DigitalIO Name="RemoteControl.ActivateAcousticWarningSignal" Type="INPUT" Scope="USER_IO" StartBit="1541" BitSize="1" Signed="false">
           <Description>Boolean signal to activate the vehicle integrated honk.</Description>
         </DigitalIO>
       </IOList>
