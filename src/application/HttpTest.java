@@ -70,4 +70,8 @@ private HttpCommand_1 httpHandler1;
 		
 		
 	}
+	@Override
+	public void dispose(){
+		httpIiwa.serverStop();
+	}
 }
