@@ -1691,7 +1691,7 @@
             </additionalInformation>
             <loadData cogA="0.0" cogB="0.0" cogC="0.0" cogX="57.66465888735466" cogY="-28.186295193023366" cogZ="34.85023071039249" inertiaX="0.0" inertiaY="0.0" inertiaZ="0.0" mass="7.170175863046846"/>
         </toolTemplate>
-        <toolTemplate class="" defaultMotionFrameRef="" name="EmptyGripper">
+        <toolTemplate class="com.kuka.Tool.Gripper" defaultMotionFrameRef="" name="EmptyGripper">
             <frames>
                 <frame id="_a5a68af0-8213-40bc-be06-c8dbb1d57e10" name="AngleChange">
                     <transformation a="0.0" b="-1.571" c="1.571" x="-78.61423400262066" y="143.04489290011645" z="-1.250999440756896"/>
@@ -1732,7 +1732,7 @@
         <processData dataType="java.lang.Boolean" defaultValue="false" displayName="ServerRunning" id="ServerRunning" value="true"/>
         <processData dataType="java.lang.String" defaultValue="0" displayName="ServerMessage" id="ServerMessage" value="ooo&#10;"/>
         <processData dataType="java.lang.Boolean" defaultValue="true" displayName="RunApp" id="RunApp" value="true"/>
-        <processData dataType="java.lang.String" defaultValue="0" displayName="sCameraStatus" id="sCameraStatus" value="Disconected"/>
+        <processData dataType="java.lang.String" defaultValue="0" displayName="sCameraStatus" id="sCameraStatus" value="try To Connect"/>
         <processData dataType="java.lang.Boolean" defaultValue="true" displayName="bCameraConnected" id="bCameraConnected" value="false"/>
     </processDataContainer>
 </RoboticsAPIData>

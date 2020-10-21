@@ -21,7 +21,7 @@ public class Gripper extends Tool {
 		Ios.setExtendPin(true);
 		waitMs(500);
 
-		if (!Ios.getClampedSensor()) {
+		if (Ios.getClampedSensor()) {
 			Ios.setClampedLight(true);
 			return true;
 		} else {
