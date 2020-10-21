@@ -290,6 +290,18 @@
         <DigitalIO Name="RemoteControl.ActivateAcousticWarningSignal" Type="INPUT" Scope="USER_IO" StartBit="1541" BitSize="1" Signed="false">
           <Description>Boolean signal to activate the vehicle integrated honk.</Description>
         </DigitalIO>
+        <DigitalIO Name="EtherCat.ButtonPushed" Type="INPUT" Scope="USER_IO" StartBit="1984" BitSize="1" Signed="false">
+          <Description />
+        </DigitalIO>
+        <DigitalIO Name="EtherCat.ClampedSensor" Type="INPUT" Scope="USER_IO" StartBit="1985" BitSize="1" Signed="false">
+          <Description />
+        </DigitalIO>
+        <DigitalIO Name="EtherCat.ClampedLight" Type="OUTPUT" Scope="USER_IO" StartBit="13032" BitSize="1" Signed="false">
+          <Description />
+        </DigitalIO>
+        <DigitalIO Name="EtherCat.ExtendPin" Type="OUTPUT" Scope="USER_IO" StartBit="13033" BitSize="1" Signed="false">
+          <Description />
+        </DigitalIO>
       </IOList>
     </Bus>
     <Bus BusDriverName="PNIODriver" BusInstanceName="PNIO-DEV">
