@@ -35,7 +35,7 @@ public class GripperBackground extends RoboticsAPICyclicBackgroundTask {
 		while (bRunning.get()) {
 
 			lbOK = Ios.getButtonPushed();
-			lbOK = !(Boolean) bButtonPushed.getValue();
+			lbOK = lbOK && !(Boolean) bButtonPushed.getValue();
 
 			if (lbOK) {		
 				Ios.setExtendPin(true);
@@ -56,7 +56,7 @@ public class GripperBackground extends RoboticsAPICyclicBackgroundTask {
 
 			
 			lbOK = Ios.getButtonPushed();
-			lbOK = (Boolean) bButtonPushed.getValue();
+			lbOK = lbOK && (Boolean) bButtonPushed.getValue();
 
 			if (lbOK) {
 				Ios.setExtendPin(false);
