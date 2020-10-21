@@ -13,7 +13,7 @@ private HttpServer server;
 	public void HttpServerStart() {
 		
 		try {
-			server = HttpServer.create(new InetSocketAddress(30002), 0);
+			server = HttpServer.create(new InetSocketAddress(30005), 0);
 			server.createContext("/iiwa_com1", handler1);
 			// Thread control is given to executor service.
 			server.setExecutor(java.util.concurrent.Executors.newCachedThreadPool());
