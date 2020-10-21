@@ -47,11 +47,11 @@ public class Gripper extends Tool {
 	}
 
 	public boolean isExtended() {
-		return !Ios.getClampedSensor();
+		return Ios.getClampedSensor();
 	}
 
 	public boolean isRetracted() {
-		return Ios.getClampedSensor();
+		return !Ios.getClampedSensor();
 	}
 
 	private void waitMs(long time) {
