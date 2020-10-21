@@ -1492,7 +1492,7 @@
                             <transformation a="0.0" b="0.0" c="0.0" x="10.0" y="-77.0" z="145.0"/>
                         </frame>
                         <frame id="_75e39c13-261a-46f0-bb41-e28f76c6095a" name="CageTCPCut">
-                            <transformation a="0.0" b="0.0" c="0.0" x="-10.0" y="-260.0" z="100.0"/>
+                            <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="260.0" z="-100.0"/>
                         </frame>
                         <frame id="_2acac4d9-850b-4bd1-8d0a-d90cca190935" name="CageTCP">
                             <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
