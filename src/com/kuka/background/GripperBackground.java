@@ -40,7 +40,7 @@ public class GripperBackground extends RoboticsAPICyclicBackgroundTask {
 			if (lbOK) {		
 				Ios.setExtendPin(true);
 				waitMs(500);
-				if (!Ios.getClampedSensor()) {
+				if (Ios.getClampedSensor()) {
 					bButtonPushed.setValue(true);
 					Ios.setClampedLight(true);
 				} else {
@@ -61,7 +61,7 @@ public class GripperBackground extends RoboticsAPICyclicBackgroundTask {
 			if (lbOK) {
 				Ios.setExtendPin(false);
 				waitMs(500);
-				if (Ios.getClampedSensor()) {
+				if (!Ios.getClampedSensor()) {
 					bButtonPushed.setValue(false);
 					Ios.setClampedLight(false);
 				} else {
