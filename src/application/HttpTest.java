@@ -1,6 +1,9 @@
 package application;
 
 
+import java.io.IOException;
+import java.io.OutputStream;
+
 import javax.inject.Inject;
 
 import HttpServer.HttpCommand_1;
@@ -10,6 +13,8 @@ import com.kuka.roboticsAPI.applicationModel.RoboticsAPIApplication;
 import static com.kuka.roboticsAPI.motionModel.BasicMotions.*;
 import com.kuka.roboticsAPI.deviceModel.LBR;
 import com.kuka.roboticsAPI.deviceModel.kmp.KmpOmniMove;
+import com.sun.net.httpserver.HttpExchange;
+import com.sun.net.httpserver.HttpHandler;
 import com.sun.swing.internal.plaf.basic.resources.basic_zh_HK;
 
 /**
@@ -30,7 +35,7 @@ import com.sun.swing.internal.plaf.basic.resources.basic_zh_HK;
  * @see #run()
  * @see #dispose()
  */
-public class HttpTest extends RoboticsAPIApplication {
+public class HttpTest extends RoboticsAPIApplication implements HttpHandler {
 	@Inject
 	private LBR lbr;
 
@@ -45,14 +50,14 @@ private HttpCommand_1 httpHandler1;
 
 	@Override
 	public void run() {
-		httpIiwa = new HttpServerIiwa();
+		httpIiwa = new HttpServerIiwa<HttpHandler>(30005, this);
 		
 		
 		httpIiwa.HttpServerStart();
-		httpHandler1 = httpIiwa.getHandlerCom1();
+
 		
 		
-		while (!httpHandler1.getStart()) {
+		while (true) {
 			try {
 				Thread.sleep(100);
 			} catch (InterruptedException e) {
@@ -63,7 +68,7 @@ private HttpCommand_1 httpHandler1;
 			
 		}
 		
-		System.out.println("Iiwa execute command 1");
+		
 		
 		
 		
@@ -73,5 +78,18 @@ private HttpCommand_1 httpHandler1;
 	@Override
 	public void dispose(){
 		httpIiwa.serverStop();
+	}
+
+	@Override
+	public void handle(HttpExchange t) throws IOException {
+		System.out.println("HttpExchange t = "+t.getHttpContext());
+		System.out.println("Client connected -> Start HandShake");
+        String response = "Iiwa will start command1";
+       
+        t.sendResponseHeaders(200, response.length());
+        OutputStream os = t.getResponseBody();
+        os.write(response.getBytes());
+        os.close();
+		
 	}
 }

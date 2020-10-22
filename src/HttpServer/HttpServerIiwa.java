@@ -3,18 +3,26 @@ package HttpServer;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 
+import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
 
+public class HttpServerIiwa<HttpHandle> {
+	private HttpServer server;
 
+	private int port;
+	private HttpHandle handler1;
 
-public class HttpServerIiwa {
-private HttpServer server;
-	private HttpCommand_1 handler1 =  new HttpCommand_1();
+	public HttpServerIiwa(int port, HttpHandle handler1) {
+		this.port = port;
+		this.handler1 = handler1;
+	}
+
 	public void HttpServerStart() {
-		
+
 		try {
-			server = HttpServer.create(new InetSocketAddress(30005), 0);
-			server.createContext("/iiwa_com1", handler1);
+			server = HttpServer.create(new InetSocketAddress(port), 0);
+			server.createContext("/iiwa_com1", (HttpHandler) handler1);
+
 			// Thread control is given to executor service.
 			server.setExecutor(java.util.concurrent.Executors.newCachedThreadPool());
 			System.out.println("Starting server");
@@ -26,13 +34,10 @@ private HttpServer server;
 
 		}
 	}
+
 	
-	public HttpCommand_1 getHandlerCom1(){
-		return handler1;
-		
-	}
-	
-	public void serverStop(){
+
+	public void serverStop() {
 		server.stop(0);
 		System.out.println("Server stoped");
 	}
