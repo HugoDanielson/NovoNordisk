@@ -122,9 +122,11 @@ class Response implements Runnable {
 	public void run() {
 		try {
 			
-
+			
+			t.sendResponseHeaders(200, response.length());
+		
 			for (int i = 0; i < loop; i++) {
-				t.sendResponseHeaders(200, response.length());
+				System.out.println("Send response = "+response);
 				os = t.getResponseBody();
 				os.write(response.getBytes());
 				Thread.sleep(500);
