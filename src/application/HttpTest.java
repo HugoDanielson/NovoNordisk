@@ -121,11 +121,11 @@ class Response implements Runnable {
 	@Override
 	public void run() {
 		try {
-			t.sendResponseHeaders(200, response.length());
-
-			os = t.getResponseBody();
+			
 
 			for (int i = 0; i < loop; i++) {
+				t.sendResponseHeaders(200, response.length());
+				os = t.getResponseBody();
 				os.write(response.getBytes());
 				Thread.sleep(500);
 			}
