@@ -10,18 +10,21 @@ public class HttpServerIiwa<HttpHandle> {
 	private HttpServer server;
 
 	private int port;
-	private HttpHandle handler1;
+	private HttpHandle handler;
 
-	public HttpServerIiwa(int port, HttpHandle handler1) {
+	public HttpServerIiwa(int port, HttpHandle handler) {
 		this.port = port;
-		this.handler1 = handler1;
+		this.handler = handler;
 	}
 
 	public void HttpServerStart() {
 
 		try {
 			server = HttpServer.create(new InetSocketAddress(port), 0);
-			server.createContext("/iiwa_com1", (HttpHandler) handler1);
+			server.createContext("/iiwa_com1", (HttpHandler) handler);
+			server.createContext("/iiwa_com2", (HttpHandler) handler);
+			server.createContext("/iiwa_com3", (HttpHandler) handler);
+			server.createContext("/iiwa_com4", (HttpHandler) handler);
 
 			// Thread control is given to executor service.
 			server.setExecutor(java.util.concurrent.Executors.newCachedThreadPool());
