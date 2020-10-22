@@ -2,10 +2,10 @@ package application;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import javax.inject.Inject;
 
-import HttpServer.HttpCommand_1;
 import HttpServer.HttpEnum;
 import HttpServer.HttpServerIiwa;
 
@@ -42,11 +42,11 @@ public class HttpTest extends RoboticsAPIApplication implements HttpHandler {
 	@Inject
 	private KmpOmniMove kmr;
 	private HttpServerIiwa httpIiwa;
-	private HttpCommand_1 httpHandler1;
 
+private volatile AtomicBoolean bRunning = new AtomicBoolean(false);
 	@Override
 	public void initialize() {
-		// initialize your application here
+		bRunning.set(true);
 	}
 
 	@Override
@@ -55,7 +55,7 @@ public class HttpTest extends RoboticsAPIApplication implements HttpHandler {
 
 		httpIiwa.HttpServerStart();
 
-		while (true) {
+		while (bRunning.get()) {
 			try {
 				Thread.sleep(100);
 			} catch (InterruptedException e) {
@@ -88,6 +88,10 @@ public class HttpTest extends RoboticsAPIApplication implements HttpHandler {
 		}
 		if (t.getHttpContext().getPath().contentEquals(HttpEnum.eHttpPath.COM4.getValue())) {
 			response = "Iiwa will start command4";
+		}
+		if (t.getHttpContext().getPath().contentEquals(HttpEnum.eHttpPath.COM5.getValue())) {
+			response = "Iiwa will quit program";
+			bRunning.set(false);
 		}
 
 		t.sendResponseHeaders(200, response.length());

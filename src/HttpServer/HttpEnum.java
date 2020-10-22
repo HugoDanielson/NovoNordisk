@@ -2,7 +2,7 @@ package HttpServer;
 
 public class HttpEnum {
 	public enum eHttpPath {
-		COM1("/iiwa_com1"), COM2("/iiwa_com2"), COM3("/iiwa_com3"), COM4("/iiwa_com4");
+		COM1("/iiwa_com1"), COM2("/iiwa_com2"), COM3("/iiwa_com3"), COM4("/iiwa_com4"),COM5("/iiwa_com5");
 
 		private String path;
 
