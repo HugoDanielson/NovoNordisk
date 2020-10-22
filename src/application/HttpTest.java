@@ -82,7 +82,7 @@ private HttpCommand_1 httpHandler1;
 
 	@Override
 	public void handle(HttpExchange t) throws IOException {
-		System.out.println("HttpExchange t = "+t.getHttpContext());
+		System.out.println("HttpExchange t = "+t.getHttpContext().getPath());
 		System.out.println("Client connected -> Start HandShake");
         String response = "Iiwa will start command1";
        
