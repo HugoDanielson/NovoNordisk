@@ -25,6 +25,7 @@ public class HttpServerIiwa<HttpHandle> {
 			server.createContext(HttpEnum.eHttpPath.COM2.getValue(), (HttpHandler) handler);
 			server.createContext(HttpEnum.eHttpPath.COM3.getValue(), (HttpHandler) handler);
 			server.createContext(HttpEnum.eHttpPath.COM4.getValue(), (HttpHandler) handler);
+			server.createContext(HttpEnum.eHttpPath.COM5.getValue(), (HttpHandler) handler);
 
 			// Thread control is given to executor service.
 			server.setExecutor(java.util.concurrent.Executors.newCachedThreadPool());
