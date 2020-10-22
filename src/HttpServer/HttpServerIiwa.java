@@ -21,10 +21,10 @@ public class HttpServerIiwa<HttpHandle> {
 
 		try {
 			server = HttpServer.create(new InetSocketAddress(port), 0);
-			server.createContext("/iiwa_com1", (HttpHandler) handler);
-			server.createContext("/iiwa_com2", (HttpHandler) handler);
-			server.createContext("/iiwa_com3", (HttpHandler) handler);
-			server.createContext("/iiwa_com4", (HttpHandler) handler);
+			server.createContext(HttpEnum.eHttpPath.COM1.getValue(), (HttpHandler) handler);
+			server.createContext(HttpEnum.eHttpPath.COM2.getValue(), (HttpHandler) handler);
+			server.createContext(HttpEnum.eHttpPath.COM3.getValue(), (HttpHandler) handler);
+			server.createContext(HttpEnum.eHttpPath.COM4.getValue(), (HttpHandler) handler);
 
 			// Thread control is given to executor service.
 			server.setExecutor(java.util.concurrent.Executors.newCachedThreadPool());

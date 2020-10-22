@@ -1,12 +1,12 @@
 package application;
 
-
 import java.io.IOException;
 import java.io.OutputStream;
 
 import javax.inject.Inject;
 
 import HttpServer.HttpCommand_1;
+import HttpServer.HttpEnum;
 import HttpServer.HttpServerIiwa;
 
 import com.kuka.roboticsAPI.applicationModel.RoboticsAPIApplication;
@@ -20,15 +20,15 @@ import com.sun.swing.internal.plaf.basic.resources.basic_zh_HK;
 /**
  * Implementation of a robot application.
  * <p>
- * The application provides a {@link RoboticsAPITask#initialize()} and a 
- * {@link RoboticsAPITask#run()} method, which will be called successively in 
- * the application lifecycle. The application will terminate automatically after 
- * the {@link RoboticsAPITask#run()} method has finished or after stopping the 
- * task. The {@link RoboticsAPITask#dispose()} method will be called, even if an 
- * exception is thrown during initialization or run. 
+ * The application provides a {@link RoboticsAPITask#initialize()} and a
+ * {@link RoboticsAPITask#run()} method, which will be called successively in
+ * the application lifecycle. The application will terminate automatically after
+ * the {@link RoboticsAPITask#run()} method has finished or after stopping the
+ * task. The {@link RoboticsAPITask#dispose()} method will be called, even if an
+ * exception is thrown during initialization or run.
  * <p>
- * <b>It is imperative to call <code>super.dispose()</code> when overriding the 
- * {@link RoboticsAPITask#dispose()} method.</b> 
+ * <b>It is imperative to call <code>super.dispose()</code> when overriding the
+ * {@link RoboticsAPITask#dispose()} method.</b>
  * 
  * @see UseRoboticsAPIContext
  * @see #initialize()
@@ -41,8 +41,9 @@ public class HttpTest extends RoboticsAPIApplication implements HttpHandler {
 
 	@Inject
 	private KmpOmniMove kmr;
-private HttpServerIiwa httpIiwa ;
-private HttpCommand_1 httpHandler1;
+	private HttpServerIiwa httpIiwa;
+	private HttpCommand_1 httpHandler1;
+
 	@Override
 	public void initialize() {
 		// initialize your application here
@@ -51,12 +52,9 @@ private HttpCommand_1 httpHandler1;
 	@Override
 	public void run() {
 		httpIiwa = new HttpServerIiwa<HttpHandler>(30005, this);
-		
-		
+
 		httpIiwa.HttpServerStart();
 
-		
-		
 		while (true) {
 			try {
 				Thread.sleep(100);
@@ -64,32 +62,38 @@ private HttpCommand_1 httpHandler1;
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
-			
+
 		}
-		
-		
-		
-		
-		
-		
-		
+
 	}
+
 	@Override
-	public void dispose(){
+	public void dispose() {
 		httpIiwa.serverStop();
 	}
 
 	@Override
 	public void handle(HttpExchange t) throws IOException {
-		System.out.println("HttpExchange t = "+t.getHttpContext().getPath());
-		System.out.println("Client connected -> Start HandShake");
-        String response = "Iiwa will start command1";
-       
-        t.sendResponseHeaders(200, response.length());
-        OutputStream os = t.getResponseBody();
-        os.write(response.getBytes());
-        os.close();
-		
+		String response = "";
+		System.out.println("HttpExchange t = " + t.getHttpContext().getPath());
+
+		if (t.getHttpContext().getPath().contentEquals(HttpEnum.eHttpPath.COM1.getValue())) {
+			response = "Iiwa will start command1";
+		}
+		if (t.getHttpContext().getPath().contentEquals(HttpEnum.eHttpPath.COM2.getValue())) {
+			response = "Iiwa will start command2";
+		}
+		if (t.getHttpContext().getPath().contentEquals(HttpEnum.eHttpPath.COM3.getValue())) {
+			response = "Iiwa will start command3";
+		}
+		if (t.getHttpContext().getPath().contentEquals(HttpEnum.eHttpPath.COM4.getValue())) {
+			response = "Iiwa will start command4";
+		}
+
+		t.sendResponseHeaders(200, response.length());
+		OutputStream os = t.getResponseBody();
+		os.write(response.getBytes());
+		os.close();
+
 	}
 }
