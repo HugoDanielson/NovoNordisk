@@ -68,7 +68,6 @@ public class HttpTest extends RoboticsAPIApplication implements HttpHandler {
 	public void handle(HttpExchange t) throws IOException {
 		OutputStream os;
 		String response = "";
-		ExecutorService es = Executors.newCachedThreadPool();
 		System.out.println("HttpExchange t = " + t.getHttpContext().getPath());
 
 		if (t.getHttpContext().getPath().contentEquals(HttpEnum.eHttpPath.COM1.getValue())) {
@@ -76,71 +75,35 @@ public class HttpTest extends RoboticsAPIApplication implements HttpHandler {
 			kmpLed = kmr.getCapability(ILEDStripControlCapability.class);
 			warningLed = new BlinkingLedStripUserEffect(SegmentColor.YELLOW, 100, true);
 			kmpLed.showUserEffect(warningLed, 5000);
-			es.execute(new Response(response,t));
 		}
 		if (t.getHttpContext().getPath().contentEquals(HttpEnum.eHttpPath.COM2.getValue())) {
 			response = "Iiwa will start command2 >>> Blue";
 			kmpLed = kmr.getCapability(ILEDStripControlCapability.class);
 			warningLed = new BlinkingLedStripUserEffect(SegmentColor.BLUE, 100, true);
 			kmpLed.showUserEffect(warningLed, 5000);
-			es.execute(new Response(response,t));
 		}
 		if (t.getHttpContext().getPath().contentEquals(HttpEnum.eHttpPath.COM3.getValue())) {
 			response = "Iiwa will start command3 >>> Red";
 			kmpLed = kmr.getCapability(ILEDStripControlCapability.class);
 			warningLed = new BlinkingLedStripUserEffect(SegmentColor.RED, 100, true);
 			kmpLed.showUserEffect(warningLed, 5000);
-			es.execute(new Response(response,t));
 		}
 		if (t.getHttpContext().getPath().contentEquals(HttpEnum.eHttpPath.COM4.getValue())) {
 			response = "Iiwa will start command4 >>> Green";
 			kmpLed = kmr.getCapability(ILEDStripControlCapability.class);
 			warningLed = new BlinkingLedStripUserEffect(SegmentColor.GREEN, 100, true);
 			kmpLed.showUserEffect(warningLed, 5000);
-			es.execute(new Response(response,t));
 		}
 		if (t.getHttpContext().getPath().contentEquals(HttpEnum.eHttpPath.COM5.getValue())) {
 			response = "Iiwa will quit program";
 			bRunning.set(false);
 		}
-
-	}
-}
-
-class Response implements Runnable {
-	private HttpExchange t;
-	private OutputStream os;
-	private String response = "";
-	int loop = 10;
-
-	public Response(String response, HttpExchange t) {
-		this.response = response;
-		this.t = t;
-	}
-
-	@Override
-	public void run() {
-		try {
-			
-			
-			t.sendResponseHeaders(200, response.length());
 		
-			for (int i = 0; i < loop; i++) {
-				System.out.println("Send response = "+response);
-				os = t.getResponseBody();
-				os.write(response.getBytes());
-				Thread.sleep(500);
-			}
-
-			os.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		t.sendResponseHeaders(200, response.length());
+		os = t.getResponseBody();
+		os.write(response.getBytes());
+		os.close();
 
 	}
-
 }
+
